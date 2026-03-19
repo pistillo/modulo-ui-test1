@@ -1,0 +1,149 @@
+/**
+ * Switch Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+/* Root */
+.switch-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+/* Wrapper */
+.switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  cursor: pointer;
+}
+
+.switch-wrapper[data-disabled],
+.switch-wrapper[data-readonly] {
+  cursor: not-allowed;
+}
+
+.switch-wrapper[data-disabled] {
+  opacity: 0.5;
+}
+
+/* Control (Track) */
+.switch-control {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.switch-control[data-state='checked'] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.switch-control[data-hover]:not([data-disabled]):not([data-readonly]) {
+  opacity: 0.9;
+}
+
+.switch-control[data-focus-visible] {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.switch-control[data-invalid] {
+  border-color: var(--color-danger);
+}
+
+.switch-control[data-invalid][data-focus-visible] {
+  outline-color: var(--color-danger);
+}
+
+/* Thumb (Knob) */
+.switch-thumb {
+  background: var(--color-text-inverse);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-elevation-2);
+  transition: transform var(--transition-base);
+}
+
+.switch-control[data-state='checked'] .switch-thumb {
+  transform: translateX(calc(100% - 4px));
+}
+
+/* Sizes */
+.switch-sm {
+  width: var(--spacing-9);
+  height: var(--spacing-5);
+  padding: 2px;
+}
+
+.switch-sm .switch-thumb {
+  width: calc(var(--spacing-5) - 4px);
+  height: calc(var(--spacing-5) - 4px);
+}
+
+.switch-control.switch-sm[data-state='checked'] .switch-thumb {
+  transform: translateX(calc(var(--spacing-9) - var(--spacing-5)));
+}
+
+.switch-md {
+  width: var(--spacing-11);
+  height: var(--spacing-6);
+  padding: 2px;
+}
+
+.switch-md .switch-thumb {
+  width: calc(var(--spacing-6) - 4px);
+  height: calc(var(--spacing-6) - 4px);
+}
+
+.switch-control.switch-md[data-state='checked'] .switch-thumb {
+  transform: translateX(calc(var(--spacing-11) - var(--spacing-6)));
+}
+
+.switch-lg {
+  width: var(--spacing-14);
+  height: var(--spacing-8);
+  padding: 3px;
+}
+
+.switch-lg .switch-thumb {
+  width: calc(var(--spacing-8) - 6px);
+  height: calc(var(--spacing-8) - 6px);
+}
+
+.switch-control.switch-lg[data-state='checked'] .switch-thumb {
+  transform: translateX(calc(var(--spacing-14) - var(--spacing-8)));
+}
+
+/* Label */
+.switch-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  user-select: none;
+}
+
+.switch-required {
+  color: var(--color-danger);
+  margin-left: var(--spacing-1);
+}
+
+/* Error & Helper */
+.switch-error,
+.switch-helper {
+  font-size: var(--text-xs);
+  margin-left: var(--spacing-11);
+  /* Approximate alignment for md size */
+}
+
+.switch-error {
+  color: var(--color-danger);
+}
+
+.switch-helper {
+  color: var(--color-text-tertiary);
+}

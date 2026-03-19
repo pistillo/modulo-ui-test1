@@ -1,0 +1,95 @@
+/* =============================================================================
+   PAGE: APP ROOT
+   Stili per la root dell'applicazione playground
+   ============================================================================= */
+
+.app-root {
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--semantic-background-default);
+}
+
+/* Header principale fisso in alto */
+.app-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--semantic-background-surface);
+    border-bottom: 1px solid var(--semantic-border-light);
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    /* Garantisce opacità completa */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Assicura che sia sempre opaco al 100% */
+.app-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 1;
+    z-index: -1;
+}
+
+/* Dark mode adjustments */
+.dark .app-header {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+}
+
+.app-header .flex {
+    display: flex;
+}
+
+.app-header .items-center {
+    align-items: center;
+}
+
+.app-header .justify-between {
+    justify-content: space-between;
+}
+
+.app-header .gap-6 {
+    gap: 1.5rem;
+}
+
+.app-header .gap-4 {
+    gap: 1rem;
+}
+
+.app-header .flex-col {
+    flex-direction: column;
+}
+
+.app-header .items-start {
+    align-items: flex-start;
+}
+
+.app-header .gap-0 {
+    gap: 0;
+}
+
+.app-header h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--semantic-text-default);
+    margin: 0;
+}
+
+.app-header h4 {
+    font-size: 0.875rem;
+    color: var(--semantic-text-secondary);
+    margin: 0;
+    margin-top: 0.125rem;
+}
+
+/* Content area con padding per l'header fisso */
+.app-content {
+    padding-top: 90px;
+    position: relative;
+    z-index: 1;
+    min-height: calc(100vh - 90px);
+}

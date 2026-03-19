@@ -1,0 +1,140 @@
+/**
+ * Textarea Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+/* Root */
+.textarea-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: 100%;
+}
+
+/* Label */
+.textarea-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+.textarea-required {
+  color: var(--color-danger);
+  margin-left: var(--spacing-1);
+}
+
+/* Wrapper */
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Base Textarea */
+.textarea {
+  width: 100%;
+  min-height: var(--spacing-20);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  transition: all var(--transition-base);
+  resize: vertical;
+}
+
+.textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+  outline: none;
+}
+
+.textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-bg-tertiary);
+}
+
+.textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.textarea-invalid {
+  border-color: var(--color-danger);
+}
+
+.textarea-invalid:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px var(--color-danger-light);
+}
+
+/* Sizes */
+.textarea-xs {
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--text-xs);
+  min-height: var(--spacing-14, 3.5rem);
+}
+
+.textarea-sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--text-sm);
+}
+
+.textarea-md {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--text-base);
+}
+
+.textarea-lg {
+  padding: var(--spacing-4) var(--spacing-5);
+  font-size: var(--text-lg);
+}
+
+.textarea-xl {
+  padding: var(--spacing-5) var(--spacing-6);
+  font-size: var(--text-xl);
+}
+
+/* Spinner */
+.textarea-spinner {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  color: var(--color-primary);
+  pointer-events: none;
+}
+
+/* Character Count */
+.textarea-count {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-1);
+}
+
+.textarea-count-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+.textarea-count-warning {
+  color: var(--color-warning);
+}
+
+/* Error & Helper */
+.textarea-error,
+.textarea-helper {
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-1);
+}
+
+.textarea-error {
+  color: var(--color-danger);
+}
+
+.textarea-helper {
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--spacing-0_5);
+}

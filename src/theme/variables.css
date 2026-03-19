@@ -1,0 +1,940 @@
+/**
+ * Theme Variables - Centralized CSS Variables
+ * Following Ark UI standard with data-theme attribute
+ * 
+ * All theme variables are defined here and can be used across the application
+ * and component library using var(--colors-*)
+ */
+
+/* ============================================================================
+   Theme Variables - Modern (default)
+   ============================================================================ */
+:root,
+[data-theme="modern"] {
+  color-scheme: light;
+
+  /* Background Colors */
+  --colors-bg: #F5F5F7;
+  /* Apple System Gray 6 */
+  --colors-bg-subtle: #ffffff;
+  --colors-bg-muted: rgba(255, 255, 255, 0.6);
+  --colors-bg-emphasized: rgba(255, 255, 255, 0.9);
+
+  /* Foreground Colors */
+  --colors-fg: #1d1d1f;
+  /* Apple System Gray 1 */
+  --colors-fg-muted: #6b7280;
+  --colors-fg-subtle: #9ca3af;
+  --colors-fg-disabled: #cbd5e1;
+
+  /* Border Colors */
+  --colors-border: rgba(255, 255, 255, 0.6);
+  --colors-border-emphasized: rgba(255, 255, 255, 0.8);
+
+  /* Button Colors */
+  --colors-button-bg: #007AFF;
+  /* iOS Blue */
+  --colors-button-bg-hover: #0062CC;
+  --colors-button-bg-active: #0051a8;
+  --colors-button-fg: #ffffff;
+  --colors-button-primary: #007AFF;
+  /* Primary button background - iOS Blue */
+  --colors-button-primary-hover: #0062CC;
+  /* Primary button hover */
+  --colors-button-primary-shadow: rgba(0, 122, 255, 0.3);
+  /* Primary button shadow */
+  --colors-button-secondary-bg: rgba(255, 255, 255, 0.4);
+  /* Secondary button background */
+  --colors-button-secondary-border: rgba(255, 255, 255, 0.6);
+  /* Secondary button border */
+
+  /* Primary Colors */
+  --colors-primary: #007AFF;
+  --colors-primary-hover: #0062CC;
+  --colors-accent: #007AFF;
+  /* Accent color (underline, etc.) - iOS Blue */
+
+  /* Status Colors */
+  --colors-success: #10B981;
+  /* Emerald 500 */
+  --colors-warning: #F59E0B;
+  /* Amber 500 */
+  --colors-info: #0EA5E9;
+  /* Sky 500 */
+  --colors-danger: #EF4444;
+  /* Red 500 */
+
+  /* Error Colors */
+  --colors-error: #dc2626;
+  /* red-600 */
+  --colors-error-hover: #b91c1c;
+  /* red-700 */
+
+  /* Sidebar Colors */
+  --colors-sidebar-bg: #1e3a8a;
+  /* Dark blue sidebar (consistent across themes) */
+  --colors-sidebar-active: rgba(59, 130, 246, 0.4);
+  /* Light blue for active item */
+  --colors-sidebar-border: rgba(255, 255, 255, 0.1);
+  /* Sidebar border */
+  --colors-sidebar-active-shadow: rgba(59, 130, 246, 0.2);
+  /* Active item shadow */
+  --colors-sidebar-text: rgba(255, 255, 255, 0.7);
+  /* Sidebar text color */
+  --colors-sidebar-text-hover: rgba(255, 255, 255, 0.9);
+  /* Sidebar text hover */
+  --colors-sidebar-text-active: rgba(255, 255, 255, 1);
+  /* Sidebar text active */
+  --colors-sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+  /* Sidebar hover background */
+  --colors-sidebar-icon-hover: var(--colors-primary);
+  /* Sidebar icon hover color */
+
+  /* Card Colors */
+  --colors-card-bg: rgba(255, 255, 255, 0.6);
+  /* Card background - glassmorphism */
+  --colors-card-border: rgba(255, 255, 255, 0.5);
+  /* Card border */
+  --colors-card-shadow: rgba(31, 38, 135, 0.05);
+  /* Card shadow */
+
+  /* Widget Colors */
+  --colors-widget-breakdown-bar: var(--colors-primary);
+  --colors-widget-financial-rate: var(--colors-primary);
+  --colors-widget-stats-trend-up: #10b981;
+  /* emerald-500 */
+  --colors-widget-stats-trend-down: #ef4444;
+  /* red-500 */
+  --colors-widget-trend-up: #10b981;
+  /* emerald-500 */
+  --colors-widget-trend-down: #ef4444;
+  /* red-500 */
+  --colors-widget-blue: #3b82f6;
+  /* blue-500 */
+  --colors-widget-indigo: #6366f1;
+  /* indigo-500 */
+  --colors-widget-purple: #8b5cf6;
+  /* purple-500 */
+  --colors-widget-orange: #f97316;
+  /* orange-500 */
+  --colors-widget-emerald: #10b981;
+  /* emerald-500 */
+  --colors-widget-sky: #0ea5e9;
+  /* sky-500 */
+  --colors-widget-red: #ef4444;
+  /* red-500 */
+  --colors-widget-amber: #f59e0b;
+  /* amber-500 */
+  --colors-widget-icon-bg-blue: rgba(59, 130, 246, 0.1);
+  --colors-widget-icon-bg-indigo: rgba(99, 102, 241, 0.1);
+  --colors-widget-icon-bg-purple: rgba(139, 92, 246, 0.1);
+  --colors-widget-icon-bg-orange: rgba(249, 115, 22, 0.1);
+  --colors-widget-icon-bg-emerald: rgba(16, 185, 129, 0.1);
+  --colors-widget-icon-bg-sky: rgba(14, 165, 233, 0.1);
+  --colors-widget-icon-bg-red: rgba(239, 68, 68, 0.1);
+  --colors-widget-icon-bg-amber: rgba(245, 158, 11, 0.1);
+  --colors-widget-export-csv: #10b981;
+  /* emerald-500 */
+  --colors-widget-export-pdf: #ef4444;
+  /* red-500 */
+  --colors-widget-export-odf: #3b82f6;
+  /* blue-500 */
+  --colors-widget-export-email: #6366f1;
+  /* indigo-500 */
+
+  /* Header Colors */
+  --colors-header-bg: rgba(255, 255, 255, 0.3);
+  /* Header background - glassmorphism */
+  --colors-header-border: rgba(255, 255, 255, 0.2);
+  /* Header border */
+  --colors-header-shadow: rgba(0, 0, 0, 0.03);
+  /* Header shadow */
+
+  /* Page Colors */
+  --colors-page-bg: #F5F5F7;
+  /* Page background - same as bg */
+
+  /* Table Colors */
+  --colors-table-header-bg: rgba(255, 255, 255, 0.2);
+  /* Table header background */
+  --colors-table-header-border: rgba(255, 255, 255, 0.4);
+  /* Table header border */
+  --colors-table-header-text: rgb(107, 114, 128);
+  /* Table header text */
+  --colors-table-row-border: rgba(255, 255, 255, 0.3);
+  /* Table row border */
+  --colors-table-row-hover: rgba(255, 255, 255, 0.7);
+  /* Table row hover */
+  --colors-table-row-current: rgba(0, 122, 255, 0.05);
+  /* Table row current - light */
+  --colors-table-row-selected: rgba(0, 122, 255, 0.12);
+  /* Table row selected - medium */
+  --colors-table-row-current-selected: rgba(0, 122, 255, 0.2);
+  /* Table row current + selected - dark */
+  --colors-table-row-striped: rgba(255, 255, 255, 0.4);
+  /* Table row striped */
+
+  /* Text Colors */
+  --color-text-primary: var(--colors-fg);
+  --color-text-secondary: var(--colors-fg-muted);
+  --color-text-tertiary: var(--colors-fg-subtle);
+  --color-text-disabled: var(--colors-fg-disabled);
+  --color-input-label: var(--colors-fg-muted);
+  /* light theme: label usa fg-muted per leggibilità su sfondo chiaro */
+
+  /* Background Colors for Components */
+  --color-bg-primary: var(--colors-bg-subtle);
+  --color-bg-secondary: rgba(255, 255, 255, 0.5);
+  --color-bg-tertiary: rgba(255, 255, 255, 0.6);
+  --color-bg-glass: rgba(255, 255, 255, 0.3);
+  --color-bg-hover: rgba(255, 255, 255, 0.9);
+  --color-bg-dropdown: rgba(255, 255, 255, 0.9);
+  --color-bg-disabled: rgba(255, 255, 255, 0.3);
+
+  /* Border Colors for Components */
+  --color-border: rgba(255, 255, 255, 0.4);
+  --color-border-emphasized: rgba(255, 255, 255, 0.5);
+  --color-border-subtle: rgba(255, 255, 255, 0.2);
+  --color-border-hover: var(--colors-border-emphasized);
+
+  /* Primary Colors */
+  --color-primary: var(--colors-primary);
+  --color-primary-hover: var(--colors-primary-hover);
+  --color-primary-light: rgba(0, 122, 255, 0.1);
+  --color-primary-rgb: 0, 122, 255;
+  /* #007AFF */
+
+  /* Status Colors */
+  --color-success: var(--colors-success);
+  --color-success-light: rgba(16, 185, 129, 0.1);
+  --color-warning: var(--colors-warning);
+  --color-warning-light: rgba(245, 158, 11, 0.1);
+  --color-info: var(--colors-info);
+  --color-info-light: rgba(14, 165, 233, 0.1);
+  --color-danger: var(--colors-danger);
+  --color-danger-light: rgba(239, 68, 68, 0.1);
+
+  /* Shadows */
+  --shadow-glow-primary: 0 4px 14px 0 rgba(0, 122, 255, 0.3);
+  --shadow-glow-primary-hover: 0 6px 20px 0 rgba(0, 122, 255, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --transition-base: 150ms ease-in-out;
+
+  /* Inverse/Contrast Text & Icon Tokens */
+  --color-text-inverse: #ffffff;
+  --icon-stroke-width: 2.25;
+  /* Elevation tokens for shadows */
+  --shadow-elevation-1: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================================
+   Theme Variables - AGID
+   ============================================================================ */
+[data-theme="agid"] {
+  color-scheme: light;
+
+  /* Background Colors */
+  --colors-bg: #ffffff;
+  --colors-bg-subtle: #f9fafb;
+  /* gray-50 */
+  --colors-bg-muted: #f3f4f6;
+  /* gray-100 */
+  --colors-bg-emphasized: #e5e7eb;
+  /* gray-200 */
+
+  /* Foreground Colors */
+  --colors-fg: #1A1A1A;
+  /* agid-text */
+  --colors-fg-muted: #4b5563;
+  /* gray-600 */
+  --colors-fg-subtle: #6b7280;
+  /* gray-500 */
+  --colors-fg-disabled: #9ca3af;
+  /* gray-400 */
+
+  /* Border Colors */
+  --colors-border: #d1d5db;
+  /* gray-300 */
+  --colors-border-emphasized: #9ca3af;
+  /* gray-400 */
+
+  /* Button Colors */
+  --colors-button-bg: #0066CC;
+  /* agid-blue */
+  --colors-button-bg-hover: #004080;
+  /* agid-dark */
+  --colors-button-bg-active: #003366;
+  --colors-button-fg: #ffffff;
+  --colors-button-primary: #0066CC;
+  /* Primary button background - AGID blue */
+  --colors-button-primary-hover: #004080;
+  /* Primary button hover - AGID dark */
+  --colors-button-primary-shadow: rgba(0, 102, 204, 0.3);
+  /* Primary button shadow */
+  --colors-button-secondary-bg: rgba(249, 250, 251, 0.8);
+  /* Secondary button background - gray-50 */
+  --colors-button-secondary-border: rgba(209, 213, 219, 0.6);
+  /* Secondary button border - gray-300 */
+
+  /* Primary Colors */
+  --colors-primary: #0066CC;
+  --colors-primary-hover: #004080;
+  --colors-accent: #0066CC;
+  /* Accent color (underline, etc.) - AGID blue */
+
+  /* Status Colors */
+  --colors-success: #059669;
+  /* Emerald 600 */
+  --colors-warning: #d97706;
+  /* Amber 600 */
+  --colors-info: #0284c7;
+  /* Sky 600 */
+  --colors-danger: #dc2626;
+  /* Red 600 */
+
+  /* Error Colors */
+  --colors-error: #dc2626;
+  /* red-600 */
+  --colors-error-hover: #b91c1c;
+  /* red-700 */
+
+  /* Sidebar Colors */
+  --colors-sidebar-bg: #1e3a8a;
+  /* Dark blue sidebar (consistent across themes) */
+  --colors-sidebar-active: rgba(59, 130, 246, 0.4);
+  /* Light blue for active item */
+  --colors-sidebar-border: rgba(255, 255, 255, 0.1);
+  /* Sidebar border */
+  --colors-sidebar-active-shadow: rgba(59, 130, 246, 0.2);
+  /* Active item shadow */
+  --colors-sidebar-text: rgba(255, 255, 255, 0.7);
+  /* Sidebar text color */
+  --colors-sidebar-text-hover: rgba(255, 255, 255, 0.9);
+  /* Sidebar text hover */
+  --colors-sidebar-text-active: rgba(255, 255, 255, 1);
+  /* Sidebar text active */
+  --colors-sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+  /* Sidebar hover background */
+  --colors-sidebar-icon-hover: var(--colors-primary);
+  /* Sidebar icon hover color */
+
+  /* Card Colors */
+  --colors-card-bg: rgba(255, 255, 255, 0.9);
+  /* Card background - solid white for AGID */
+  --colors-card-border: rgba(209, 213, 219, 0.5);
+  /* Card border - gray-300 */
+  --colors-card-shadow: rgba(0, 0, 0, 0.05);
+  /* Card shadow */
+
+  /* Widget Colors */
+  --colors-widget-breakdown-bar: var(--colors-primary);
+  --colors-widget-financial-rate: var(--colors-primary);
+  --colors-widget-stats-trend-up: #059669;
+  /* emerald-600 */
+  --colors-widget-stats-trend-down: #dc2626;
+  /* red-600 */
+  --colors-widget-trend-up: #059669;
+  /* emerald-600 */
+  --colors-widget-trend-down: #dc2626;
+  /* red-600 */
+  --colors-widget-blue: #2563eb;
+  /* blue-600 */
+  --colors-widget-indigo: #4f46e5;
+  /* indigo-600 */
+  --colors-widget-purple: #7c3aed;
+  /* purple-600 */
+  --colors-widget-orange: #ea580c;
+  /* orange-600 */
+  --colors-widget-emerald: #059669;
+  /* emerald-600 */
+  --colors-widget-sky: #0284c7;
+  /* sky-600 */
+  --colors-widget-red: #dc2626;
+  /* red-600 */
+  --colors-widget-amber: #d97706;
+  /* amber-600 */
+  --colors-widget-icon-bg-blue: rgba(37, 99, 235, 0.1);
+  --colors-widget-icon-bg-indigo: rgba(79, 70, 229, 0.1);
+  --colors-widget-icon-bg-purple: rgba(124, 58, 237, 0.1);
+  --colors-widget-icon-bg-orange: rgba(234, 88, 12, 0.1);
+  --colors-widget-icon-bg-emerald: rgba(5, 150, 105, 0.1);
+  --colors-widget-icon-bg-sky: rgba(2, 132, 199, 0.1);
+  --colors-widget-icon-bg-red: rgba(220, 38, 38, 0.1);
+  --colors-widget-icon-bg-amber: rgba(217, 119, 6, 0.1);
+  --colors-widget-export-csv: #059669;
+  /* emerald-600 */
+  --colors-widget-export-pdf: #dc2626;
+  /* red-600 */
+  --colors-widget-export-odf: #2563eb;
+  /* blue-600 */
+  --colors-widget-export-email: #4f46e5;
+  /* indigo-600 */
+
+  /* Header Colors */
+  --colors-header-bg: #0066CC;
+  /* Header background - AGID blue */
+  --colors-header-border: #004080;
+  /* Header border - AGID dark blue */
+  --colors-header-shadow: rgba(0, 0, 0, 0.1);
+  /* Header shadow for AGID */
+
+  /* AGID Typography */
+  --font-sans: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-agid: 'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* AGID Effects */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --transition-fast: 150ms ease-out;
+  --transition-base: 250ms ease-out;
+
+  /* AGID Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+
+  /* Search Component Specific */
+  --search-input-border-color: var(--colors-border);
+  --search-input-focus-border: var(--colors-primary);
+  --search-input-placeholder-color: var(--colors-fg-muted);
+  --search-results-max-height: 400px;
+  --search-results-min-width: 500px;
+
+  /* Page Colors */
+  --colors-page-bg: #ffffff;
+  /* Page background - white */
+
+  /* Table Colors */
+  --colors-table-header-bg: rgba(249, 250, 251, 0.8);
+  /* Table header background - gray-50 */
+  --colors-table-header-border: rgba(209, 213, 219, 0.5);
+  /* Table header border - gray-300 */
+  --colors-table-header-text: rgb(107, 114, 128);
+  /* Table header text - gray-500 */
+  --colors-table-row-border: rgba(209, 213, 219, 0.3);
+  /* Table row border - gray-300 */
+  --colors-table-row-hover: rgba(243, 244, 246, 0.5);
+  /* Table row hover */
+  --colors-table-row-current: rgba(0, 102, 204, 0.05);
+  /* Table row current - light AGID blue */
+  --colors-table-row-selected: rgba(0, 102, 204, 0.12);
+  /* Table row selected - medium AGID blue */
+  --colors-table-row-current-selected: rgba(0, 102, 204, 0.2);
+  /* Table row current + selected - dark AGID blue */
+  --colors-table-row-striped: rgba(249, 250, 251, 0.5);
+  /* Table row striped */
+
+  /* Text Colors */
+  --color-text-primary: var(--colors-fg);
+  --color-text-secondary: var(--colors-fg-muted);
+  --color-text-tertiary: var(--colors-fg-subtle);
+  --color-text-disabled: var(--colors-fg-disabled);
+  --color-input-label: var(--colors-fg-muted);
+  /* light theme: label usa fg-muted per leggibilità su sfondo chiaro */
+
+  /* Background Colors for Components */
+  --color-bg-primary: var(--colors-bg-subtle);
+  --color-bg-secondary: rgba(255, 255, 255, 0.9);
+  --color-bg-tertiary: rgba(255, 255, 255, 0.95);
+  --color-bg-glass: rgba(255, 255, 255, 0.6);
+  --color-bg-hover: #ffffff;
+  --color-bg-dropdown: rgba(255, 255, 255, 0.95);
+  --color-bg-disabled: rgba(249, 250, 251, 0.8);
+
+  /* Border Colors for Components */
+  --color-border: var(--colors-border);
+  --color-border-emphasized: var(--colors-border-emphasized);
+  --color-border-subtle: rgba(209, 213, 219, 0.3);
+  --color-border-hover: var(--colors-border-emphasized);
+
+  /* Primary Colors */
+  --color-primary: var(--colors-primary);
+  --color-primary-hover: var(--colors-primary-hover);
+  --color-primary-light: rgba(0, 102, 204, 0.1);
+  --color-primary-rgb: 0, 102, 204;
+  /* #0066CC */
+
+  /* Shadows */
+  --shadow-glow-primary: 0 4px 14px 0 rgba(0, 102, 204, 0.3);
+  --shadow-glow-primary-hover: 0 6px 20px 0 rgba(0, 102, 204, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --transition-base: 150ms ease-in-out;
+
+  /* Inverse/Contrast Text & Icon Tokens */
+  --color-text-inverse: #ffffff;
+  --icon-stroke-width: 2.25;
+  /* Elevation tokens for shadows */
+  --shadow-elevation-1: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================================
+   Theme Variables - Dark
+   ============================================================================ */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Background Colors */
+  --colors-bg: #0f172a;
+  /* slate-950 */
+  --colors-bg-subtle: #1e293b;
+  /* slate-800 */
+  --colors-bg-muted: rgba(0, 0, 0, 0.2);
+  --colors-bg-emphasized: rgba(0, 0, 0, 0.4);
+
+  /* Foreground Colors */
+  --colors-fg: #f1f5f9;
+  /* slate-100 */
+  --colors-fg-muted: #94a3b8;
+  /* slate-400 */
+  --colors-fg-subtle: #64748b;
+  /* slate-500 */
+  --colors-fg-disabled: #475569;
+  /* slate-600 */
+
+  /* Border Colors */
+  --colors-border: rgba(255, 255, 255, 0.1);
+  --colors-border-emphasized: rgba(255, 255, 255, 0.2);
+
+  /* Button Colors */
+  --colors-button-bg: #6366f1;
+  /* indigo-500 */
+  --colors-button-bg-hover: #4f46e5;
+  /* indigo-600 */
+  --colors-button-bg-active: #4338ca;
+  /* indigo-700 */
+  --colors-button-fg: #ffffff;
+  --colors-button-primary: #6366f1;
+  /* Primary button background */
+  --colors-button-primary-hover: #4f46e5;
+  /* Primary button hover */
+  --colors-button-primary-shadow: rgba(99, 102, 241, 0.3);
+  /* Primary button shadow */
+  --colors-button-secondary-bg: rgba(51, 65, 85, 0.5);
+  /* Secondary button background */
+  --colors-button-secondary-border: rgba(71, 85, 105, 1);
+  /* Secondary button border */
+
+  /* Primary Colors */
+  --colors-primary: #6366f1;
+  --colors-primary-hover: #4f46e5;
+  --colors-accent: #6366f1;
+  /* Accent color (underline, etc.) */
+
+  /* Status Colors */
+  --colors-success: #34d399;
+  /* Emerald 400 */
+  --colors-warning: #fbbf24;
+  /* Amber 400 */
+  --colors-info: #38bdf8;
+  /* Sky 400 */
+  --colors-danger: #f87171;
+  /* Red 400 */
+
+  /* Error Colors */
+  --colors-error: #f87171;
+  /* red-400 */
+  --colors-error-hover: #ef4444;
+  /* red-500 */
+
+  /* Sidebar Colors */
+  --colors-sidebar-bg: #1e3a8a;
+  /* Dark blue sidebar (consistent across themes) */
+  --colors-sidebar-active: rgba(59, 130, 246, 0.4);
+  /* Light blue for active item */
+  --colors-sidebar-border: rgba(255, 255, 255, 0.1);
+  /* Sidebar border */
+  --colors-sidebar-active-shadow: rgba(59, 130, 246, 0.2);
+  /* Active item shadow */
+  --colors-sidebar-text: rgba(255, 255, 255, 0.7);
+  /* Sidebar text color */
+  --colors-sidebar-text-hover: rgba(255, 255, 255, 0.9);
+  /* Sidebar text hover */
+  --colors-sidebar-text-active: rgba(255, 255, 255, 1);
+  /* Sidebar text active */
+  --colors-sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+  /* Sidebar hover background */
+  --colors-sidebar-icon-hover: var(--colors-primary);
+  /* Sidebar icon hover color */
+
+  /* Card Colors */
+  --colors-card-bg: rgba(15, 23, 42, 0.6);
+  /* Card background */
+  --colors-card-border: rgba(51, 65, 85, 0.5);
+  /* Card border */
+  --colors-card-shadow: rgba(0, 0, 0, 0.2);
+  /* Card shadow */
+
+  /* Widget Colors */
+  --colors-widget-breakdown-bar: var(--colors-primary);
+  --colors-widget-financial-rate: var(--colors-primary);
+  --colors-widget-stats-trend-up: #34d399;
+  /* emerald-400 */
+  --colors-widget-stats-trend-down: #f87171;
+  /* red-400 */
+  --colors-widget-trend-up: #34d399;
+  /* emerald-400 */
+  --colors-widget-trend-down: #f87171;
+  /* red-400 */
+  --colors-widget-blue: #60a5fa;
+  /* blue-400 */
+  --colors-widget-indigo: #818cf8;
+  /* indigo-400 */
+  --colors-widget-purple: #a78bfa;
+  /* purple-400 */
+  --colors-widget-orange: #fb923c;
+  /* orange-400 */
+  --colors-widget-emerald: #34d399;
+  /* emerald-400 */
+  --colors-widget-sky: #38bdf8;
+  /* sky-400 */
+  --colors-widget-red: #f87171;
+  /* red-400 */
+  --colors-widget-amber: #fbbf24;
+  /* amber-400 */
+  --colors-widget-icon-bg-blue: rgba(96, 165, 250, 0.15);
+  --colors-widget-icon-bg-indigo: rgba(129, 140, 248, 0.15);
+  --colors-widget-icon-bg-purple: rgba(167, 139, 250, 0.15);
+  --colors-widget-icon-bg-orange: rgba(251, 146, 60, 0.15);
+  --colors-widget-icon-bg-emerald: rgba(52, 211, 153, 0.15);
+  --colors-widget-icon-bg-sky: rgba(56, 189, 248, 0.15);
+  --colors-widget-icon-bg-red: rgba(248, 113, 113, 0.15);
+  --colors-widget-icon-bg-amber: rgba(251, 191, 36, 0.15);
+  --colors-widget-export-csv: #34d399;
+  /* emerald-400 */
+  --colors-widget-export-pdf: #f87171;
+  /* red-400 */
+  --colors-widget-export-odf: #60a5fa;
+  /* blue-400 */
+  --colors-widget-export-email: #818cf8;
+  /* indigo-400 */
+
+  /* Header Colors */
+  --colors-header-bg: rgba(0, 0, 0, 0.2);
+  /* Header background */
+  --colors-header-border: rgba(255, 255, 255, 0.05);
+  /* Header border */
+  --colors-header-shadow: rgba(0, 0, 0, 0.2);
+  /* Header shadow */
+
+  /* Page Colors */
+  --colors-page-bg: #0f172a;
+  /* Page background */
+
+  /* Table Colors */
+  --colors-table-header-bg: rgba(30, 41, 59, 0.3);
+  /* Table header background */
+  --colors-table-header-border: rgba(51, 65, 85, 0.5);
+  /* Table header border */
+  --colors-table-header-text: rgb(148, 163, 184);
+  /* Table header text */
+  --colors-table-row-border: rgba(51, 65, 85, 0.3);
+  /* Table row border */
+  --colors-table-row-hover: rgba(30, 41, 59, 0.5);
+  /* Table row hover */
+  --colors-table-row-current: rgba(99, 102, 241, 0.08);
+  /* Table row current - light indigo */
+  --colors-table-row-selected: rgba(99, 102, 241, 0.18);
+  /* Table row selected - medium indigo */
+  --colors-table-row-current-selected: rgba(99, 102, 241, 0.28);
+  /* Table row current + selected - dark indigo */
+  --colors-table-row-striped: rgba(30, 41, 59, 0.4);
+  /* Table row striped */
+
+  /* Text Colors */
+  --color-text-primary: var(--colors-fg);
+  --color-text-secondary: var(--colors-fg-muted);
+  --color-text-tertiary: var(--colors-fg-subtle);
+  --color-text-disabled: var(--colors-fg-disabled);
+  --color-input-label: var(--colors-fg-subtle);
+  /* dark theme: label usa fg-subtle (più attenuato su sfondo scuro) */
+  --color-text-dark-primary: var(--colors-fg);
+  --color-text-dark-secondary: var(--colors-fg-muted);
+  --color-text-dark-tertiary: var(--colors-fg-subtle);
+
+  /* Background Colors for Components */
+  --color-bg-primary: var(--colors-bg-subtle);
+  --color-bg-secondary: rgba(30, 41, 59, 0.6);
+  --color-bg-tertiary: rgba(30, 41, 59, 0.8);
+  --color-bg-glass: rgba(0, 0, 0, 0.3);
+  --color-bg-hover: rgba(51, 65, 85, 0.8);
+  --color-bg-dropdown: rgba(30, 41, 59, 0.95);
+  --color-bg-disabled: rgba(30, 41, 59, 0.3);
+  --color-bg-dark-primary: var(--colors-bg-subtle);
+  --color-bg-dark-secondary: rgba(30, 41, 59, 0.6);
+  --color-bg-dark-tertiary: rgba(30, 41, 59, 0.8);
+  --color-bg-dark-glass: rgba(0, 0, 0, 0.3);
+  --color-bg-dark-hover: rgba(51, 65, 85, 0.8);
+  --color-bg-dark-dropdown: rgba(30, 41, 59, 0.95);
+
+  /* Border Colors for Components */
+  --color-border: var(--colors-border);
+  --color-border-emphasized: var(--colors-border-emphasized);
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-hover: var(--colors-border-emphasized);
+  --color-border-dark: var(--colors-border);
+  --color-border-dark-emphasized: var(--colors-border-emphasized);
+
+  /* Foreground Colors */
+  --color-fg: var(--colors-fg);
+  --color-fg-dark: var(--colors-fg);
+
+  /* Primary Colors */
+  --color-primary: var(--colors-primary);
+  --color-primary-hover: var(--colors-primary-hover);
+  --color-primary-light: rgba(99, 102, 241, 0.2);
+  --color-primary-dark: rgba(79, 70, 229, 1);
+  --color-primary-rgb: 99, 102, 241;
+  /* #6366f1 */
+
+  /* Shadows */
+  --shadow-glow-primary: 0 4px 14px 0 rgba(99, 102, 241, 0.4);
+  --shadow-glow-primary-hover: 0 6px 20px 0 rgba(99, 102, 241, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  --shadow-dark-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-dark-lg: 0 12px 30px rgba(0, 0, 0, 0.4);
+  --shadow-dark-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --transition-base: 150ms ease-in-out;
+
+  /* Inverse/Contrast Text & Icon Tokens */
+  --color-text-inverse: #ffffff;
+  --icon-stroke-width: 2.25;
+  /* Elevation tokens for shadows */
+  --shadow-elevation-1: inset 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  --shadow-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================================================
+   Theme Variables - Police
+   ============================================================================ */
+[data-theme="police"] {
+  color-scheme: light;
+
+  /* Background Colors */
+  --colors-bg: #F4F6F8;
+  /* Police background */
+  --colors-bg-subtle: #ffffff;
+  --colors-bg-muted: #f1f5f9;
+  /* slate-100 */
+  --colors-bg-emphasized: #e2e8f0;
+  /* slate-200 */
+
+  /* Foreground Colors */
+  --colors-fg: #1e293b;
+  /* slate-800 */
+  --colors-fg-muted: #475569;
+  /* slate-600 */
+  --colors-fg-subtle: #64748b;
+  /* slate-500 */
+  --colors-fg-disabled: #94a3b8;
+  /* slate-400 */
+
+  /* Border Colors */
+  --colors-border: #cbd5e1;
+  /* slate-300 */
+  --colors-border-emphasized: #94a3b8;
+  /* slate-400 */
+
+  /* Button Colors */
+  --colors-button-bg: #1e40af;
+  /* blue-800 */
+  --colors-button-bg-hover: #1e3a8a;
+  /* blue-900 */
+  --colors-button-bg-active: #1e293b;
+  /* slate-800 */
+  --colors-button-fg: #ffffff;
+  --colors-button-primary: #1e40af;
+  /* Primary button background - blue-800 */
+  --colors-button-primary-hover: #1e3a8a;
+  /* Primary button hover - blue-900 */
+  --colors-button-primary-shadow: rgba(30, 64, 175, 0.3);
+  /* Primary button shadow */
+  --colors-button-secondary-bg: rgba(255, 255, 255, 0.8);
+  /* Secondary button background */
+  --colors-button-secondary-border: rgba(203, 213, 225, 0.6);
+  /* Secondary button border - slate-300 */
+
+  /* Primary Colors */
+  --colors-primary: #1e40af;
+  --colors-primary-hover: #1e3a8a;
+  --colors-accent: #1e40af;
+  /* Accent color (underline, etc.) - blue-800 */
+
+  /* Status Colors */
+  --colors-success: #059669;
+  /* Emerald 600 */
+  --colors-warning: #d97706;
+  /* Amber 600 */
+  --colors-info: #0284c7;
+  /* Sky 600 */
+  --colors-danger: #dc2626;
+  /* Red 600 */
+
+  /* Error Colors */
+  --colors-error: #dc2626;
+  /* red-600 */
+  --colors-error-hover: #b91c1c;
+  /* red-700 */
+
+  /* Sidebar Colors */
+  --colors-sidebar-bg: #1e3a8a;
+  /* Dark blue sidebar (consistent across themes) */
+  --colors-sidebar-active: rgba(59, 130, 246, 0.4);
+  /* Light blue for active item */
+  --colors-sidebar-border: rgba(255, 255, 255, 0.1);
+  /* Sidebar border */
+  --colors-sidebar-active-shadow: rgba(59, 130, 246, 0.2);
+  /* Active item shadow */
+  --colors-sidebar-text: rgba(255, 255, 255, 0.7);
+  /* Sidebar text color */
+  --colors-sidebar-text-hover: rgba(255, 255, 255, 0.9);
+  /* Sidebar text hover */
+  --colors-sidebar-text-active: rgba(255, 255, 255, 1);
+  /* Sidebar text active */
+  --colors-sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+  /* Sidebar hover background */
+  --colors-sidebar-icon-hover: var(--colors-primary);
+  /* Sidebar icon hover color */
+
+  /* Card Colors */
+  --colors-card-bg: rgba(255, 255, 255, 0.95);
+  /* Card background - almost solid white for Police */
+  --colors-card-border: rgba(203, 213, 225, 0.5);
+  /* Card border - slate-300 */
+  --colors-card-shadow: rgba(0, 0, 0, 0.05);
+  /* Card shadow */
+
+  /* Widget Colors */
+  --colors-widget-breakdown-bar: var(--colors-primary);
+  --colors-widget-financial-rate: var(--colors-primary);
+  --colors-widget-stats-trend-up: #059669;
+  /* emerald-600 */
+  --colors-widget-stats-trend-down: #dc2626;
+  /* red-600 */
+  --colors-widget-trend-up: #059669;
+  /* emerald-600 */
+  --colors-widget-trend-down: #dc2626;
+  /* red-600 */
+  --colors-widget-blue: #2563eb;
+  /* blue-600 */
+  --colors-widget-indigo: #4f46e5;
+  /* indigo-600 */
+  --colors-widget-purple: #7c3aed;
+  /* purple-600 */
+  --colors-widget-orange: #ea580c;
+  /* orange-600 */
+  --colors-widget-emerald: #059669;
+  /* emerald-600 */
+  --colors-widget-sky: #0284c7;
+  /* sky-600 */
+  --colors-widget-red: #dc2626;
+  /* red-600 */
+  --colors-widget-amber: #d97706;
+  /* amber-600 */
+  --colors-widget-icon-bg-blue: rgba(37, 99, 235, 0.1);
+  --colors-widget-icon-bg-indigo: rgba(79, 70, 229, 0.1);
+  --colors-widget-icon-bg-purple: rgba(124, 58, 237, 0.1);
+  --colors-widget-icon-bg-orange: rgba(234, 88, 12, 0.1);
+  --colors-widget-icon-bg-emerald: rgba(5, 150, 105, 0.1);
+  --colors-widget-icon-bg-sky: rgba(2, 132, 199, 0.1);
+  --colors-widget-icon-bg-red: rgba(220, 38, 38, 0.1);
+  --colors-widget-icon-bg-amber: rgba(217, 119, 6, 0.1);
+  --colors-widget-export-csv: #059669;
+  /* emerald-600 */
+  --colors-widget-export-pdf: #dc2626;
+  /* red-600 */
+  --colors-widget-export-odf: #2563eb;
+  /* blue-600 */
+  --colors-widget-export-email: #4f46e5;
+  /* indigo-600 */
+
+  /* Header Colors */
+  --colors-header-bg: rgba(255, 255, 255, 0.9);
+  /* Header background - almost solid white */
+  --colors-header-border: rgba(203, 213, 225, 0.5);
+  /* Header border - slate-300 */
+  --colors-header-shadow: rgba(0, 0, 0, 0.05);
+  /* Header shadow */
+
+  /* Page Colors */
+  --colors-page-bg: #F4F6F8;
+  /* Page background - same as bg */
+
+  /* Table Colors */
+  --colors-table-header-bg: rgba(255, 255, 255, 0.8);
+  /* Table header background */
+  --colors-table-header-border: rgba(203, 213, 225, 0.5);
+  /* Table header border - slate-300 */
+  --colors-table-header-text: rgb(71, 85, 105);
+  /* Table header text - slate-600 */
+  --colors-table-row-border: rgba(203, 213, 225, 0.3);
+  /* Table row border - slate-300 */
+  --colors-table-row-hover: rgba(248, 250, 252, 0.5);
+  /* Table row hover */
+  --colors-table-row-current: rgba(59, 130, 246, 0.06);
+  /* Table row current - light blue */
+  --colors-table-row-selected: rgba(59, 130, 246, 0.14);
+  /* Table row selected - medium blue */
+  --colors-table-row-current-selected: rgba(59, 130, 246, 0.22);
+  /* Table row current + selected - dark blue */
+  --colors-table-row-striped: rgba(248, 250, 252, 0.6);
+  /* Table row striped */
+
+  /* Text Colors */
+  --color-text-primary: var(--colors-fg);
+  --color-text-secondary: var(--colors-fg-muted);
+  --color-text-tertiary: var(--colors-fg-subtle);
+  --color-text-disabled: var(--colors-fg-disabled);
+  --color-input-label: var(--colors-fg-muted);
+  /* light theme: label usa fg-muted per leggibilità su sfondo chiaro */
+
+  /* Background Colors for Components */
+  --color-bg-primary: var(--colors-bg-subtle);
+  --color-bg-secondary: rgba(255, 255, 255, 0.95);
+  --color-bg-tertiary: rgba(255, 255, 255, 0.98);
+  --color-bg-glass: rgba(255, 255, 255, 0.6);
+  --color-bg-hover: #ffffff;
+  --color-bg-dropdown: rgba(255, 255, 255, 0.95);
+  --color-bg-disabled: rgba(241, 245, 249, 0.8);
+
+  /* Border Colors for Components */
+  --color-border: var(--colors-border);
+  --color-border-emphasized: var(--colors-border-emphasized);
+  --color-border-subtle: rgba(203, 213, 225, 0.3);
+  --color-border-hover: var(--colors-border-emphasized);
+
+  /* Primary Colors */
+  --color-primary: var(--colors-primary);
+  --color-primary-hover: var(--colors-primary-hover);
+  --color-primary-light: rgba(30, 64, 175, 0.1);
+  --color-primary-rgb: 30, 64, 175;
+  /* #1e40af */
+
+  /* Shadows */
+  --shadow-glow-primary: 0 4px 14px 0 rgba(30, 64, 175, 0.3);
+  --shadow-glow-primary-hover: 0 6px 20px 0 rgba(30, 64, 175, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --transition-base: 150ms ease-in-out;
+
+  /* Inverse/Contrast Text & Icon Tokens */
+  --color-text-inverse: #ffffff;
+  --icon-stroke-width: 2.25;
+  /* Elevation tokens for shadows */
+  --shadow-elevation-1: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.08);
+}

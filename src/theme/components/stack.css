@@ -1,0 +1,14 @@
+/**
+ * Stack Component Styles
+ */
+
+.stack {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 
+ * Stack Item Spacing 
+ * Note: Actual spacing is often handled by 'gap' property in the component style directly.
+ * We leave this comment to avoid empty-ruleset lint error while indicating where future global stack logic might go.
+ */

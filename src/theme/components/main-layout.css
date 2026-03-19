@@ -1,0 +1,344 @@
+/* =============================================================================
+   PAGE: MAIN LAYOUT
+   Stili per il layout principale dell'applicazione
+   ============================================================================= */
+
+/* Main Layout Container */
+.main-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.main-layout.modern {
+    background-color: var(--color-bg-primary);
+    font-family: var(--font-sans);
+}
+
+.main-layout.agid {
+    background-color: var(--color-bg-primary);
+    font-family: var(--font-agid);
+}
+
+.main-layout.dark {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+}
+
+.main-layout.police {
+    background-color: var(--color-bg-primary);
+    font-family: var(--font-sans);
+}
+
+/* Tabs Root Layout - Wrapper for entire tab system */
+.tabs-root-layout {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    /* Important for flex children to shrink */
+}
+
+/* Layout Inner Container */
+.main-layout-inner {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.main-layout-inner.standard {
+    width: 100%;
+}
+
+.main-layout-inner.sidebar {
+    margin-left: var(--sidebar-width-mini, var(--spacing-20));
+    width: calc(100% - var(--sidebar-width-mini, var(--spacing-20)));
+    max-width: none;
+    flex: 1;
+}
+
+/* Sidebar Container (for sidebar mode) */
+.main-layout-sidebar-container {
+    display: none;
+    height: calc(100vh - var(--header-height, var(--spacing-18)));
+    position: sticky;
+    top: var(--header-height, var(--spacing-18));
+    z-index: 30;
+    overflow-y: auto;
+}
+
+/* Sidebar Mode: Shift content right */
+.main-layout.sidebar {
+    padding-left: 0;
+    /* Force container to be part of the scroll viewport logic in sidebar mode */
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Sidebar Mode: Maximize content width */
+.main-layout.sidebar .main-layout-content-inner {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* Content Inner */
+/* Content Inner */
+/* Content Inner */
+.main-layout-content-inner {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+@media (min-width: 640px) {
+    .main-layout-content-inner {
+        padding: var(--spacing-10);
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-layout-content-inner {
+        padding: var(--spacing-10);
+    }
+}
+
+/* Mobile Sidebar Overlay */
+.main-layout-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    transition: opacity var(--transition-base);
+}
+
+.main-layout-mobile-overlay.hidden {
+    display: none;
+}
+
+/* Mobile Sidebar Container */
+.main-layout-mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+}
+
+.main-layout-mobile-sidebar.open {
+    transform: translateX(0);
+}
+
+/* removed media query that hid sidebar on desktop */
+
+/* Page Container (for individual pages) */
+.page-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.page-container.centered {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: var(--spacing-8);
+}
+
+.page-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+}
+
+.page-subtitle {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+}
+
+/* Page Content */
+.page-content {
+    background: var(--colors-page-bg);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-6);
+    box-shadow: none;
+}
+
+@media (min-width: 768px) {
+    .page-content {
+        padding: var(--spacing-8);
+    }
+}
+
+/* Page Actions Bar */
+.page-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+    flex-wrap: wrap;
+}
+
+.page-actions-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    flex-wrap: wrap;
+}
+
+.page-actions-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    flex-wrap: wrap;
+}
+
+/* Responsive Grid */
+.page-grid {
+    display: grid;
+    gap: var(--spacing-6);
+}
+
+.page-grid.cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+    .page-grid.cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .page-grid.cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .page-grid.cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Card Grid Item */
+.page-card {
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.page-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Empty State */
+.page-empty-state {
+    text-align: center;
+    padding: var(--spacing-16) var(--spacing-8);
+    color: var(--color-text-tertiary);
+}
+
+.page-empty-state-icon {
+    width: var(--spacing-16);
+    height: var(--spacing-16);
+    margin: 0 auto var(--spacing-4);
+    opacity: 0.5;
+}
+
+.page-empty-state-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-2);
+}
+
+.page-empty-state-description {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+}
+
+/* Static Tabs (Main Layout) */
+.static-tabs-container {
+    margin-bottom: var(--spacing-6);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.static-tabs-list {
+    display: flex;
+    gap: var(--spacing-6);
+}
+
+.static-tab-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding-bottom: var(--spacing-3);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-base);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+}
+
+.static-tab-trigger:hover {
+    color: var(--color-primary);
+}
+
+.static-tab-trigger[data-state="active"],
+.static-tab-trigger[aria-selected="true"],
+.static-tab-trigger[data-selected] {
+    border-bottom-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.static-tab-trigger-group:hover .static-tab-close {
+    opacity: 1;
+}
+
+.static-tab-close {
+    margin-left: var(--spacing-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.static-tab-close:hover {
+    background-color: var(--color-bg-tertiary);
+}
+
+.dark .static-tab-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

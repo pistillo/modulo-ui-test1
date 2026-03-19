@@ -1,0 +1,120 @@
+/**
+ * IDE Layout Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.ide-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: var(--color-bg-secondary);
+}
+
+.ide-layout-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    min-height: 100%;
+    width: var(--ide-sidebar-width, 300px);
+    background: var(--color-bg-primary);
+    border-right: 1px solid var(--color-border);
+    transition: width var(--transition-base);
+    z-index: 100;
+}
+
+.ide-layout-sidebar-mini {
+    width: var(--ide-sidebar-mini-width, 80px);
+}
+
+.ide-layout-sidebar-mini:hover {
+    width: var(--ide-sidebar-width, 300px);
+}
+
+.ide-layout-main {
+    float: right;
+    min-height: 100vh;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    max-height: 100%;
+    width: calc(100% - var(--ide-sidebar-width, 300px));
+    max-width: calc(100% - var(--ide-sidebar-width, 300px));
+    transition: width var(--transition-base), max-width var(--transition-base);
+}
+
+.ide-layout-sidebar-mini+.ide-layout-main {
+    width: calc(100% - var(--ide-sidebar-mini-width, 80px));
+    max-width: calc(100% - var(--ide-sidebar-mini-width, 80px));
+}
+
+/* Performance Optimizations */
+.ide-layout-sidebar,
+.ide-layout-content,
+.ide-layout-navbar {
+    will-change: width;
+    transform: translateZ(0);
+}
+
+.ide-layout-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ide-layout-content {
+    padding: var(--spacing-4);
+}
+
+/* Navbar Primary Mode */
+.ide-layout-navbar-primary {
+    flex-direction: column;
+}
+
+.ide-layout-navbar-primary .ide-layout-navbar {
+    position: relative;
+    /* Or sticky if whole app scrolls? usually fixed/sticky at top */
+    width: 100%;
+}
+
+.ide-layout-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    /* Contains scroll areas */
+    position: relative;
+    width: 100%;
+}
+
+/* 
+ * In Navbar Primary mode, sidebar is inside ide-layout-body.
+ * It's positioned relative in the flex flow, not fixed to screen.
+ */
+.ide-layout-navbar-primary .ide-layout-sidebar {
+    position: relative;
+    height: 100%;
+    z-index: 40;
+}
+
+.ide-layout-navbar-primary .ide-layout-main {
+    width: 100%;
+    /* Flex shrink/grow handles it */
+    flex: 1;
+    max-width: none;
+    /* Reset max-width calc */
+    float: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .ide-layout-sidebar {
+        display: none;
+    }
+
+    .ide-layout-main {
+        width: 100%;
+        max-width: 100%;
+    }
+}

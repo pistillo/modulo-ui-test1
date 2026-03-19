@@ -1,0 +1,399 @@
+/**
+ * Avatar Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+/* Base Avatar */
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  overflow: visible;
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  font-weight: var(--font-semibold);
+  flex-shrink: 0;
+  transition: transform var(--transition-base);
+  border: 3px solid transparent;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* Avatar with Status - Glass Border Effect */
+.avatar:has(.avatar-badge-online) {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--color-success) 8%, transparent) 0%, 
+    color-mix(in srgb, var(--color-success) 3%, transparent) 100%);
+  border: 2.5px solid;
+  border-color: color-mix(in srgb, var(--color-success) 50%, transparent);
+  box-shadow: 
+    0 8px 32px color-mix(in srgb, var(--color-success) 20%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-success) 20%, transparent),
+    0 0 40px color-mix(in srgb, var(--color-success) 10%, transparent),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px color-mix(in srgb, var(--color-success) 15%, transparent);
+  backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+}
+
+.avatar:has(.avatar-badge-offline) {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--color-text-tertiary) 8%, transparent) 0%, 
+    color-mix(in srgb, var(--color-text-tertiary) 3%, transparent) 100%);
+  border: 2.5px solid;
+  border-color: color-mix(in srgb, var(--color-text-tertiary) 40%, transparent);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    0 0 0 1px color-mix(in srgb, var(--color-text-tertiary) 15%, transparent),
+    inset 0 1px 2px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px color-mix(in srgb, var(--color-text-tertiary) 12%, transparent);
+  backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+}
+
+.avatar:has(.avatar-badge-busy) {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--color-danger) 8%, transparent) 0%, 
+    color-mix(in srgb, var(--color-danger) 3%, transparent) 100%);
+  border: 2.5px solid;
+  border-color: color-mix(in srgb, var(--color-danger) 50%, transparent);
+  box-shadow: 
+    0 8px 32px color-mix(in srgb, var(--color-danger) 20%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-danger) 20%, transparent),
+    0 0 40px color-mix(in srgb, var(--color-danger) 10%, transparent),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px color-mix(in srgb, var(--color-danger) 15%, transparent);
+  backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+}
+
+.avatar:has(.avatar-badge-away) {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--color-warning) 8%, transparent) 0%, 
+    color-mix(in srgb, var(--color-warning) 3%, transparent) 100%);
+  border: 2.5px solid;
+  border-color: color-mix(in srgb, var(--color-warning) 50%, transparent);
+  box-shadow: 
+    0 8px 32px color-mix(in srgb, var(--color-warning) 18%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-warning) 18%, transparent),
+    0 0 36px color-mix(in srgb, var(--color-warning) 10%, transparent),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px color-mix(in srgb, var(--color-warning) 15%, transparent);
+  backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(16px) saturate(200%) brightness(1.05);
+}
+
+/* Sizes */
+.avatar-xs {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+  font-size: var(--text-xs);
+}
+
+.avatar-xs .avatar-badge {
+  width: 0.7em;
+  height: 0.7em;
+  border-width: 2px;
+}
+
+.avatar-sm {
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  font-size: var(--text-sm);
+}
+
+.avatar-md {
+  width: var(--spacing-10);
+  height: var(--spacing-10);
+  font-size: var(--text-base);
+}
+
+.avatar-lg {
+  width: var(--spacing-12);
+  height: var(--spacing-12);
+  font-size: var(--text-lg);
+}
+
+.avatar-xl {
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  font-size: var(--text-xl);
+}
+
+/* Image */
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transition-base);
+  border-radius: var(--radius-full);
+}
+
+.avatar-image[data-state='loading'] {
+  opacity: 0;
+}
+
+.avatar-image[data-state='loaded'] {
+  opacity: 1;
+}
+
+/* Fallback */
+.avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  color: white;
+  user-select: none;
+  border-radius: var(--radius-full);
+}
+
+/* Icon Fallback */
+.avatar-fallback-icon {
+  width: 60%;
+  height: 60%;
+  color: currentColor;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Badge Status */
+.avatar-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.85em;
+  height: 0.85em;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg-primary, #1a1a1a);
+  box-sizing: border-box;
+  z-index: 1;
+  transition: all var(--transition-fast);
+}
+
+.avatar-badge-online {
+  background: 
+    radial-gradient(circle at 40% 40%, 
+      color-mix(in srgb, var(--color-success) 100%, white 50%) 0%,
+      var(--color-success) 50%,
+      color-mix(in srgb, var(--color-success) 100%, black 20%) 100%);
+  box-shadow: 
+    0 0 0 1px var(--color-success),
+    0 0 8px color-mix(in srgb, var(--color-success) 60%, transparent),
+    0 0 16px color-mix(in srgb, var(--color-success) 40%, transparent),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+  animation: avatar-badge-pulse-modern 2.5s ease-in-out infinite;
+}
+
+.avatar-badge-offline {
+  background: 
+    radial-gradient(circle at 40% 40%, 
+      color-mix(in srgb, var(--color-text-tertiary) 100%, white 30%) 0%,
+      var(--color-text-tertiary) 50%,
+      color-mix(in srgb, var(--color-text-tertiary) 100%, black 20%) 100%);
+  box-shadow: 
+    0 0 0 1px color-mix(in srgb, var(--color-text-tertiary) 50%, transparent),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+.avatar-badge-busy {
+  background: 
+    radial-gradient(circle at 40% 40%, 
+      color-mix(in srgb, var(--color-danger) 100%, white 50%) 0%,
+      var(--color-danger) 50%,
+      color-mix(in srgb, var(--color-danger) 100%, black 20%) 100%);
+  box-shadow: 
+    0 0 0 1px var(--color-danger),
+    0 0 8px color-mix(in srgb, var(--color-danger) 60%, transparent),
+    0 0 16px color-mix(in srgb, var(--color-danger) 40%, transparent),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+  animation: avatar-badge-pulse-modern 2.5s ease-in-out infinite;
+}
+
+.avatar-badge-away {
+  background: 
+    radial-gradient(circle at 40% 40%, 
+      color-mix(in srgb, var(--color-warning) 100%, white 50%) 0%,
+      var(--color-warning) 50%,
+      color-mix(in srgb, var(--color-warning) 100%, black 20%) 100%);
+  box-shadow: 
+    0 0 0 1px var(--color-warning),
+    0 0 8px color-mix(in srgb, var(--color-warning) 55%, transparent),
+    0 0 14px color-mix(in srgb, var(--color-warning) 35%, transparent),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes avatar-badge-pulse-modern {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+    filter: brightness(1.15);
+  }
+}
+
+/* Avatar Wrapper with Text */
+.avatar-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  transition: all var(--transition-base);
+}
+
+.avatar-wrapper-clickable {
+  cursor: pointer;
+}
+
+.avatar-wrapper-clickable:hover {
+  opacity: 0.85;
+}
+
+.avatar-wrapper-clickable:hover .avatar {
+  transform: scale(1.05);
+}
+
+.avatar-wrapper-clickable:active {
+  opacity: 0.7;
+}
+
+.avatar-wrapper-clickable:active .avatar {
+  transform: scale(0.98);
+}
+
+.avatar-wrapper-clickable:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-md);
+}
+
+/* Text Block */
+.avatar-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-0-5);
+  min-width: 0;
+  flex: 1;
+}
+
+.avatar-text-block-xs,
+.avatar-text-block-sm {
+  line-height: 0.9;
+  gap: var(--spacing-0-5, 0.125rem);
+}
+
+.avatar-text-block-md,
+.avatar-text-block-lg,
+.avatar-text-block-xl {
+  line-height: 1.2;
+  gap: var(--spacing-1, 0.25rem);
+}
+
+.avatar-title {
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--transition-base);
+}
+
+.avatar-wrapper-clickable:hover .avatar-title {
+  color: var(--color-primary);
+}
+
+.avatar-title-xs {
+  font-size: var(--text-xs);
+}
+
+.avatar-title-sm {
+  font-size: var(--text-sm);
+}
+
+.avatar-title-md {
+  font-size: var(--text-base);
+}
+
+.avatar-title-lg {
+  font-size: var(--text-lg);
+}
+
+.avatar-title-xl {
+  font-size: var(--text-xl);
+}
+
+.avatar-subtitle {
+  color: var(--color-text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--transition-base);
+}
+
+.avatar-subtitle-xs {
+  font-size: var(--text-xs);
+}
+
+.avatar-subtitle-sm {
+  font-size: var(--text-sm);
+}
+
+.avatar-subtitle-md {
+  font-size: var(--text-base);
+}
+
+.avatar-subtitle-lg {
+  font-size: var(--text-lg);
+}
+
+.avatar-subtitle-xl {
+  font-size: var(--text-xl);
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .avatar,
+  .avatar-wrapper,
+  .avatar-image,
+  .avatar-badge,
+  .avatar-title,
+  .avatar-subtitle {
+    transition: none;
+  }
+  
+  .avatar-wrapper-clickable:hover .avatar {
+    transform: none;
+  }
+  
+  .avatar-wrapper-clickable:active .avatar {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .avatar {
+    border: 2px solid currentColor;
+  }
+  
+  .avatar-badge {
+    border-width: 3px;
+  }
+}

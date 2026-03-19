@@ -1,0 +1,90 @@
+/**
+ * Widget Frame Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.widget-frame {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.widget-frame-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    padding: var(--spacing-5);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.widget-frame-title-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.widget-frame-icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.widget-frame-icon {
+    padding: var(--spacing-2);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.widget-frame-title {
+    font-weight: var(--font-bold);
+    font-size: var(--text-lg);
+    color: var(--color-text-primary);
+    line-height: 1.25;
+}
+
+.widget-frame-subtitle {
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    color: var(--color-text-secondary);
+    margin-top: 0.125rem;
+}
+
+.widget-frame-action {
+    flex-shrink: 0;
+    margin-left: var(--spacing-4);
+}
+
+.widget-frame-children {
+    width: 100%;
+}
+
+.widget-frame-content {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    padding: var(--spacing-5);
+}
+
+/* Color Variations for Icon Backgrounds */
+.widget-frame-icon-blue {
+    color: var(--color-primary);
+    background: var(--color-primary-subtle);
+}
+
+.widget-frame-icon-indigo {
+    color: var(--color-indigo);
+    background: var(--color-indigo-subtle);
+}
+
+.widget-frame-icon-slate {
+    color: var(--color-text-secondary);
+    background: var(--color-bg-secondary);
+}
+
+.widget-frame-icon-default {
+    color: var(--color-text-secondary);
+    background: var(--color-bg-secondary);
+}

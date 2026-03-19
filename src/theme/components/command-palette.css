@@ -1,0 +1,371 @@
+/**
+ * CommandPalette Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ * Pattern coerente con le altre CSS della libreria (full-text-search.css, modal.css)
+ */
+
+/* ============================================================
+   Backdrop - overlay scuro dietro il dialog
+   ============================================================ */
+.command-palette-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  animation: command-palette-fade-in 0.15s ease;
+}
+
+/* ============================================================
+   Positioner - centra il dialog in alto (VS Code style)
+   ============================================================ */
+.command-palette-positioner {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Content - il pannello bianco della palette
+   ============================================================ */
+.command-palette-content {
+  pointer-events: all;
+  width: 100%;
+  max-width: 640px;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2xl);
+  overflow: hidden;
+  animation: command-palette-slide-in 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+}
+
+/* ============================================================
+   Header: icona search + input + hint ESC
+   ============================================================ */
+.command-palette-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+}
+
+.command-palette-header__icon {
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.command-palette-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+.command-palette-input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* ============================================================
+   Override SearchInput/TextInput dentro l'header della palette
+   Neutralizza la struttura form per l'uso inline
+   ============================================================ */
+.command-palette-header .input-root {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+
+/* SearchInput wrapper esterno (div senza classe) */
+.command-palette-header > div {
+  flex: 1;
+  min-width: 0;
+}
+.command-palette-header .input-label {
+  display: none;
+}
+
+.command-palette-header .input-wrapper {
+  flex: 1;
+  width: 100%;
+  border: none !important;
+  background: transparent !important;
+  padding: 0;
+  box-shadow: none !important;
+}
+
+.command-palette-header .input-wrapper:focus-within {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.command-palette-header .input {
+  flex: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  padding: 0;
+  height: auto;
+  box-shadow: none;
+}
+
+.command-palette-header .input:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.command-palette-header .input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.command-palette-esc-hint {
+  flex-shrink: 0;
+  font-family: var(--font-family-mono, monospace);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+}
+
+/* ============================================================
+   Divisore
+   ============================================================ */
+.command-palette-divider {
+  height: 1px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Lista risultati – scrollabile
+   ============================================================ */
+.command-palette-list {
+  overflow-y: auto;
+  padding: var(--spacing-2);
+  flex: 1;
+  min-height: 0;
+}
+
+/* Scrollbar sottile */
+.command-palette-list::-webkit-scrollbar {
+  width: 4px;
+}
+.command-palette-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.command-palette-list::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+/* ============================================================
+   Gruppo (es. "Navigazione", "Azioni")
+   ============================================================ */
+.command-palette-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.command-palette-group + .command-palette-group {
+  margin-top: var(--spacing-1);
+  border-top: 1px solid var(--color-border-subtle, var(--color-border));
+  padding-top: var(--spacing-1);
+}
+
+.command-palette-group__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--spacing-2) var(--spacing-3) var(--spacing-1);
+}
+
+/* ============================================================
+   Singolo item
+   ============================================================ */
+.command-palette-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.1s ease, color 0.1s ease;
+  user-select: none;
+}
+
+.command-palette-item:hover,
+.command-palette-item--active {
+  background: var(--color-bg-hover, var(--color-bg-secondary));
+  color: var(--color-primary);
+}
+
+.command-palette-item--active .command-palette-item__label {
+  color: var(--color-primary);
+}
+
+/* Icona */
+.command-palette-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+.command-palette-item--active .command-palette-item__icon,
+.command-palette-item:hover .command-palette-item__icon {
+  background: var(--color-primary-subtle, rgba(var(--color-primary-rgb, 0 0 0) / 0.1));
+  color: var(--color-primary);
+}
+
+/* Testi */
+.command-palette-item__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.command-palette-item__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.1s ease;
+}
+
+.command-palette-item__description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+/* Shortcut kbd */
+.command-palette-item__shortcut {
+  font-family: var(--font-family-mono, monospace);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1px 5px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Stato vuoto (nessun risultato)
+   ============================================================ */
+.command-palette-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-8) var(--spacing-4);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* ============================================================
+   Footer: hint navigazione
+   ============================================================ */
+.command-palette-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  flex-shrink: 0;
+  margin-top: var(--spacing-2);
+}
+
+.command-palette-footer__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1;
+}
+
+.command-palette-footer__hint kbd {
+  font-family: var(--font-family-mono, monospace);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1px 4px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* ============================================================
+   Animazioni
+   ============================================================ */
+@keyframes command-palette-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes command-palette-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================================================
+   Responsive: su mobile occupa quasi tutto lo schermo
+   ============================================================ */
+@media (max-width: 680px) {
+  .command-palette-positioner {
+    align-items: flex-start;
+    padding-top: 0;
+  }
+
+  .command-palette-content {
+    max-width: 100%;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    max-height: 80vh;
+  }
+}

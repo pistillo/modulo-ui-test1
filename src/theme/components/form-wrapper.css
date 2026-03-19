@@ -1,0 +1,25 @@
+/**
+ * Form Wrapper Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.form-wrapper {
+    width: 100%;
+}
+
+.form-wrapper-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.form-wrapper-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.form-wrapper-fieldset:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

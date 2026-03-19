@@ -1,0 +1,65 @@
+/**
+ * Carousel Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.carousel {
+  position: relative;
+}
+
+.carousel-item-group {}
+
+.carousel-item {}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0 var(--spacing-4);
+}
+
+.carousel-prev-trigger,
+.carousel-next-trigger {
+  pointer-events: auto;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  width: var(--size-10);
+  height: var(--size-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.carousel-prev-trigger:hover,
+.carousel-next-trigger:hover {
+  background: var(--color-bg-hover);
+}
+
+.carousel-indicator-group {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-4);
+}
+
+.carousel-indicator {
+  width: var(--size-2-5);
+  height: var(--size-2-5);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-secondary);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.carousel-indicator[data-current] {
+  background: var(--color-primary);
+}

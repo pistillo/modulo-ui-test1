@@ -1,0 +1,61 @@
+/**
+ * Foundations - Layout
+ * 
+ * Defines layout-related tokens: breakpoints, grid templates, z-index scales.
+ */
+
+/* ============================================================================
+   Layout - Breakpoints
+   ============================================================================ */
+
+:root {
+  /* Breakpoints */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 380px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1600px;
+  --breakpoint-3xl: 1920px;
+}
+
+/* ============================================================================
+   Layout - Z-Index Scale
+   ============================================================================ */
+
+:root {
+  --z-index-base: 0;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-tooltip: 1070;
+  --z-index-toast: 1080;
+  --z-index-popover: 9000;
+  --z-index-overlay: 9998;
+  --z-index-modal-backdrop: 9999;
+  --z-index-modal: 10000;
+}
+
+/* ============================================================================
+   Layout - Grid Templates
+   ============================================================================ */
+
+/* Grid templates are typically defined in component CSS or utility classes */
+/* These are reference values for common grid layouts */
+
+:root {
+  /* 2 Columns */
+  --grid-template-2cols-base: 1fr;
+  --grid-template-2cols-md: repeat(2, 1fr);
+  --grid-template-2cols-xl: repeat(2, 1fr);
+
+  /* 3 Columns */
+  --grid-template-3cols-base: 1fr;
+  --grid-template-3cols-md: repeat(3, 1fr);
+  --grid-template-3cols-xl: repeat(3, 1fr);
+
+  /* 4 Columns */
+  --grid-template-4cols-base: 1fr;
+  --grid-template-4cols-md: repeat(4, 1fr);
+  --grid-template-4cols-xl: repeat(4, 1fr);
+}

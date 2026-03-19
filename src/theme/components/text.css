@@ -1,0 +1,179 @@
+/**
+ * Text Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.text {
+  margin: 0;
+  line-height: var(--leading-normal);
+}
+
+/* Font Size */
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-md {
+  font-size: var(--text-base);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+}
+
+.text-xl {
+  font-size: var(--text-xl);
+}
+
+.text-2xl {
+  font-size: var(--text-2xl);
+}
+
+.text-3xl {
+  font-size: var(--text-3xl);
+}
+
+.text-4xl {
+  font-size: var(--text-4xl);
+}
+
+.text-5xl {
+  font-size: var(--text-5xl);
+}
+
+.text-6xl {
+  font-size: var(--text-6xl);
+}
+
+/* Font Weight */
+.text-weight-lighter {
+  font-weight: var(--font-light);
+}
+
+.text-weight-normal {
+  font-weight: var(--font-normal);
+}
+
+.text-weight-bold {
+  font-weight: var(--font-bold);
+}
+
+.text-weight-bolder {
+  font-weight: 800;
+}
+
+/* Colors */
+.text-color-primary {
+  color: var(--color-primary);
+}
+
+.text-color-success {
+  color: var(--color-success);
+}
+
+.text-color-error {
+  color: var(--color-error);
+}
+
+.text-color-warning {
+  color: var(--color-warning);
+}
+
+.text-color-info {
+  color: var(--color-info);
+}
+
+.text-color-muted {
+  color: var(--color-text-tertiary);
+}
+
+.text-color-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-color-black {
+  color: var(--color-text-primary);
+}
+
+.text-color-white {
+  color: var(--color-white);
+}
+
+.text-color-inverted {
+  color: var(--color-text-inverted, var(--color-white));
+}
+
+/* Alignment */
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+/* Transform */
+.text-transform-capitalize {
+  text-transform: capitalize;
+}
+
+.text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+.text-transform-lowercase {
+  text-transform: lowercase;
+}
+
+/* Truncate */
+[class*='text-truncate-'] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-truncate-1 {
+  -webkit-line-clamp: 1;
+}
+
+.text-truncate-2 {
+  -webkit-line-clamp: 2;
+}
+
+.text-truncate-3 {
+  -webkit-line-clamp: 3;
+}
+
+.text-truncate-4 {
+  -webkit-line-clamp: 4;
+}
+
+/* Text Styles */
+.text-style-italic {
+  font-style: italic;
+}
+
+.text-style-underline {
+  text-decoration: underline;
+}
+
+.text-style-strikethrough {
+  text-decoration: line-through;
+}
+
+.text-style-highlighted mark {
+  background: var(--color-warning-subtle);
+  color: var(--color-text-primary);
+}

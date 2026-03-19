@@ -1,0 +1,168 @@
+/**
+ * Dashboard Toolbar Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.dashboard-toolbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+    animation: slide-in-from-left-4 500ms ease-out;
+}
+
+@media (min-width: 768px) {
+    .dashboard-toolbar {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+.dashboard-toolbar-info {
+    display: block;
+}
+
+.dashboard-toolbar-info-with-icon {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-toolbar-title-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.dashboard-toolbar-icon {
+    width: var(--spacing-8);
+    height: var(--spacing-8);
+    color: var(--color-primary);
+}
+
+.dashboard-toolbar-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+    color: var(--color-text-primary);
+}
+
+.dashboard-toolbar-subtitle {
+    font-weight: var(--font-medium);
+    margin-top: var(--spacing-2);
+    max-width: 42rem;
+    font-size: var(--text-base);
+    line-height: 1.625;
+    color: var(--color-text-secondary);
+}
+
+.dashboard-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .dashboard-toolbar-actions {
+        flex-wrap: nowrap;
+        margin-bottom: var(--spacing-1);
+    }
+}
+
+.dashboard-toolbar-btn {
+    background: var(--color-bg-primary-transparent, rgba(255, 255, 255, 0.6));
+    backdrop-filter: blur(12px);
+    padding: var(--spacing-2-5);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.dashboard-toolbar-btn:hover {
+    color: var(--color-primary);
+    background: var(--color-bg-primary);
+}
+
+.dashboard-toolbar-btn:active {
+    transform: scale(0.95);
+}
+
+.dashboard-toolbar-time-container {
+    display: flex;
+    align-items: center;
+    background: var(--color-bg-secondary-transparent, rgba(255, 255, 255, 0.4));
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-1) var(--spacing-1) var(--spacing-1) var(--spacing-4);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.dashboard-toolbar-time-container:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.dashboard-toolbar-date-label {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding-right: var(--spacing-3);
+    border-right: 1px solid var(--color-border);
+    margin-right: var(--spacing-1);
+    height: var(--spacing-5);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-text-secondary);
+    line-height: 1;
+    padding-top: 0.125rem;
+}
+
+@media (min-width: 768px) {
+    .dashboard-toolbar-date-label {
+        display: flex;
+    }
+}
+
+.dashboard-toolbar-select-wrapper {
+    position: relative;
+}
+
+.dashboard-toolbar-select {
+    appearance: none;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-10);
+    padding-top: var(--spacing-2);
+    padding-bottom: var(--spacing-2);
+    border-radius: var(--radius-xl);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    outline: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: background-color var(--transition-base);
+    border: none;
+}
+
+.dashboard-toolbar-select:hover {
+    background: var(--color-primary-hover, var(--color-primary));
+    /* Fallback if hover var missing */
+}
+
+.dashboard-toolbar-select-icon {
+    position: absolute;
+    right: var(--spacing-3);
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+    color: var(--color-white);
+    pointer-events: none;
+}

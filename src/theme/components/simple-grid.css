@@ -1,0 +1,7 @@
+/**
+ * SimpleGrid Component Styles
+ */
+
+.simple-grid {
+    display: grid;
+}

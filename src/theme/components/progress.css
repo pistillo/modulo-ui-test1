@@ -1,0 +1,91 @@
+/**
+ * Progress Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  width: 100%;
+}
+
+/* Header */
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.progress-value-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Track */
+.progress-track {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Range */
+.progress-range {
+  background: var(--color-primary);
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+}
+
+/* Sizes */
+.progress-sm .progress-track {
+  height: var(--spacing-1);
+}
+
+.progress-md .progress-track {
+  height: var(--spacing-2);
+}
+
+.progress-lg .progress-track {
+  height: var(--spacing-3);
+}
+
+/* Colors */
+.progress-primary .progress-range {
+  background: var(--color-primary);
+}
+
+.progress-success .progress-range {
+  background: var(--color-success);
+}
+
+.progress-warning .progress-range {
+  background: var(--color-warning);
+}
+
+.progress-error .progress-range {
+  background: var(--color-danger);
+}
+
+/* Indeterminate Animation */
+.progress-indeterminate .progress-range {
+  width: 50% !important;
+  animation: progress-indeterminate 1.5s infinite linear;
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
+}

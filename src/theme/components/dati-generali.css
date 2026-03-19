@@ -1,0 +1,632 @@
+/* =============================================================================
+   DatiGenerali — scheda riepilogativa anagrafica
+   =============================================================================
+   Layout di riferimento (immagine target):
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  [! ANOMALIE RILEVATE banner — full width]           [⚠ Risolvi] │
+   ├────────────────────────────────────────────┬────────────────────────────┤
+   │  Avatar  Nome Anagrafica                   │  📞 RECAPITI               │
+   │  [P010]  [Persona fisica]                  │  ──────────────────────    │
+   │  ──── DATI IDENTIFICATIVI ──────────────   │  📱 +39 081…   TELEFONO   │
+   │  NOME   SECONDO NOME   COGNOME             │  ✉  a.ferrara…  EMAIL      │
+   │  …      …              …                  │  📍 Via Toledo… RESIDENZA  │
+   │  SESSO  DATA NASCITA   LUOGO NASCITA       │                            │
+   │  …      …              …                  │  👪 NUCLEO FAMILIARE       │
+   │                                            │  [1]    [0]    [1]         │
+   ├────────────────────────────────────────────│  Comp.  Minori Disab.      │
+   │  🏠 IMMOBILI & CONTRATTI    [1]            │  ─────────────────────     │
+   │  ─ CONTRATTO ATTIVO ──── [ATTIVO]          │  R  Rosa Ferrara [Coniuge] │
+   │  CANONE  TIPO              │               ├────────────────────────────┤
+   │  350€/m  Loc. Agevolata   │               │                            │
+   │  CODICE  DECORRENZA        │               │                            │
+   │  …       …                 │               │                            │
+   │  🏠 NA-VT120-01 [Residenza] [Attivo] >     │                            │
+   ├────────────────────────────────────────────┴────────────────────────────┤
+   │  💰 SITUAZIONE ECONOMICA — full width                                   │
+   │  REDDITO ISEE  SCADENZA ISEE  FASCIA  ULTIMO PAGAMENTO  STATO           │
+   └─────────────────────────────────────────────────────────────────────────┘
+   ============================================================================= */
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 1. ROOT                                                                     */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.dati-generali {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 2. STATES: Loading / Error                                                  */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.dati-generali-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.dati-generali-error {
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 3. ANOMALIE BANNER                                                          */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.dati-generali-anomalie-banner {
+  width: 100%;
+  padding-block: var(--spacing-2);
+  align-items: center;           /* icona centrata verticalmente col contenuto */
+}
+
+/* Grid: testo (title+desc impilati) a sinistra | bottone a destra centrato */
+.dati-generali-anomalie-banner .alert-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  column-gap: var(--spacing-3);
+}
+
+.dati-generali-anomalie-banner .alert-title {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+}
+
+.dati-generali-anomalie-banner .alert-description {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+}
+
+.dati-generali-anomalie-actions {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 4. RIGHE — ogni riga ha le card affiancate alla stessa altezza              */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Base comune a tutte le righe */
+.dati-generali-row {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: stretch;        /* card nella stessa riga → stessa altezza */
+  width: 100%;
+}
+
+/* Le card figlie crescono per occupare l'intera altezza della riga */
+.dati-generali-row > * {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+/* Riga 1: altezza fissa — Dati Identificativi (~70%) | Recapiti (~30%) */
+.dati-generali-row--1               { height: 300px; }
+.dati-generali-row--1 > .dati-generali-card--dati-id  { flex: 70 1 0; }
+.dati-generali-row--1 > .dati-generali-card--recapiti  { flex: 30 1 0; }
+
+/* Riga 2: altezza fissa — Immobili & Contratti (50%) | Nucleo Familiare (50%) */
+.dati-generali-row--2               { height: 340px; }
+.dati-generali-row--2 > .dati-generali-card--immobili  { flex: 1 1 0; }
+.dati-generali-row--2 > .dati-generali-card--nucleo    { flex: 1 1 0; }
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 5. CARD BASE — classi comuni a tutte le cards                               */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.dati-generali-card {
+  width: 100%;
+  height: 100%;               /* si estende all'altezza della riga */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;   /* permette a flex-children di shrinkare correttamente */
+}
+
+/* ── Card body scrollabile ───────────────────────────────────────────────── */
+/*
+ * Ogni card ha il proprio body indipendente con max-height + overflow scroll.
+ * La scrollbar è sottile e usa i colori del tema.
+ */
+.dati-generali-card .card-body {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--colors-fg) 15%, transparent) transparent;
+}
+.dati-generali-card .card-body::-webkit-scrollbar {
+  width: 4px;
+}
+.dati-generali-card .card-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dati-generali-card .card-body::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--colors-fg) 15%, transparent);
+  border-radius: 2px;
+}
+.dati-generali-card .card-body::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--colors-fg) 25%, transparent);
+}
+
+/* ── Altezze card — le righe hanno altezza fissa, i body scrollano ─────────── */
+
+/* Tutte le card nelle righe 1 e 2: body occupa lo spazio residuo e scrolla */
+.dati-generali-card--dati-id .card-body,
+.dati-generali-card--recapiti .card-body,
+.dati-generali-card--immobili .card-body,
+.dati-generali-card--nucleo .card-body {
+  flex: 1 1 0;
+  max-height: none;
+  overflow-y: auto;
+}
+
+/* Situazione Economica — altezza libera, nessuno scroll */
+.dati-generali-card--eco .card-body {
+  overflow-y: visible;
+}
+
+/* Icona nel card-header (piccola, colorata col primary) */
+.dati-generali-card-icon {
+  color: var(--colors-primary, #007AFF);
+  flex-shrink: 0;
+}
+
+/* Titolo nel card-header */
+.dati-generali-card-title {
+  font-size: var(--font-size-sm, 0.75rem);
+  font-weight: var(--font-weight-extrabold, 800);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--colors-fg-muted, #94a3b8);
+}
+
+.dati-generali-card-content {
+  width: 100%;
+}
+
+/* ── Card navigabile (click abilitato) ─────────────────────────────────────── */
+
+.dati-generali-card--navigable {
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.dati-generali-card--navigable:hover {
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--colors-fg) 10%, transparent);
+  transform: translateY(-1px);
+}
+
+.dati-generali-card--navigable:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Freccia di navigazione nel card-header — anima a destra all'hover */
+.dati-generali-card-nav-arrow {
+  color: var(--colors-fg-subtle);
+  transition: color 0.15s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.dati-generali-card--navigable:hover .dati-generali-card-nav-arrow {
+  color: var(--colors-primary);
+  transform: translateX(3px);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 6. CARD HEADER UNIFICATO (avatar + nome + badges)                           */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Override del card-header per la top-card: padding leggermente più generoso  */
+.dati-generali-main-card-header {
+  padding: var(--spacing-5, 1.25rem) var(--spacing-5, 1.25rem) var(--spacing-4, 1rem);
+  /* Accento gradient top-border — persona fisica (default: blue→cyan) */
+  border-top: 3px solid transparent;
+  background-image: linear-gradient(
+    var(--colors-card-bg, transparent),
+    var(--colors-card-bg, transparent)
+  ),
+  linear-gradient(
+    90deg,
+    var(--colors-primary, #007AFF),
+    var(--colors-info, #06b6d4)
+  );
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Variante persona giuridica — gradient purple */
+.dati-generali-card--giuridica .dati-generali-main-card-header {
+  background-image: linear-gradient(
+    var(--colors-card-bg, transparent),
+    var(--colors-card-bg, transparent)
+  ),
+  linear-gradient(
+    90deg,
+    #a855f7,
+    #c084fc
+  );
+}
+
+/* Avatar (persona fisica — cerchio blue) */
+.dati-generali-avatar--fisica {
+  background: color-mix(in srgb, var(--colors-primary, #007AFF) 20%, transparent);
+  border: 2px solid color-mix(in srgb, var(--colors-primary, #007AFF) 40%, transparent);
+  color: var(--colors-primary, #007AFF);
+}
+
+/* Avatar (persona giuridica — cerchio purple) */
+.dati-generali-avatar--giuridica {
+  background: color-mix(in srgb, #a855f7 18%, transparent);
+  border: 2px solid color-mix(in srgb, #a855f7 35%, transparent);
+  color: #a855f7;
+}
+
+/* Nome anagrafica — grande */
+.dati-generali-header-nome {
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--colors-fg);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 7. SECTION DIVIDER — "DATI IDENTIFICATIVI"                                  */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.dati-generali-section-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3, 0.75rem);
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+.dati-generali-section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: color-mix(in srgb, var(--colors-fg) 10%, transparent);
+}
+
+.dati-generali-section-label {
+  font-size: var(--font-size-xs, 0.6875rem);
+  font-weight: var(--font-weight-extrabold, 800);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--colors-fg-subtle, #64748b);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 8. FIELD LABEL / VALUE                                                      */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.dati-generali-field-label {
+  font-size: var(--font-size-2xs, 0.625rem);
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colors-fg-subtle, #64748b);
+  line-height: 1;
+}
+
+.dati-generali-field-value {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--colors-fg);
+  line-height: 1.4;
+}
+
+/* LabeledValue all'interno delle card dati-generali: eredita gli stili campo */
+.dati-generali-card .labeled-value__label {
+  font-size: var(--font-size-2xs, 0.625rem);
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colors-fg-subtle, #64748b);
+  line-height: 1;
+}
+
+.dati-generali-card .labeled-value__value {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--colors-fg);
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 9. RECAPITI                                                                  */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.dati-generali-recapito-row {
+  padding: var(--spacing-2, 0.5rem) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--colors-fg) 8%, transparent);
+}
+
+.dati-generali-recapito-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Icona circolare con sfondo colorato */
+.dati-generali-recapito-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-lg, 10px);
+  flex-shrink: 0;
+  /* Default */
+  background: color-mix(in srgb, var(--colors-fg-subtle, #64748b) 15%, transparent);
+  color: var(--colors-fg-muted, #94a3b8);
+}
+
+.dati-generali-recapito-icon--telefono,
+.dati-generali-recapito-icon--cellulare {
+  background: color-mix(in srgb, var(--colors-success, #10B981) 20%, transparent);
+  color: var(--colors-success, #10B981);
+}
+
+.dati-generali-recapito-icon--email {
+  background: color-mix(in srgb, var(--colors-primary, #007AFF) 20%, transparent);
+  color: var(--colors-primary, #007AFF);
+}
+
+.dati-generali-recapito-icon--pec {
+  background: color-mix(in srgb, var(--colors-info, #06b6d4) 20%, transparent);
+  color: var(--colors-info, #06b6d4);
+}
+
+.dati-generali-recapito-icon--residenza {
+  background: color-mix(in srgb, var(--colors-warning, #F59E0B) 20%, transparent);
+  color: var(--colors-warning, #F59E0B);
+}
+
+.dati-generali-recapito-valore {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--colors-fg);
+  line-height: 1.3;
+}
+
+.dati-generali-recapito-label {
+  font-size: var(--font-size-2xs, 0.625rem);
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--colors-fg-subtle, #64748b);
+  line-height: 1;
+}
+
+.dati-generali-recapito-sub {
+  font-size: var(--font-size-2xs, 0.625rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--colors-fg-subtle, #64748b);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 10. IMMOBILI & CONTRATTI                                                    */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Sezione contratto attivo — box con bordo sottile */
+.dati-generali-contratto-attivo {
+  background: color-mix(in srgb, var(--colors-primary, #007AFF) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--colors-primary, #007AFF) 20%, transparent);
+  border-radius: var(--radius-lg, 10px);
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3, 0.75rem);
+}
+
+.dati-generali-contratto-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+}
+
+.dati-generali-contratto-icon {
+  color: var(--colors-success, #10B981);
+}
+
+.dati-generali-contratto-label-text {
+  font-size: var(--font-size-2xs, 0.625rem);
+  font-weight: var(--font-weight-extrabold, 800);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--colors-fg-subtle, #64748b);
+}
+
+/* Griglia 2×2 per i 4 campi contratto (canone/tipo/codice/decorrenza) */
+.dati-generali-contratto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-3, 0.75rem);
+}
+
+.dati-generali-contratto-canone {
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--colors-fg);
+  line-height: 1.2;
+}
+
+/* Riga immobile */
+.dati-generali-immobile-row {
+  padding: var(--spacing-3, 0.75rem);
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid color-mix(in srgb, var(--colors-fg) 8%, transparent);
+  background: color-mix(in srgb, var(--colors-fg) 3%, transparent);
+  transition: background var(--transition-fast, 0.15s);
+}
+
+.dati-generali-immobile-row:hover {
+  background: color-mix(in srgb, var(--colors-primary, #007AFF) 5%, transparent);
+  border-color: color-mix(in srgb, var(--colors-primary, #007AFF) 20%, transparent);
+}
+
+/* Icona home circolare */
+.dati-generali-immobile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md, 8px);
+  background: color-mix(in srgb, var(--colors-warning, #F59E0B) 15%, transparent);
+  color: var(--colors-warning, #F59E0B);
+  flex-shrink: 0;
+}
+
+.dati-generali-immobile-codice {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--colors-fg);
+}
+
+.dati-generali-immobile-indirizzo {
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--colors-fg-muted, #94a3b8);
+  line-height: 1.3;
+}
+
+.dati-generali-immobile-sub {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-1, 0.25rem);
+}
+
+.dati-generali-immobile-sub-text {
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--colors-fg-subtle, #64748b);
+}
+
+.dati-generali-immobile-sep {
+  color: color-mix(in srgb, var(--colors-fg) 20%, transparent);
+  font-size: var(--font-size-xs, 0.75rem);
+}
+
+.dati-generali-immobile-chevron {
+  color: var(--colors-fg-subtle, #64748b);
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 11. NUCLEO FAMILIARE                                                         */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Griglia 3 colonne stat */
+.dati-generali-nucleo-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-2, 0.5rem);
+}
+
+/* Icona: la posizione assoluta è definita in icon-stat.css */
+.dati-generali-nucleo-stat .icon-stat__icon {
+  opacity: 0.3;
+}
+
+/* Valore numerico grande — solo font in contesto */
+.dati-generali-nucleo-stat .icon-stat__value {
+  font-size: var(--font-size-2xl, 1.5rem);
+  font-weight: var(--font-weight-extrabold, 800);
+  line-height: 1;
+}
+
+/* Label piccola sotto — solo font in contesto */
+.dati-generali-nucleo-stat .icon-stat__label {
+  font-size: var(--font-size-2xs, 0.625rem);
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+/* Riga membro nucleo */
+.dati-generali-membro-row {
+  padding: var(--spacing-2, 0.5rem) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--colors-fg) 8%, transparent);
+}
+
+.dati-generali-membro-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dati-generali-membro-nome {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--colors-fg);
+  line-height: 1.2;
+}
+
+.dati-generali-membro-relazione {
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--colors-fg-subtle, #64748b);
+  line-height: 1.2;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 12. SITUAZIONE ECONOMICA                                                     */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Icona ISEE ($ verde) */
+.dati-generali-isee-icon {
+  color: var(--colors-success, #10B981);
+  flex-shrink: 0;
+}
+
+/* Valore ISEE — taglia grande */
+.dati-generali-isee-valore {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--colors-fg);
+  line-height: 1.2;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* 13. RESPONSIVE                                                               */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .dati-generali-body {
+    flex-direction: column;
+  }
+
+  .dati-generali-main-col,
+  .dati-generali-side-col {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  /* Su mobile le card non hanno max-height: scorrono nella pagina */
+  .dati-generali-card--dati-id .card-body,
+  .dati-generali-card--immobili .card-body,
+  .dati-generali-card--recapiti .card-body,
+  .dati-generali-card--nucleo .card-body {
+    max-height: none;
+  }
+
+  .dati-generali-nucleo-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dati-generali-contratto-grid {
+    grid-template-columns: 1fr;
+  }
+}

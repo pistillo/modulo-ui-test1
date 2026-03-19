@@ -1,0 +1,93 @@
+/**
+ * Spinner Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ * Based on Ark UI Progress.Circle
+ */
+
+.spinner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+}
+
+/* Progress Circle Container */
+.spinner-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --thickness: 3px;
+}
+
+.spinner-circle {
+  animation: spinner-rotate 1s linear infinite;
+}
+
+.spinner-circle-track {
+  stroke: var(--colors-border) !important;
+  opacity: 0.5 !important;
+}
+
+.spinner-circle-range {
+  stroke: var(--colors-primary) !important;
+  stroke-linecap: round !important;
+  stroke-dasharray: calc(var(--circumference) * 0.25) var(--circumference) !important;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-label {
+  font-size: var(--text-sm);
+  color: var(--colors-fg-muted);
+  margin-top: var(--spacing-2);
+}
+
+/* Sizes */
+.spinner-sm .spinner-progress {
+  --size: 24px;
+}
+
+.spinner-sm .spinner-label {
+  font-size: var(--text-xs);
+}
+
+.spinner-md .spinner-progress {
+  --size: 32px;
+}
+
+.spinner-md .spinner-label {
+  font-size: var(--text-sm);
+}
+
+.spinner-lg .spinner-progress {
+  --size: 48px;
+}
+
+.spinner-lg .spinner-label {
+  font-size: var(--text-base);
+}
+
+.spinner-xl .spinner-progress {
+  --size: 64px;
+}
+
+.spinner-xl .spinner-label {
+  font-size: var(--text-lg);
+}
+
+/* Overlay */
+.spinner-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--colors-bg-muted);
+  backdrop-filter: blur(var(--blur-sm));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}

@@ -1,0 +1,81 @@
+/**
+ * Quick Actions Panel Styles
+ * Uses semantic CSS variables — zero hardcode
+ */
+
+/* =============================================================================
+   Container
+   ============================================================================= */
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-4);
+    gap: 0;
+    background: var(--colors-card-bg, rgba(255, 255, 255, 0.06));
+    border: 1px solid var(--colors-border, rgba(255, 255, 255, 0.10));
+    border-radius: var(--radius-2xl);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* =============================================================================
+   Header (label di sezione)
+   ============================================================================= */
+
+.quick-actions-title {
+    font-size: 0.625rem;          /* 10px */
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-subtle, rgba(148, 163, 184, 0.9));
+    margin-bottom: var(--spacing-3);
+}
+
+/* =============================================================================
+   Actions list
+   ============================================================================= */
+
+.quick-actions-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+/* Layout orizzontale: direction='horizontal' oppure tutti compact */
+.quick-actions-list--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+/* Layout orizzontale quando tutti gli item sono compact (IconButton) */
+.quick-actions-list--compact {
+    gap: var(--spacing-1);
+}
+
+/* Wrapper di ogni item in layout orizzontale */
+.quick-actions-list--horizontal .quick-actions-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+/* Separatore orizzontale (layout verticale) */
+.quick-actions-separator {
+    height: 1px;
+    background: var(--colors-border, rgba(255, 255, 255, 0.10));
+    margin-top: var(--spacing-1);
+    margin-bottom: var(--spacing-1);
+}
+
+/* Separatore verticale (layout orizzontale) */
+.quick-actions-separator--vertical {
+    width: 1px;
+    align-self: stretch;
+    background: var(--colors-border, rgba(255, 255, 255, 0.10));
+    margin-left: var(--spacing-1);
+    margin-right: var(--spacing-1);
+}

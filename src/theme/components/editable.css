@@ -1,0 +1,95 @@
+/**
+ * Editable Component Styles
+ * Uses semantic CSS variables from theme/variables.css
+ */
+
+[data-scope='editable'][data-part='root'] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: 100%;
+}
+
+[data-scope='editable'][data-part='label'] {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--colors-fg);
+  line-height: 1.5;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+[data-scope='editable'][data-part='preview'] {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--colors-fg);
+  cursor: text;
+  transition: all 0.2s ease;
+  min-height: var(--spacing-10);
+  display: flex;
+  align-items: center;
+}
+
+[data-scope='editable'][data-part='preview']:hover {
+  background-color: var(--colors-bg-hover);
+  border-color: var(--colors-border);
+}
+
+[data-scope='editable'][data-part='preview'][data-empty='true'] {
+  color: var(--colors-fg-subtle);
+}
+
+[data-scope='editable'][data-part='input'] {
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--colors-border);
+  background-color: var(--colors-bg-subtle);
+  color: var(--colors-fg);
+  font-size: var(--text-sm);
+  transition: all 0.2s ease;
+}
+
+[data-scope='editable'][data-part='input']:focus {
+  outline: none;
+  border-color: var(--colors-primary);
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.1);
+}
+
+[data-scope='editable'][data-part='input'][data-invalid='true'] {
+  border-color: var(--colors-widget-red);
+}
+
+[data-scope='editable'][data-part='control'] {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+[data-scope='editable'][data-part='edit-trigger'],
+[data-scope='editable'][data-part='submit-trigger'],
+[data-scope='editable'][data-part='cancel-trigger'] {
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--colors-border);
+  background-color: var(--colors-bg-subtle);
+  color: var(--colors-fg);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-scope='editable'][data-part='edit-trigger']:hover,
+[data-scope='editable'][data-part='submit-trigger']:hover {
+  background-color: var(--colors-primary);
+  color: var(--colors-button-fg);
+  border-color: var(--colors-primary);
+}
+
+[data-scope='editable'][data-part='cancel-trigger']:hover {
+  background-color: var(--colors-bg-hover);
+  border-color: var(--colors-border-emphasized);
+}

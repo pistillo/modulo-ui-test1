@@ -1,0 +1,278 @@
+/**
+ * Breadcrumb Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ *
+ * Classi generate dal componente (index.tsx):
+ *  .breadcrumb              — root <nav>
+ *  .breadcrumb-{sm|md|lg}   — varianti dimensionali
+ *  .breadcrumb-list         — <ol>
+ *  .breadcrumb-item         — <li>
+ *  .breadcrumb-link         — <a> o <span> interattivo
+ *  .breadcrumb-link--current  — pagina corrente (non cliccabile)
+ *  .breadcrumb-link--disabled — item disabilitato
+ *  .breadcrumb-separator    — separatore decorativo (aria-hidden)
+ *  .breadcrumb-ellipsis     — placeholder «…» per item collassati
+ *  .breadcrumb-item-icon    — wrapper icona Lucide
+ *  .breadcrumb-item-label   — testo della label
+ */
+
+/* ============================================================================
+   CUSTOM PROPERTIES — overridable per istanza
+   ============================================================================ */
+
+.breadcrumb {
+  /* Colori */
+  --breadcrumb-link-color:        var(--color-text-secondary);
+  --breadcrumb-link-hover-color:  var(--color-primary);
+  --breadcrumb-current-color:     var(--color-primary);
+  --breadcrumb-disabled-color:    var(--color-text-muted, var(--colors-fg-subtle));
+  --breadcrumb-separator-color:   var(--color-text-tertiary, var(--colors-fg-subtle));
+  --breadcrumb-ellipsis-color:    var(--color-text-muted, var(--colors-fg-subtle));
+  --breadcrumb-underline-color:   var(--color-primary);
+
+  /* Tipografia — default, sovrascritte dai modificatori di size */
+  --breadcrumb-font-size:   var(--text-sm);
+  --breadcrumb-font-weight: var(--font-normal);
+
+  /* Layout */
+  --breadcrumb-gap:           var(--spacing-1);
+  --breadcrumb-item-gap:      var(--spacing-1-5);
+  --breadcrumb-separator-gap: var(--spacing-1-5);
+  --breadcrumb-icon-size:     14px;
+
+  /* Transizioni */
+  --breadcrumb-transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* ============================================================================
+   ROOT <nav>
+   ============================================================================ */
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ============================================================================
+   LISTA <ol>
+   ============================================================================ */
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--breadcrumb-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================================
+   ITEM <li>
+   ============================================================================ */
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--breadcrumb-separator-gap);
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   LINK — <a> e <span> (corrente / disabilitato)
+   ============================================================================ */
+
+.breadcrumb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--breadcrumb-item-gap);
+  font-size: var(--breadcrumb-font-size);
+  font-weight: var(--breadcrumb-font-weight);
+  line-height: var(--leading-normal);
+  color: var(--breadcrumb-link-color);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--breadcrumb-transition);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Solo gli <a> reali sono cliccabili */
+a.breadcrumb-link {
+  cursor: pointer;
+}
+
+a.breadcrumb-link:hover {
+  color: var(--breadcrumb-link-hover-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--breadcrumb-underline-color);
+}
+
+a.breadcrumb-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Pagina corrente — doppia classe per specificità superiore a qualunque override */
+.breadcrumb-link.breadcrumb-link--current {
+  color: var(--breadcrumb-current-color);
+  font-size: var(--breadcrumb-font-size);
+  font-weight: var(--font-semibold);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* button usato quando non c'è href (navigazione BPMN / SPA pura) */
+button.breadcrumb-link,
+.breadcrumb-link--action {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  /* font: inherit su button sovrascrive la classe .breadcrumb-link (specificità più bassa);
+     reimposta esplicitamente font-size e font-weight con i token breadcrumb */
+  font-size: var(--breadcrumb-font-size);
+  font-weight: var(--breadcrumb-font-weight);
+  cursor: pointer;
+  /* Stessi stili hover/focus del link <a> */
+}
+
+button.breadcrumb-link:hover,
+.breadcrumb-link--action:hover {
+  color: var(--breadcrumb-link-hover-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--breadcrumb-underline-color);
+}
+
+button.breadcrumb-link:focus-visible,
+.breadcrumb-link--action:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Item disabilitato */
+.breadcrumb-link--disabled {
+  color: var(--breadcrumb-disabled-color);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* ============================================================================
+   SEPARATORE (decorativo — aria-hidden)
+   ============================================================================ */
+
+.breadcrumb-separator {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: var(--breadcrumb-font-size);
+  line-height: var(--leading-normal);
+  color: var(--breadcrumb-separator-color);
+  user-select: none;
+}
+
+/* ============================================================================
+   ELLIPSIS — placeholder per item collassati
+   ============================================================================ */
+
+.breadcrumb-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--breadcrumb-font-size);
+  color: var(--breadcrumb-ellipsis-color);
+  letter-spacing: var(--tracking-wide);
+  user-select: none;
+  cursor: default;
+}
+
+/* ============================================================================
+   ICONA — wrapper Lucide
+   ============================================================================ */
+
+.breadcrumb-item-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width:  var(--breadcrumb-icon-size);
+  height: var(--breadcrumb-icon-size);
+  /* Eredita il colore dal link parent */
+  color: inherit;
+}
+
+.breadcrumb-item-icon svg {
+  width:  100%;
+  height: 100%;
+}
+
+/* ============================================================================
+   LABEL — testo dell'item
+   ============================================================================ */
+
+.breadcrumb-item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* ============================================================================
+   SIZE VARIANTS
+   ============================================================================ */
+
+/* sm */
+.breadcrumb-sm {
+  --breadcrumb-font-size:      var(--text-xs);
+  --breadcrumb-font-weight:    var(--font-normal);
+  --breadcrumb-gap:            var(--spacing-0-5);
+  --breadcrumb-item-gap:       var(--spacing-1);
+  --breadcrumb-separator-gap:  var(--spacing-1);
+  --breadcrumb-icon-size:      12px;
+}
+
+/* md — default, già definito nelle custom properties sopra */
+.breadcrumb-md {
+  --breadcrumb-font-size:     var(--text-sm);
+  --breadcrumb-icon-size:     14px;
+}
+
+/* lg */
+.breadcrumb-lg {
+  --breadcrumb-font-size:      var(--text-base);
+  --breadcrumb-font-weight:    var(--font-medium);
+  --breadcrumb-gap:            var(--spacing-2);
+  --breadcrumb-item-gap:       var(--spacing-2);
+  --breadcrumb-separator-gap:  var(--spacing-2);
+  --breadcrumb-icon-size:      16px;
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  /* Su schermi molto piccoli, tronca i link più aggressivamente */
+  .breadcrumb-link {
+    max-width: 120px;
+  }
+
+  /* Nasconde le label intermedie (non la prima e non l'ultima) */
+  .breadcrumb-item:not(:first-child):not(:last-child) .breadcrumb-item-label {
+    display: none;
+  }
+
+  .breadcrumb-item:not(:first-child):not(:last-child) .breadcrumb-item-icon {
+    /* Se c'è icona, la mostriamo comunque come hint visivo */
+    display: inline-flex;
+  }
+}

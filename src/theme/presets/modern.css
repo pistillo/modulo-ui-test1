@@ -1,0 +1,102 @@
+/**
+ * Preset Modern (default)
+ * 
+ * Modern theme preset with iOS-inspired design.
+ * This is the default theme.
+ */
+
+[data-theme="modern"] {
+  /* Brand Palette Override - iOS Blue */
+  --palette-brand-50: #EBE4FF;
+  /* ============================================================================
+     COLORS - Modern Palette
+     ============================================================================ */
+
+  /* Primary - iOS Blue */
+  --color-primary: #007AFF;
+  --color-primary-hover: #0062CC;
+  --color-primary-light: #E5F2FF;
+  --color-primary-dark: #004080;
+
+  /* Background Colors */
+  --color-bg-primary: #F5F5F7;
+  /* Apple-style light gray */
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-tertiary: #F9FAFB;
+
+  /* Text Colors */
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+
+  /* Border Colors */
+  --color-border: #E5E7EB;
+  --color-border-light: #F3F4F6;
+
+  /* ============================================================================
+     TYPOGRAPHY - Modern Scale
+     ============================================================================ */
+
+  /* Font Family */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ============================================================================
+     EFFECTS - Modern Glassmorphism
+     ============================================================================ */
+
+  /* Border Radius - More rounded for modern look */
+  --radius-sm: 0.5rem;
+  /* 8px */
+  --radius-md: 0.75rem;
+  /* 12px */
+  --radius-lg: 1rem;
+  /* 16px */
+  --radius-xl: 1.5rem;
+  /* 24px */
+  --radius-2xl: 2rem;
+  /* 32px */
+
+  /* Shadows - Vibrant with color */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  --shadow-glow-blue: 0 10px 30px -5px rgba(0, 122, 255, 0.2);
+  --shadow-glow-primary: 0 10px 30px -5px rgba(0, 122, 255, 0.3);
+
+  /* Blur Effects */
+  --blur-sm: 4px;
+  --blur-md: 12px;
+  --blur-lg: 16px;
+  --blur-xl: 24px;
+  --blur-2xl: 40px;
+}
+
+/* Modern Specific Component Styles */
+[data-theme="modern"] body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+}
+
+[data-theme="modern"] .header {
+  background: rgba(245, 245, 247, 0.8);
+  backdrop-filter: blur(var(--blur-xl));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="modern"] .header-logo-icon {
+  background: linear-gradient(to bottom, #007AFF, #0062CC);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+[data-theme="modern"] [data-scope='button'][data-part='root'][data-variant='primary'] {
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="modern"] [data-scope='button'][data-part='root'][data-variant='primary']:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 12px 35px -5px rgba(0, 122, 255, 0.4);
+}

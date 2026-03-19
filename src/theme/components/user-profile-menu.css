@@ -1,0 +1,390 @@
+/* =============================================================================
+   COMPONENT: USER PROFILE MENU
+   Stili per il componente UserProfileMenu (Avatar, Dropdown, Theme Selector)
+   Zero hardcode - Solo CSS variables
+   ============================================================================= */
+
+/* User Profile Trigger */
+.user-profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding-left: var(--spacing-1);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    transition: all var(--transition-base);
+}
+
+.user-profile-trigger.compact {
+    padding: var(--spacing-1) var(--spacing-4) var(--spacing-1) var(--spacing-1);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border-light);
+    background: var(--color-bg-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+.user-profile-trigger.compact:hover {
+    background: var(--color-bg-tertiary);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border);
+}
+
+.user-profile-trigger.compact.open {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+/* Avatar Container */
+.user-profile-avatar {
+    width: var(--spacing-9);
+    height: var(--spacing-9);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-profile-avatar.agid {
+    background: var(--color-primary);
+    color: white;
+}
+
+.user-profile-avatar.modern {
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-border-light);
+}
+
+.user-profile-avatar.compact {
+    width: var(--spacing-8);
+    height: var(--spacing-8);
+}
+
+/* User Info */
+.user-profile-info {
+    display: none;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .user-profile-info {
+        display: block;
+    }
+}
+
+.user-profile-info.compact {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .user-profile-info.compact {
+        display: block;
+    }
+}
+
+.user-profile-name {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-primary);
+    line-height: var(--leading-tight);
+}
+
+.user-profile-name.compact {
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    max-width: var(--spacing-25);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Chevron Icon */
+.user-profile-chevron {
+    display: none;
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+    color: var(--color-text-tertiary);
+    transition: transform var(--transition-base);
+}
+
+@media (min-width: 768px) {
+    .user-profile-chevron {
+        display: block;
+    }
+}
+
+.user-profile-chevron.compact {
+    width: var(--spacing-3-5);
+    height: var(--spacing-3-5);
+}
+
+.user-profile-chevron.open {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+}
+
+.user-profile-chevron.agid {
+    color: var(--color-text-secondary);
+}
+
+.user-profile-chevron.agid:hover {
+    color: var(--color-primary);
+}
+
+/* Dropdown Menu */
+.user-profile-dropdown {
+    width: var(--spacing-64);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    border: 1px solid var(--color-border-light);
+    overflow: hidden;
+    z-index: 60;
+}
+
+/* Dropdown Header */
+.user-profile-dropdown-header {
+    padding: var(--spacing-4);
+    border-bottom: none;
+    background: transparent;
+}
+
+.user-profile-dropdown-name {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+}
+
+.user-profile-dropdown-role {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-0-5);
+}
+
+/* Menu Section */
+.menu-section {
+    padding: var(--spacing-3) var(--spacing-2);
+    border-bottom: none;
+}
+
+.menu-section-title {
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    padding: var(--spacing-2) var(--spacing-3);
+    margin-bottom: var(--spacing-1);
+}
+
+.menu-section {
+    padding: var(--spacing-2) var(--spacing-3);
+    border-bottom: none;
+}
+
+.menu-section.compact {
+    padding: var(--spacing-2);
+}
+
+.section-label {
+    margin-bottom: var(--spacing-2);
+}
+
+.menu-divider {
+    margin: var(--spacing-2) 0;
+}
+
+.menu-item.danger {
+    margin-top: var(--spacing-1);
+}
+
+/* Menu Item */
+.menu-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-text-primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition-fast);
+}
+
+.menu-item:hover {
+    background: transparent;
+}
+
+.menu-item.active {
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.menu-item.danger {
+    color: var(--color-danger);
+}
+
+.menu-item.danger:hover {
+    background: var(--color-danger-light);
+}
+
+/* Menu Item Indicator */
+.menu-item-indicator {
+    width: var(--spacing-1-5);
+    height: var(--spacing-1-5);
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+}
+
+/* Menu Item Icon */
+.menu-item-icon {
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+    opacity: 0.7;
+}
+
+/* Section Label */
+.section-label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    padding: 0 var(--spacing-1);
+}
+
+/* Layout Selector Grid */
+.layout-selector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3);
+}
+
+/* Layout Card - Clean minimal style */
+.layout-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: var(--spacing-2) var(--spacing-3) !important;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: transparent !important;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.layout-card:hover {
+    border-color: var(--color-border);
+    background: transparent !important;
+}
+
+.layout-card.active {
+    background: var(--color-primary-light) !important;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* Layout Card Content Wrapper */
+.layout-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.layout-card-icon {
+    margin-bottom: var(--spacing-0-5);
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout-card-icon svg,
+.layout-card-icon .icon {
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+}
+
+.layout-card span {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+}
+
+/* Menu Divider */
+.menu-divider {
+    height: 1px;
+    background: var(--color-border);
+    width: 100%;
+}
+
+/* Theme List */
+.theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+/* Theme Item - Clean minimal style */
+.theme-item {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: var(--spacing-1-5) var(--spacing-2) !important;
+    border-radius: var(--radius-md);
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    font-size: var(--text-sm);
+    transition: all var(--transition-fast);
+    gap: var(--spacing-2);
+}
+
+.theme-item:hover {
+    background: transparent !important;
+    color: var(--color-text-primary);
+}
+
+.theme-item.active {
+    background: transparent !important;
+    color: var(--color-primary);
+    font-weight: var(--font-normal);
+}
+
+/* Theme Item Icon */
+.theme-item svg,
+.theme-item .icon {
+    flex-shrink: 0;
+    width: var(--spacing-4);
+    height: var(--spacing-4);
+}
+
+/* Theme Item Text */
+.theme-item span {
+    flex: 1;
+    text-align: left;
+}
+
+/* Active Dot Indicator */
+.active-dot {
+    width: var(--spacing-1-5);
+    height: var(--spacing-1-5);
+    border-radius: 50%;
+    background: var(--color-primary);
+    margin-left: auto;
+}

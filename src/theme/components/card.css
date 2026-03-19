@@ -1,0 +1,115 @@
+/**
+ * Card Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.card {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sub-components */
+.card-header {
+  padding: var(--spacing-4);
+  font-weight: var(--font-weight-semibold);
+  /* Optional: border-bottom: 1px solid var(--color-border); */
+}
+
+.card-body {
+  padding: var(--spacing-4);
+  flex: 1;
+}
+
+.card-footer {
+  padding: var(--spacing-4);
+  /* Optional: border-top: 1px solid var(--color-border); */
+}
+
+/* Variants */
+.card-default {
+  border-color: var(--color-border);
+}
+
+.card-outline {
+  background: transparent;
+  border-color: var(--color-border);
+  box-shadow: none;
+}
+
+.card-ghost {
+  background: transparent;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+/* Interactive State */
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-interactive:active {
+  transform: translateY(0);
+}
+
+.card-interactive:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Status Borders */
+.card-status-info {
+  border-left: 6px solid var(--colors-info);
+}
+
+.card-status-success {
+  border-left: 6px solid var(--colors-success);
+}
+
+.card-status-warning {
+  border-left: 6px solid var(--colors-warning);
+}
+
+.card-status-error {
+  border-left: 6px solid var(--colors-error);
+}
+
+.card-status-loading {
+  border-left: 6px solid var(--colors-info);
+}
+
+/* Padding Variants */
+.card-p-xs > * {
+  padding: var(--spacing-2, 8px);
+}
+
+.card-p-sm {
+  padding: var(--spacing-3, 12px);
+}
+
+.card-p-md {
+  padding: var(--spacing-4, 16px);
+}
+
+.card-p-lg {
+  padding: var(--spacing-5, 20px);
+}
+
+.card-p-xl {
+  padding: var(--spacing-6, 24px);
+}

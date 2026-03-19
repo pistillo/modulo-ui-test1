@@ -1,0 +1,57 @@
+/**
+ * Theme Index - Centralized theme system
+ * Following Ark UI standard with data-theme attribute
+ * 
+ * This file imports all theme-related CSS files in the correct order:
+ * 1. Foundations (colors, typography, spacing, layout)
+ * 2. Semantic Tokens (role-based color tokens)
+ * 3. Variables (theme-specific variable overrides)
+ * 4. Base styles (global base styles)
+ * 5. Component styles (styles for all components)
+ * 6. Effects (theme-specific background effects)
+ */
+
+/* ============================================================================
+   Foundations - Base design tokens
+   ============================================================================ */
+@import './foundations/colors.css';
+@import './foundations/typography.css';
+@import './foundations/spacing.css';
+@import './foundations/layout.css';
+@import './foundations/effects.css';
+@import './foundations/glass.css';
+
+/* ============================================================================
+   Semantic Tokens - Role-based tokens
+   ============================================================================ */
+@import './semantic-tokens/semantic-tokens.css';
+
+/* ============================================================================
+   Theme Variables - Theme-specific variable overrides
+   ============================================================================ */
+@import './variables.css';
+
+/* ============================================================================
+   Presets - Theme presets that override base variables
+   ============================================================================ */
+@import './presets/index.css';
+
+/* ============================================================================
+   Base Styles - Global base styles
+   ============================================================================ */
+@import './base.css';
+
+/* ============================================================================
+   Component Styles - Styles for all components
+   ============================================================================ */
+@import './components/index.css';
+
+/* ============================================================================
+   Page Styles - Styles for all pages
+   ============================================================================ */
+@import './pages/index.css';
+
+/* ============================================================================
+   Effects - Theme-specific background effects
+   ============================================================================ */
+@import './effects.css';

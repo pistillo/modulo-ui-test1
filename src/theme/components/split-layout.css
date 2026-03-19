@@ -1,0 +1,47 @@
+/**
+ * SplitLayout Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.split-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  gap: var(--spacing-6);
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .split-layout.has-sidebar {
+    flex-direction: row;
+  }
+
+  .split-layout.sidebar-left {
+    flex-direction: row-reverse;
+  }
+}
+
+.split-layout-main {
+  flex: 1;
+  min-width: 0;
+  /* Prevent flex overflow */
+}
+
+.split-layout-sidebar {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .split-layout-sidebar {
+    width: var(--spacing-80, 20rem);
+    /* Standard sidebar width e.g. 320px */
+  }
+}
+
+.split-layout-sidebar-sticky {
+  position: sticky;
+  top: var(--spacing-4);
+  max-height: calc(100vh - var(--spacing-8));
+  overflow-y: auto;
+}

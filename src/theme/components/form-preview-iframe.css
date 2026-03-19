@@ -1,0 +1,17 @@
+/**
+ * Form Preview Iframe Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.form-preview-iframe-container {
+    width: 100%;
+    position: relative;
+}
+
+.form-preview-iframe {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-primary);
+    display: block;
+}

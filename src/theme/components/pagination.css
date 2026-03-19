@@ -1,0 +1,53 @@
+/**
+ * Pagination Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.pagination {
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
+.pagination-prev-trigger,
+.pagination-next-trigger,
+.pagination-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--spacing-8);
+  height: var(--spacing-8);
+  padding: 0 var(--spacing-2);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-primary);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.pagination-item:hover,
+.pagination-prev-trigger:hover,
+.pagination-next-trigger:hover {
+  background: var(--color-bg-hover);
+}
+
+.pagination-item[data-selected] {
+  background: var(--color-primary);
+  color: var(--color-white);
+  pointer-events: none;
+}
+
+.pagination-item[data-disabled],
+.pagination-prev-trigger:disabled,
+.pagination-next-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.pagination-ellipsis {
+  color: var(--color-text-secondary);
+  padding: 0 var(--spacing-2);
+}

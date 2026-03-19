@@ -1,0 +1,107 @@
+/**
+ * FloatingPanel Component Styles
+ * Uses semantic CSS variables from theme/variables.css
+ */
+
+[data-scope='floating-panel'][data-part='root'] {
+  position: relative;
+}
+
+[data-scope='floating-panel'][data-part='positioner'] {
+  position: fixed;
+  z-index: 50;
+}
+
+[data-scope='floating-panel'][data-part='content'] {
+  background-color: var(--colors-bg-subtle);
+  border: 1px solid var(--colors-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: var(--spacing-80);
+  min-height: var(--spacing-40);
+}
+
+[data-scope='floating-panel'][data-part='header'] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4);
+  border-bottom: 1px solid var(--colors-border);
+  cursor: move;
+}
+
+[data-scope='floating-panel'][data-part='title'] {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--colors-fg);
+}
+
+[data-scope='floating-panel'][data-part='close-trigger'] {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: transparent;
+  color: var(--colors-fg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+[data-scope='floating-panel'][data-part='close-trigger']:hover {
+  background-color: var(--colors-bg-muted);
+}
+
+[data-scope='floating-panel'][data-part='body'] {
+  padding: var(--spacing-4);
+  flex: 1;
+  overflow: auto;
+  color: var(--colors-fg);
+}
+
+[data-scope='floating-panel'][data-part='resize-trigger'] {
+  position: absolute;
+  background-color: var(--colors-border);
+  z-index: 1;
+}
+
+[data-scope='floating-panel'][data-part='resize-trigger'][data-axis='n'] {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--spacing-1);
+  cursor: ns-resize;
+}
+
+[data-scope='floating-panel'][data-part='resize-trigger'][data-axis='s'] {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--spacing-1);
+  cursor: ns-resize;
+}
+
+[data-scope='floating-panel'][data-part='resize-trigger'][data-axis='e'] {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--spacing-1);
+  cursor: ew-resize;
+}
+
+[data-scope='floating-panel'][data-part='resize-trigger'][data-axis='w'] {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--spacing-1);
+  cursor: ew-resize;
+}
+
+[data-scope='floating-panel'][data-part='resize-trigger']:hover {
+  background-color: var(--colors-primary);
+}

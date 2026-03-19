@@ -1,0 +1,367 @@
+/**
+ * RadioGroup Component Styles - Glass Design System
+ * Uses semantic CSS variables - Zero hardcode
+ * Incorporates glass effect and modern design patterns
+ */
+
+/* ============================================================================= */
+/* ROOT & LAYOUT */
+/* ============================================================================= */
+
+.radio-group-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+  font-family: var(--font-family-base, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+}
+
+.radio-group-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+/* ============================================================================= */
+/* LABEL */
+/* ============================================================================= */
+
+.radio-group-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-0);
+  letter-spacing: var(--letter-spacing-tight, 0.3px);
+}
+
+.radio-group-required {
+  color: var(--color-danger);
+  font-weight: var(--font-bold);
+  font-size: 0.9em;
+}
+
+/* ============================================================================= */
+/* ITEMS CONTAINER */
+/* ============================================================================= */
+
+.radio-group-items {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.radio-group-vertical .radio-group-items {
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.radio-group-horizontal .radio-group-items {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+}
+
+/* ============================================================================= */
+/* ITEM & CONTAINER */
+/* ============================================================================= */
+
+.radio-item {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.radio-item:not([data-disabled]) {
+  cursor: pointer;
+}
+
+.radio-item[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.radio-item-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  user-select: none;
+}
+
+.radio-item:not([data-disabled]) .radio-item-container {
+  cursor: pointer;
+}
+
+.radio-item:hover:not([data-disabled]) .radio-item-container {
+  background: rgba(0, 122, 255, 0.05);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* ============================================================================= */
+/* CONTROL (RADIO BUTTON CIRCLE) */
+/* ============================================================================= */
+
+.radio-control {
+  /* centratura perfetta del pallino */
+  display: grid;
+  place-items: center;
+
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: color-mix(in oklab, var(--color-bg-secondary) 80%, var(--color-bg-glass, rgba(255, 255, 255, 0.15)));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: var(--shadow-elevation-1, 0 1px 2px rgba(0, 0, 0, 0.05));
+
+  /* tolto offset che spostava l'ottica del centro */
+  margin-top: 0;
+}
+
+/* checked: Ark può mettere data-state su Item o su ItemControl, gestiamo entrambi */
+.radio-control[data-state='checked'],
+.radio-item[data-state='checked'] .radio-control {
+  border-color: var(--color-primary);
+  background: radial-gradient(
+ circle,
+  var(--color-primary) 0%,
+  var(--color-primary) 35%,   
+  transparent 35%,            
+  transparent 100%
+  );
+  box-shadow:
+    0 0 20px rgba(0, 122, 255, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    var(--shadow-elevation-2, 0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.radio-control:hover:not([data-disabled]) {
+  border-color: var(--color-primary);
+  background: color-mix(in oklab, var(--color-bg-secondary) 75%, var(--color-primary) 5%);
+  transform: scale(1.05);
+  box-shadow:
+    0 0 16px rgba(0, 122, 255, 0.2),
+    var(--shadow-elevation-2, 0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.radio-control:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 4px rgba(0, 122, 255, 0.1),
+    var(--shadow-elevation-2, 0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+/* invalid base */
+.radio-invalid {
+  border-color: var(--color-danger);
+  background: color-mix(in oklab, var(--color-danger-light) 30%, var(--color-bg-secondary));
+}
+
+/* invalid + checked (anche qui: può essere su Item o su Control) */
+.radio-invalid[data-state='checked'],
+.radio-item[data-state='checked'] .radio-invalid {
+  border-color: var(--color-danger);
+  background: linear-gradient(
+    135deg,
+    var(--color-danger),
+    color-mix(in oklab, var(--color-danger) 85%, #ffffff)
+  );
+  box-shadow:
+    0 0 20px rgba(239, 68, 68, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    var(--shadow-elevation-2, 0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+/* ============================================================================= */
+/* SIZES */
+/* ============================================================================= */
+
+.radio-sm {
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+}
+
+.radio-sm .radio-indicator {
+  width: 6px;
+  height: 6px;
+}
+
+.radio-md {
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+}
+
+.radio-md .radio-indicator {
+  width: 7px;
+  height: 7px;
+}
+
+.radio-lg {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+}
+
+.radio-lg .radio-indicator {
+  width: 9px;
+  height: 9px;
+}
+
+/* ============================================================================= */
+/* INDICATOR (DOT) */
+/* ============================================================================= */
+
+.radio-indicator {
+  /* niente absolute/translate: ci pensa la grid del control */
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
+
+  display: block;
+  border-radius: var(--radius-full);
+  background: var(--color-text-inverse);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  /* default hidden */
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+/* show indicator when checked (data-state può stare su Item o Control) */
+.radio-control[data-state='checked'] .radio-indicator,
+.radio-item[data-state='checked'] .radio-indicator {
+  opacity: 1;
+}
+
+/* ============================================================================= */
+/* TEXT CONTENT */
+/* ============================================================================= */
+
+.radio-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  user-select: none;
+  flex: 1;
+}
+
+.radio-label {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-medium);
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+.radio-description {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/* ============================================================================= */
+/* ERROR & HELPER TEXT */
+/* ============================================================================= */
+
+.radio-group-error,
+.radio-group-helper {
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-2);
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  padding: 0 var(--spacing-1);
+}
+
+.radio-group-error {
+  color: var(--color-danger);
+  font-weight: var(--font-medium);
+}
+
+.radio-group-helper {
+  color: var(--color-text-tertiary);
+}
+
+/* ============================================================================= */
+/* DISABLED STATE */
+/* ============================================================================= */
+
+.radio-group-root[data-disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.radio-group-root[data-disabled] .radio-item {
+  cursor: not-allowed;
+}
+
+.radio-group-root[data-disabled] .radio-control {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-border-light);
+  cursor: not-allowed;
+}
+
+/* ============================================================================= */
+/* ACCESSIBILITY & HIGH CONTRAST MODE */
+/* ============================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .radio-item,
+  .radio-item-container,
+  .radio-control,
+  .radio-indicator {
+    transition: none;
+  }
+
+  .radio-control:hover:not([data-disabled]) {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .radio-control {
+    background: Canvas;
+    border-color: CanvasText;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .radio-control[data-state='checked'],
+  .radio-item[data-state='checked'] .radio-control {
+    background: Highlight;
+    border-color: HighlightText;
+  }
+
+  .radio-indicator {
+    background: HighlightText;
+  }
+}
+
+/* ============================================================================= */
+/* DARK MODE ADJUSTMENTS */
+/* ============================================================================= */
+
+.dark .radio-item:hover:not([data-disabled]) .radio-item-container {
+  background: rgba(0, 122, 255, 0.08);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.dark .radio-control {
+  border-color: var(--color-border);
+  background: color-mix(in oklab, var(--color-bg-secondary) 70%, var(--color-bg-glass, rgba(255, 255, 255, 0.08)));
+}
+
+.dark .radio-control:hover:not([data-disabled]) {
+  background: color-mix(in oklab, var(--color-bg-secondary) 65%, var(--color-primary) 8%);
+}

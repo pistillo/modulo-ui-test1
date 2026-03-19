@@ -1,0 +1,99 @@
+/**
+ * Preset Police
+ * 
+ * Police/Law Enforcement theme with professional blue tones.
+ * Designed for authority and trust.
+ */
+
+[data-theme="police"] {
+  /* ============================================================================
+     COLORS - Police Palette
+     ============================================================================ */
+
+  /* Primary - Deep Blue */
+  --color-primary: #1E40AF;
+  --color-primary-hover: #1E3A8A;
+  --color-primary-light: #DBEAFE;
+  --color-primary-dark: #1E3A8A;
+
+  /* Background Colors */
+  --color-bg-primary: #EFF6FF;
+  /* Blue 50 */
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-tertiary: #F0F9FF;
+
+  /* Text Colors */
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748B;
+
+  /* Border Colors */
+  --color-border: #CBD5E1;
+  --color-border-light: #E2E8F0;
+
+  /* ============================================================================
+     TYPOGRAPHY - Police Scale
+     ============================================================================ */
+
+  /* Font Family */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ============================================================================
+     EFFECTS - Police Specific
+     ============================================================================ */
+
+  /* Border Radius - Professional look */
+  --radius-sm: 0.5rem;
+  /* 8px */
+  --radius-md: 0.75rem;
+  /* 12px */
+  --radius-lg: 1rem;
+  /* 16px */
+  --radius-xl: 1.25rem;
+  /* 20px */
+  --radius-2xl: 1.5rem;
+  /* 24px */
+
+  /* Shadows - Professional */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-glass: 0 8px 32px 0 rgba(30, 64, 175, 0.08);
+  --shadow-glow-blue: 0 8px 24px -4px rgba(30, 64, 175, 0.2);
+  --shadow-glow-primary: 0 8px 24px -4px rgba(30, 64, 175, 0.25);
+}
+
+/* Police Specific Component Styles */
+[data-theme="police"] body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+}
+
+[data-theme="police"] .header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(var(--blur-xl, 24px));
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="police"] .header-logo-icon {
+  background: linear-gradient(to bottom, #1E40AF, #1E3A8A);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+[data-theme="police"] [data-scope='button'][data-part='root'][data-variant='primary'] {
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+[data-theme="police"] [data-scope='button'][data-part='root'][data-variant='primary']:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Police badge styling */
+[data-theme="police"] [data-scope='badge'][data-part='root'] {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}

@@ -1,0 +1,243 @@
+/**
+ * Input Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+/* Root */
+.input-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: 100%;
+}
+
+/* Label */
+.input-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+.input-required {
+  color: var(--color-danger);
+  margin-left: var(--spacing-1);
+}
+
+/* Wrapper */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input-expandable-no-label {
+  gap: 0;
+}
+
+.search-input-expandable-no-label .input-label {
+  display: none;
+}
+
+/* Base Input */
+.input {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-bg-tertiary);
+}
+
+.input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+/* La label degli input si adatta al tema: più scura su sfondi chiari, attenuata su sfondi scuri */
+.input-label .text {
+  color: var(--color-input-label, var(--color-text-tertiary));
+}
+
+/* L'asterisco required non deve ereditare il colore della label — sovrascrive
+   intenzionalmente .input-label .text per mantenere sempre il rosso */
+.input-label .input-required {
+  color: var(--color-danger);
+}
+
+/* input[type="date"]: il browser mostra il formato (gg/mm/aaaa) invece del
+   placeholder HTML — non risponde a ::placeholder. Quando il campo è vuoto
+   (data-empty=true) stilizziamo il testo di formato come un placeholder reale:
+   stesso colore e font leggermente ridotto così si distingue dal valore inserito. */
+.input[type="date"][data-empty]::-webkit-datetime-edit,
+.input[type="date"][data-empty]::-webkit-datetime-edit-fields-wrapper,
+.input[type="date"][data-empty]::-webkit-datetime-edit-day-field,
+.input[type="date"][data-empty]::-webkit-datetime-edit-month-field,
+.input[type="date"][data-empty]::-webkit-datetime-edit-year-field,
+.input[type="date"][data-empty]::-webkit-datetime-edit-text {
+  color: var(--color-text-tertiary);
+  font-size: 0.95em;
+}
+
+/* Sizes */
+.input-xs {
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--text-xs);
+  min-height: var(--spacing-6);
+}
+
+.input-sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--text-sm);
+  min-height: var(--spacing-8);
+}
+
+.input-md {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--text-base);
+  min-height: var(--spacing-10);
+}
+
+.input-lg {
+  padding: var(--spacing-4) var(--spacing-5);
+  font-size: var(--text-lg);
+  min-height: var(--spacing-12);
+}
+
+.input-xl {
+  padding: var(--spacing-5) var(--spacing-6);
+  font-size: var(--text-xl);
+  min-height: var(--spacing-14);
+}
+
+/* States */
+.input-invalid {
+  border-color: var(--color-danger);
+}
+
+.input-invalid:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px var(--color-danger-light);
+}
+
+.input-loading {
+  padding-right: var(--spacing-10);
+}
+
+/* Icons */
+.input-icon-left,
+.input-icon-right {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+}
+
+.input-icon-left {
+  left: var(--spacing-3);
+}
+
+.input-icon-right {
+  right: var(--spacing-3);
+}
+
+/* Icons group for multiple right icons */
+.input-icons-group {
+  position: absolute;
+  right: var(--spacing-3);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  height: 100%;
+}
+
+.input-icons-group .input-icon-right {
+  position: relative;
+  right: auto;
+}
+
+.input-icon-clickable {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: color var(--transition-base);
+}
+
+.input-icon-clickable:hover {
+  color: var(--color-text-primary);
+}
+
+/* With left icon */
+.input-wrapper:has(.input-icon-left) .input {
+  padding-left: var(--spacing-10);
+}
+
+/* With right icon */
+.input-wrapper:has(.input-icon-right) .input,
+.input-wrapper:has(.input-icons-group) .input,
+.input-wrapper:has(.input-spinner) .input {
+  padding-right: var(--spacing-12);
+}
+
+/* Per input[type="date"] con clear button: il calendar picker del browser
+   termina prima del padding-right → riducendolo si avvicina alla X. */
+.input-wrapper:has(.input-icons-group) .input[type="date"] {
+  padding-right: var(--spacing-9);
+}
+
+/* Spinner */
+.input-spinner {
+  position: absolute;
+  right: var(--spacing-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+/* Error & Helper Text */
+.input-error,
+.input-helper {
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-1);
+}
+
+.input-error {
+  color: var(--color-danger);
+}
+
+.input-helper {
+  color: var(--color-text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .input-lg {
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--text-base);
+  }
+
+  .input-xl {
+    padding: var(--spacing-4) var(--spacing-5);
+    font-size: var(--text-lg);
+  }
+}

@@ -1,0 +1,86 @@
+/* =============================================================================
+   PAGE: DESIGN SYSTEM
+   Stili per la pagina di documentazione del design system
+   ============================================================================= */
+
+.ds-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--semantic-background-default);
+}
+
+.ds-header {
+    position: sticky;
+    top: 90px;
+    z-index: 50;
+    background-color: var(--semantic-background-surface);
+    border-bottom: 1px solid var(--semantic-border-light);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode adjustments per il ds-header */
+.dark .ds-header {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+}
+
+.ds-header-content {
+    padding: 1rem 1.5rem;
+}
+
+.ds-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--semantic-text-default);
+}
+
+.ds-description {
+    font-size: 0.875rem;
+    color: var(--semantic-text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.ds-content {
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Category section styles */
+.ds-category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--semantic-text-default);
+    margin-bottom: 0.5rem;
+}
+
+.ds-category-description {
+    font-size: 0.9375rem;
+    color: var(--semantic-text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .ds-header-content {
+        padding: 0.75rem 1rem;
+    }
+
+    .ds-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .ds-description {
+        font-size: 0.8125rem;
+        margin-bottom: 1rem;
+    }
+
+    .ds-content {
+        padding: 1.5rem 1rem;
+    }
+}

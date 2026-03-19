@@ -1,0 +1,71 @@
+/**
+ * Pin Input Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.pin-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.pin-input-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.pin-input-control {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.pin-input-field {
+  width: var(--spacing-12);
+  height: var(--spacing-12);
+  text-align: center;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.pin-input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-subtle);
+}
+
+.pin-input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-bg-secondary);
+}
+
+.input-error {
+  border-color: var(--color-danger);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 2px var(--color-danger-subtle);
+}
+
+/* Sizes */
+.pin-input-sm {
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  font-size: var(--text-xs);
+}
+
+.pin-input-md {
+  width: var(--spacing-10);
+  height: var(--spacing-10);
+  font-size: var(--text-sm);
+}
+
+.pin-input-lg {
+  width: var(--spacing-12);
+  height: var(--spacing-12);
+  font-size: var(--text-lg);
+}

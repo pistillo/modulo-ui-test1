@@ -1,0 +1,162 @@
+/**
+ * Number Input Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.number-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1_5);
+  width: 100%;
+}
+
+.number-input-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+.number-input-label[data-required]::after {
+  content: '*';
+  color: var(--color-danger);
+  margin-left: var(--spacing-0_5);
+}
+
+.number-input-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.number-input-field {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  appearance: none;
+  /* Remove default browser styles for number input */
+  -moz-appearance: textfield;
+}
+
+.number-input-field::-webkit-inner-spin-button,
+.number-input-field::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.number-input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-subtle);
+}
+
+.number-input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-bg-secondary);
+}
+
+.input-error {
+  border-color: var(--color-danger);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 2px var(--color-danger-subtle);
+}
+
+/* Sizes */
+.number-input-sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--text-sm);
+  padding-right: var(--spacing-8);
+  /* Space for triggers */
+}
+
+.number-input-md {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--text-base);
+  padding-right: var(--spacing-8);
+}
+
+.number-input-lg {
+  padding: var(--spacing-4) var(--spacing-5);
+  font-size: var(--text-lg);
+  padding-right: var(--spacing-10);
+}
+
+/* Triggers */
+.number-input-triggers {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  display: flex;
+  flex-direction: column;
+  width: var(--spacing-6);
+  border-left: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.number-input-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.number-input-trigger:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+.number-input-trigger:active {
+  background: var(--color-bg-active);
+}
+
+.number-input-trigger.increment {
+  border-top-right-radius: var(--radius-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.number-input-trigger.decrement {
+  border-bottom-right-radius: var(--radius-md);
+}
+
+
+/* Loading state */
+.number-input-spinner {
+  position: absolute;
+  right: var(--spacing-8);
+  /* Adjust based on triggers width */
+  color: var(--color-text-secondary);
+  display: flex;
+}
+
+.input-loading {
+  padding-right: var(--spacing-12);
+  /* Adjust padding for loading + triggers */
+}
+
+
+.number-input-error-text {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+}
+
+.number-input-helper-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-0_5);
+}

@@ -1,0 +1,97 @@
+/**
+ * ColorPicker Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.color-picker-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.color-picker-control {
+  display: flex;
+}
+
+.color-picker-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.color-picker-value-swatch {
+  width: var(--size-5);
+  height: var(--size-5);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-white);
+  /* Checkboard fallback if needed */
+}
+
+.color-picker-value-text {
+  font-size: var(--text-sm);
+}
+
+.color-picker-content {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-3);
+  z-index: var(--z-index-popover);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 260px;
+}
+
+.color-picker-area {
+  height: 180px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.color-picker-area-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%);
+}
+
+.color-picker-channel-slider {
+  height: 12px;
+  border-radius: var(--radius-full);
+  position: relative;
+}
+
+.color-picker-slider-track {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.color-picker-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

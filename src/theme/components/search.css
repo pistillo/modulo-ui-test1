@@ -1,0 +1,270 @@
+/**
+ * Search Input Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.search-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1_5);
+  width: 100%;
+}
+
+.search-input-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.search-input-label[data-required] {
+  color: var(--color-text-primary);
+}
+
+.search-input-label[data-required]::after {
+  content: '*';
+  color: var(--color-danger);
+  margin-left: var(--spacing-0_5);
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-input-field {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-left: var(--spacing-9) !important;
+  /* Make room for icon */
+}
+
+.search-input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-subtle);
+}
+
+.search-input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-bg-secondary);
+}
+
+.input-error {
+  border-color: var(--color-danger);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 2px var(--color-danger-subtle);
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--spacing-3);
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+  display: flex;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sizes */
+.search-input-sm {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--text-sm);
+}
+
+.search-input-md {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--text-base);
+}
+
+.search-input-lg {
+  padding: var(--spacing-4) var(--spacing-5);
+  font-size: var(--text-lg);
+}
+
+
+.search-input-error-text {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+}
+
+.search-input-helper-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Expandable search animations */
+
+/* Expand animation - l'input si allunga dall'IconButton */
+@keyframes searchExpand {
+  0% {
+    transform: scaleX(0.12);
+    opacity: 0.6;
+    filter: blur(2px);
+    border-radius: var(--radius-full);
+  }
+  25% {
+    transform: scaleX(0.5);
+    opacity: 0.9;
+    filter: blur(1px);
+    border-radius: 20px;
+  }
+  55% {
+    transform: scaleX(0.85);
+    opacity: 1;
+    filter: blur(0);
+    border-radius: 10px;
+  }
+  80% {
+    transform: scaleX(0.96);
+    border-radius: var(--radius-md);
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+    filter: blur(0);
+    border-radius: var(--radius-md);
+  }
+}
+
+/* Collapse animation - l'input si restringe verso l'IconButton */
+@keyframes searchCollapse {
+  0% {
+    transform: scaleX(1);
+    opacity: 1;
+    filter: blur(0);
+    border-radius: var(--radius-md);
+  }
+  20% {
+    transform: scaleX(0.96);
+    border-radius: var(--radius-md);
+  }
+  45% {
+    transform: scaleX(0.75);
+    opacity: 1;
+    filter: blur(0);
+    border-radius: 10px;
+  }
+  75% {
+    transform: scaleX(0.4);
+    opacity: 0.9;
+    filter: blur(1px);
+    border-radius: 20px;
+  }
+  100% {
+    transform: scaleX(0.12);
+    opacity: 0.6;
+    filter: blur(2px);
+    border-radius: var(--radius-full);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search-input-expandable {
+  width: 100%;
+  will-change: transform, filter, opacity, border-radius;
+}
+
+.search-input-expandable.search-input-expanding {
+  animation: searchExpand 600ms linear;
+}
+
+.search-input-expandable.search-input-collapsing {
+  animation: searchCollapse 550ms linear forwards;
+}
+
+.search-input-expandable.search-input-expand-from-right {
+  transform-origin: right center;
+}
+
+.search-input-expandable.search-input-expand-from-left {
+  transform-origin: left center;
+}
+
+.search-input-loading svg {
+  animation: spin 1s linear infinite;
+}
+
+.search-input-collapsed {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-input-collapsed-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Altezze fisse per evitare layout shift */
+.search-input-collapsed-container-sm {
+  min-height: 38px;
+}
+
+.search-input-collapsed-container-md {
+  min-height: 48px;
+}
+
+.search-input-collapsed-container-lg {
+  min-height: 61px;
+}
+
+.search-input-collapsed-opening {
+  opacity: 0;
+  transform: scaleX(1.5);
+  filter: blur(2px);
+  transition: 
+    opacity 0.15s cubic-bezier(0.4, 0, 0.6, 1),
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.2s ease-out;
+}
+
+.search-input-collapsed-visible {
+  opacity: 1;
+  transform: scaleX(1);
+  filter: blur(0);
+  transition: 
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s,
+    filter 0.4s ease-in 0.25s;
+}
+
+.search-input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.search-input-label-required::after {
+  content: '*';
+  margin-left: 0.25rem;
+  color: var(--color-danger);
+}
+
+.search-input-helper {
+  margin-top: 0.25rem;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+.search-input-error {
+  margin-top: 0.25rem;
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+}

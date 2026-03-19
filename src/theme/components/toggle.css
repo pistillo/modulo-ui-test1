@@ -1,0 +1,77 @@
+/**
+ * Toggle Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  color: var(--color-text-secondary);
+}
+
+.toggle:hover:not([data-disabled]) {
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+}
+
+.toggle[data-state='on'] {
+  color: var(--color-primary);
+  background: var(--color-bg-selection-subtle);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.toggle[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.toggle-outline {
+  border-color: var(--color-border);
+}
+
+.toggle-outline[data-state='on'] {
+  border-color: var(--color-primary);
+  background: var(--color-bg-primary);
+}
+
+.toggle-solid[data-state='on'] {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.toggle-solid:hover:not([data-disabled])[data-state='on'] {
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+/* Sizes */
+.toggle-sm {
+  padding: var(--spacing-1);
+  font-size: var(--text-xs);
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+}
+
+.toggle-md {
+  padding: var(--spacing-2);
+  font-size: var(--text-sm);
+  width: var(--spacing-10);
+  height: var(--spacing-10);
+}
+
+.toggle-lg {
+  padding: var(--spacing-3);
+  font-size: var(--text-base);
+  width: var(--spacing-12);
+  height: var(--spacing-12);
+}

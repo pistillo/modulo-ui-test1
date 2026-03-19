@@ -1,0 +1,295 @@
+/* =============================================================================
+   COMPONENT: EXPANDABLE SIDEBAR
+   Sidebar navigazione espandibile/collassabile.
+   Zero hardcode — solo CSS custom properties e semantic tokens.
+   ============================================================================= */
+
+/* ── CSS Custom Properties (valori di default sovrascrivibili) ── */
+.expandable-sidebar {
+  --es-collapsed-width: 64px;
+  --es-expanded-width:  240px;
+  --es-transition:      width 260ms cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 200ms ease;
+
+  /* Colori dal tema */
+  --es-bg:              var(--color-bg-primary, var(--colors-bg));
+  --es-border:          var(--color-border, var(--colors-border));
+  --es-text-primary:    var(--color-text-primary, var(--colors-fg));
+  --es-text-muted:      var(--color-text-secondary, var(--colors-fg-muted));
+  --es-section-title:   var(--color-text-secondary, var(--colors-fg-muted));
+  --es-item-hover-bg:   var(--color-bg-subtle, var(--colors-bg-subtle));
+  --es-item-active-bg:  var(--color-primary-subtle, var(--colors-primary-subtle, rgba(var(--colors-primary-rgb, 99 102 241) / 0.12)));
+  --es-item-active-fg:  var(--color-primary, var(--colors-primary));
+  --es-indicator:       var(--color-primary, var(--colors-primary));
+  --es-divider:         var(--color-border, var(--colors-border));
+  --es-toggle-bg:       var(--color-bg-subtle, var(--colors-bg-subtle));
+  --es-toggle-fg:       var(--color-text-secondary, var(--colors-fg-muted));
+  --es-toggle-hover:    var(--color-primary, var(--colors-primary));
+  --es-radius:          var(--radius-xl, 1rem);
+  --es-item-radius:     var(--radius-lg, 0.5rem);
+  --es-shadow:          var(--shadow-lg);
+}
+
+/* ── Container ── */
+.expandable-sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--es-collapsed-width);
+  height: 100%;
+  background: var(--es-bg);
+  border-right: 1px solid var(--es-border);
+  border-radius: var(--es-radius);
+  overflow: hidden;
+  transition: var(--es-transition);
+  flex-shrink: 0;
+}
+
+.expandable-sidebar[data-expanded="true"] {
+  width: var(--es-expanded-width);
+}
+
+/* ── Toggle button ── */
+.es-toggle-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--spacing-3, 0.75rem) var(--spacing-3, 0.75rem) 0;
+  flex-shrink: 0;
+}
+
+.expandable-sidebar[data-expanded="false"] .es-toggle-wrap {
+  justify-content: center;
+  padding: var(--spacing-3, 0.75rem) 0 0;
+}
+
+.es-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--es-item-radius);
+  background: var(--es-toggle-bg);
+  color: var(--es-toggle-fg);
+  border: none;
+  cursor: pointer;
+  transition: color 150ms ease, background 150ms ease;
+  flex-shrink: 0;
+}
+
+.es-toggle:hover {
+  color: var(--es-toggle-hover);
+  background: var(--es-item-hover-bg);
+}
+
+/* ── Scroll area ── */
+.es-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-2, 0.5rem) var(--spacing-2, 0.5rem) var(--spacing-4, 1rem);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.es-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.es-sections-top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 0.25rem);
+}
+
+.es-sections-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 0.25rem);
+  margin-top: auto;
+}
+
+/* ── Sezione ── */
+.es-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 0.25rem);
+}
+
+.es-section__title {
+  padding: var(--spacing-3, 0.75rem) var(--spacing-3, 0.75rem) var(--spacing-1, 0.25rem);
+  font-size: var(--text-2xs, 0.625rem);
+  font-weight: var(--font-semibold, 600);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--es-section-title);
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  /* Fade-in quando espansa */
+  animation: es-fadein 180ms ease;
+}
+
+/* ── Divider ── */
+.es-divider {
+  height: 1px;
+  background: var(--es-divider);
+  margin: var(--spacing-2, 0.5rem) var(--spacing-2, 0.5rem);
+  opacity: 0.5;
+}
+
+/* ── Nav ── */
+.es-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ── Item ── */
+.es-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3, 0.75rem);
+  width: 100%;
+  padding: var(--spacing-2, 0.5rem) var(--spacing-3, 0.75rem);
+  border-radius: var(--es-item-radius);
+  background: transparent;
+  color: var(--es-text-muted);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: background 150ms ease, color 150ms ease;
+  min-height: 2.5rem;
+  /* Allinea icona centrata quando collassata */
+}
+
+.expandable-sidebar[data-expanded="false"] .es-item {
+  justify-content: center;
+  padding: var(--spacing-2, 0.5rem);
+}
+
+.es-item:hover:not(.es-item--disabled) {
+  background: var(--es-item-hover-bg);
+  color: var(--es-text-primary);
+}
+
+.es-item--active {
+  background: var(--es-item-active-bg) !important;
+  color: var(--es-item-active-fg) !important;
+  font-weight: var(--font-medium, 500);
+}
+
+.es-item--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Indicatore attivo (barra sinistra) ── */
+.es-item__indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 2px 2px 0;
+  background: var(--es-indicator);
+  flex-shrink: 0;
+}
+
+/* ── Icona ── */
+.es-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ── Label ── */
+.es-item__label {
+  flex: 1;
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: es-fadein 180ms ease;
+}
+
+/* ── Badge ── */
+.es-item__badge {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.expandable-sidebar[data-expanded="false"] .es-item__badge {
+  display: none;
+}
+
+/* ── Chevron ── */
+.es-item__chevron {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.5;
+  margin-left: auto;
+  transition: opacity 150ms ease;
+  animation: es-fadein 180ms ease;
+}
+
+.es-item--active .es-item__chevron,
+.es-item:hover .es-item__chevron {
+  opacity: 1;
+}
+
+/* ── Animazione fade-in per testo/chevron ── */
+@keyframes es-fadein {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* =============================================================================
+   THEME OVERRIDES — Branded (usa i colori primary del tema)
+   ============================================================================= */
+
+/* Dark theme: sfondo sidebar più scuro come da screenshot */
+[data-theme="dark"] .expandable-sidebar,
+[data-theme="police"] .expandable-sidebar {
+  --es-bg:             var(--palette-navy-900, #0f1729);
+  --es-border:         rgba(255 255 255 / 0.06);
+  --es-text-primary:   #e2e8f0;
+  --es-text-muted:     rgba(148 163 184 / 0.8);
+  --es-section-title:  rgba(100 116 139 / 0.9);
+  --es-item-hover-bg:  rgba(255 255 255 / 0.05);
+  --es-item-active-bg: rgba(var(--colors-primary-rgb, 99 102 241) / 0.18);
+  --es-item-active-fg: var(--colors-primary, #818cf8);
+  --es-indicator:      var(--colors-primary, #818cf8);
+  --es-divider:        rgba(255 255 255 / 0.07);
+  --es-toggle-bg:      rgba(255 255 255 / 0.05);
+  --es-toggle-fg:      rgba(148 163 184 / 0.7);
+}
+
+/* Modern / light theme */
+[data-theme="modern"] .expandable-sidebar,
+[data-theme="agid"] .expandable-sidebar {
+  --es-bg:             #ffffff;
+  --es-border:         var(--colors-border);
+  --es-text-primary:   var(--colors-fg);
+  --es-text-muted:     var(--colors-fg-muted);
+  --es-section-title:  var(--colors-fg-subtle, var(--colors-fg-muted));
+  --es-item-hover-bg:  var(--colors-bg-subtle);
+  --es-item-active-bg: var(--colors-primary-subtle, color-mix(in srgb, var(--colors-primary) 10%, transparent));
+  --es-item-active-fg: var(--colors-primary);
+  --es-indicator:      var(--colors-primary);
+  --es-divider:        var(--colors-border);
+  --es-toggle-bg:      var(--colors-bg-subtler, var(--colors-bg-subtle));
+  --es-toggle-fg:      var(--colors-fg-muted);
+}

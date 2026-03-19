@@ -1,0 +1,67 @@
+/**
+ * Clipboard Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.clipboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  width: 100%;
+}
+
+.clipboard-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.clipboard-control {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.clipboard-input {
+  flex: 1;
+  padding: var(--spacing-2) var(--spacing-3);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.clipboard-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.clipboard-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--color-text-secondary);
+}
+
+.clipboard-trigger:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-primary);
+}
+
+.clipboard-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: var(--spacing-2);
+}
+
+.clipboard-indicator-content {
+  display: inline-flex;
+}

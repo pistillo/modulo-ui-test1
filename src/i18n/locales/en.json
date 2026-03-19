@@ -1,0 +1,243 @@
+﻿{
+  "properties": {
+    "categories": {
+      "general": "General",
+      "appearance": "Appearance",
+      "header": "Header",
+      "layout": "Layout",
+      "branding": "Branding",
+      "behavior": "Behavior",
+      "content": "Content"
+    },
+    "fields": {
+      "name": "Name",
+      "label": "Label",
+      "placeholder": "Placeholder",
+      "helperText": "Helper Text",
+      "type": "Type",
+      "required": "Required",
+      "enabled": "Enabled",
+      "readonly": "Read Only"
+    },
+    "tecnosys": {
+      "card": {
+        "title": "Card",
+        "fields": { "title": "Title", "subtitle": "Subtitle", "variant": "Variant", "padding": "Padding" }
+      },
+      "mainLayout": {
+        "title": "Main Layout",
+        "fields": { "title": "Title", "subtitle": "Subtitle", "logoIcon": "Logo Icon" }
+      },
+      "flex": {
+        "title": "Flex",
+        "fields": { "direction": "Direction", "align": "Align", "justify": "Justify", "gap": "Gap", "wrap": "Wrap" }
+      },
+      "stack": {
+        "title": "Stack",
+        "fields": { "direction": "Direction", "spacing": "Spacing", "align": "Align" }
+      },
+      "grid": {
+        "title": "Grid",
+        "fields": { "templateColumns": "Template Columns", "gap": "Gap" }
+      },
+      "tabs": {
+        "title": "Tabs",
+        "fields": { "variant": "Variant", "size": "Size" }
+      },
+      "input": {
+        "title": "Input",
+        "fields": { "size": "Size", "type": "Type", "leftIcon": "Left Icon", "rightIcon": "Right Icon" }
+      },
+      "select": {
+        "title": "Select",
+        "fields": { "size": "Size", "multiple": "Multiple", "searchable": "Searchable" }
+      },
+      "checkbox": {
+        "title": "Checkbox",
+        "fields": { "size": "Size" }
+      },
+      "switch": {
+        "title": "Switch",
+        "fields": { "size": "Size" }
+      },
+      "textarea": {
+        "title": "Textarea",
+        "fields": { "size": "Size", "rows": "Rows", "maxLength": "Max Length", "showCharacterCount": "Show Character Count" }
+      },
+      "password": {
+        "title": "Password",
+        "fields": { "size": "Size" }
+      },
+      "number": {
+        "title": "Number",
+        "fields": { "size": "Size", "min": "Min", "max": "Max", "step": "Step" }
+      },
+      "date": {
+        "title": "Date",
+        "fields": { "size": "Size" }
+      },
+      "badge": {
+        "title": "Badge",
+        "fields": { "size": "Size", "variant": "Variant", "color": "Color" }
+      },
+      "avatar": {
+        "title": "Avatar",
+        "fields": { "size": "Size", "variant": "Variant" }
+      },
+      "icon": {
+        "title": "Icon",
+        "fields": { "size": "Size", "color": "Color" }
+      },
+      "breadcrumb": {
+        "title": "Breadcrumb",
+        "fields": { "separator": "Separator" }
+      },
+      "list": {
+        "title": "List",
+        "fields": { "itemKey": "Item Key", "isMultiSelect": "Multi Select" }
+      },
+      "pageTitle": {
+        "title": "Page Title",
+        "fields": { "icon": "Icon", "iconColor": "Icon Color" }
+      },
+      "table": {
+        "title": "Table",
+        "fields": { "striped": "Striped", "hoverable": "Hoverable", "stickyHeader": "Sticky Header" }
+      },
+      "button": {
+        "title": "Button",
+        "fields": { "size": "Size", "variant": "Variant", "icon": "Icon", "submitForm": "Submit Form" }
+      },
+      "alert": {
+        "title": "Alert",
+        "fields": { "status": "Status" }
+      },
+      "attachment": {
+        "title": "Attachment",
+        "fields": { "maxSizeMB": "Max Size (MB)", "multiple": "Multiple", "layout": "Layout" }
+      },
+      "fullTextSearch": {
+        "title": "Full Text Search",
+        "fields": { "expandable": "Expandable", "expandFrom": "Expand From", "loading": "Loading" }
+      },
+      "advancedFilters": {
+        "title": "Advanced Filters",
+        "categories": { "badges": "Badge Counts", "options": "Options" },
+        "fields": {
+          "inactiveUsersCount": "Inactive Users Count",
+          "tenantUsersCount": "Tenant Users Count",
+          "anomalousUsersCount": "Anomalous Users Count",
+          "systemUsersCount": "System Users Count",
+          "showReset": "Show Reset Button"
+        }
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "fields": { "title": "Title", "className": "CSS Class" }
+      },
+      "anagraficaTable": {
+        "title": "Anagrafica Table",
+        "categories": { "features": "Features", "state": "State" },
+        "fields": {
+          "showSearch": "Show Search", "enableSelection": "Enable Selection",
+          "showExportButton": "Show Export Button", "showDeleteButton": "Show Delete Button",
+          "loading": "Loading", "loadingMore": "Loading More", "className": "CSS Class"
+        }
+      },
+      "anomaliesBanner": {
+        "title": "Anomalies Banner",
+        "fields": { "showResolveButton": "Show Resolve Button", "className": "CSS Class" }
+      },
+      "datiIdentificativiCard": {
+        "title": "Dati Identificativi Card",
+        "fields": { "className": "CSS Class" }
+      },
+      "headerAnagrafica": {
+        "title": "Header Anagrafica",
+        "fields": { "className": "CSS Class" }
+      },
+      "immobiliContrattiCard": {
+        "title": "Immobili Contratti Card",
+        "fields": { "navigable": "Enable Navigation", "className": "CSS Class" }
+      },
+      "nucleoFamiliareCard": {
+        "title": "Nucleo Familiare Card",
+        "fields": { "className": "CSS Class" }
+      },
+      "recapitiCard": {
+        "title": "Recapiti Card",
+        "fields": { "className": "CSS Class" }
+      },
+      "situazioneEconomicaCard": {
+        "title": "Situazione Economica Card",
+        "fields": { "className": "CSS Class" }
+      },
+      "datiGenerali": {
+        "title": "Dati Generali",
+        "fields": {
+          "className": "CSS Class",
+          "showResolveButton": "Show Resolve Button",
+          "showResolveButton.description": "Show button to resolve anomalies",
+          "navigableImmobili": "Enable Navigation",
+          "navigableImmobili.description": "Enable navigation to property details"
+        }
+      },
+      "datiGeneraliPFForm": {
+        "title": "Dati Generali PF Form",
+        "fields": { "className": "CSS Class" }
+      },
+      "datiGeneraliPGForm": {
+        "title": "Dati Generali PG Form",
+        "fields": { "className": "CSS Class" }
+      },
+      "datiGeneraliStep": {
+        "title": "Dati Generali Step",
+        "fields": { "className": "CSS Class", "initialTipoPersona": "Initial Person Type" }
+      },
+      "recapitiStep": {
+        "title": "Recapiti Step",
+        "fields": { "className": "CSS Class" }
+      },
+      "riepilogoStep": {
+        "title": "Riepilogo Step",
+        "fields": { "className": "CSS Class" }
+      },
+      "dashboardToolbar": {
+        "title": "Dashboard Toolbar",
+        "fields": {
+          "title": "Title", "subtitle": "Subtitle", "icon": "Icon",
+          "dateLabel": "Date Label", "dateIcon": "Date Icon",
+          "showCustomize": "Show Customize Button", "customizeIcon": "Customize Icon",
+          "className": "CSS Class"
+        }
+      },
+      "leaderboardWidget": {
+        "title": "Leaderboard Widget",
+        "fields": {
+          "title": "Title", "subtitle": "Subtitle", "icon": "Icon",
+          "emptyText": "Empty Text", "searchPlaceholder": "Search Placeholder",
+          "showSearch": "Show Search", "showExport": "Show Export",
+          "minHeight": "Min Height", "className": "CSS Class"
+        }
+      },
+      "statCard": {
+        "title": "Stat Card",
+        "fields": {
+          "icon": "Icon", "color": "Color Theme", "size": "Size", "className": "CSS Class",
+          "loading": "Loading", "interactive": "Interactive", "selected": "Selected", "hasAlert": "Has Alert"
+        }
+      },
+      "statCardList": {
+        "title": "Stat Card List",
+        "fields": { "columns": "Columns", "className": "CSS Class" }
+      },
+      "widgetFrame": {
+        "title": "Widget Frame",
+        "fields": {
+          "title": "Title", "subtitle": "Subtitle", "icon": "Icon",
+          "color": "Color Theme", "minHeight": "Min Height", "className": "CSS Class"
+        }
+      }
+    }
+  }
+}

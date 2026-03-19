@@ -1,0 +1,1134 @@
+{
+  "paletteLibraries": [
+    {
+      "id": "tecnosys-system-components",
+      "title": "Tecnosys System Components",
+      "defaultExpanded": true,
+      "droplets": [
+        { "elementType": "droplet", "subType": "test-droplet", "label": "Test Droplet", "icon": "🔍", "group": "Test", "description": "Test droplet" },
+        { "elementType": "droplet", "subType": "tecnosys-input",            "label": "Input",            "icon": "T",  "group": "Form Inputs",   "description": "Campo testo" },
+        { "elementType": "droplet", "subType": "tecnosys-textarea",         "label": "Textarea",         "icon": "¶",  "group": "Form Inputs",   "description": "Area di testo multilinea" },
+        { "elementType": "droplet", "subType": "tecnosys-password",         "label": "Password",         "icon": "🔒", "group": "Form Inputs",   "description": "Campo password" },
+        { "elementType": "droplet", "subType": "tecnosys-number",           "label": "Number",           "icon": "#",  "group": "Form Inputs",   "description": "Campo numerico" },
+        { "elementType": "droplet", "subType": "tecnosys-checkbox",         "label": "Checkbox",         "icon": "☑",  "group": "Form Inputs",   "description": "Casella di selezione" },
+        { "elementType": "droplet", "subType": "tecnosys-switch",           "label": "Switch",           "icon": "◉",  "group": "Form Inputs",   "description": "Interruttore on/off" },
+        { "elementType": "droplet", "subType": "tecnosys-select",           "label": "Select",           "icon": "▼",  "group": "Form Inputs",   "description": "Menu a tendina" },
+        { "elementType": "droplet", "subType": "tecnosys-radio",            "label": "Radio Group",      "icon": "◎",  "group": "Form Inputs",   "description": "Gruppo di pulsanti radio" },
+        { "elementType": "droplet", "subType": "tecnosys-autocomplete",     "label": "Autocomplete",     "icon": "🔍", "group": "Form Inputs",   "description": "Campo con suggerimenti" },
+        { "elementType": "droplet", "subType": "tecnosys-search-input",     "label": "Search Input",     "icon": "🔎", "group": "Form Inputs",   "description": "Campo di ricerca" },
+        { "elementType": "droplet", "subType": "tecnosys-date",             "label": "Date Input",       "icon": "📅", "group": "Form Inputs",   "description": "Selettore data" },
+        { "elementType": "droplet", "subType": "tecnosys-date-picker",      "label": "Date Picker",      "icon": "📆", "group": "Form Inputs",   "description": "Calendario per selezione data" },
+        { "elementType": "droplet", "subType": "tecnosys-time-input",       "label": "Time Input",       "icon": "🕐", "group": "Form Inputs",   "description": "Selettore orario" },
+        { "elementType": "droplet", "subType": "tecnosys-badge",            "label": "Badge",            "icon": "◆",  "group": "Data Display",  "description": "Etichetta/badge" },
+        { "elementType": "droplet", "subType": "tecnosys-avatar",           "label": "Avatar",           "icon": "👤", "group": "Data Display",  "description": "Avatar utente" },
+        { "elementType": "droplet", "subType": "tecnosys-list",             "label": "List",             "icon": "≡",  "group": "Data Display",  "description": "Lista di elementi" },
+        { "elementType": "droplet", "subType": "tecnosys-page-title",       "label": "Page Title",       "icon": "H1", "group": "Data Display",  "description": "Titolo di pagina con breadcrumb" },
+        { "elementType": "droplet", "subType": "tecnosys-table",            "label": "Table",            "icon": "⊞",  "group": "Data Display",  "description": "Tabella dati" },
+        { "elementType": "droplet", "subType": "tecnosys-tree",             "label": "Tree",             "icon": "🌳", "group": "Data Display",  "description": "Vista ad albero" },
+        { "elementType": "droplet", "subType": "tecnosys-breadcrumb",       "label": "Breadcrumb",       "icon": "›",  "group": "Navigation",    "description": "Navigazione a briciole di pane" },
+        { "elementType": "droplet", "subType": "tecnosys-icon",             "label": "Icon",             "icon": "★",  "group": "Utilities",     "description": "Icona" },
+        { "elementType": "droplet", "subType": "tecnosys-full-text-search", "label": "Full Text Search", "icon": "🔍", "group": "Advanced",      "description": "Ricerca full-text avanzata" },
+        { "elementType": "droplet", "subType": "tecnosys-attachment",       "label": "Attachment",       "icon": "📎", "group": "Advanced",      "description": "Gestione allegati" },
+        { "elementType": "droplet", "subType": "tecnosys-stat-card",        "label": "Stat Card",        "icon": "📊", "group": "Widgets",       "description": "Card statistica con KPI" },
+        { "elementType": "droplet", "subType": "tecnosys-quick-actions",    "label": "Quick Actions",    "icon": "⚡", "group": "Widgets",       "description": "Pulsanti azione rapida" },
+        { "elementType": "droplet", "subType": "tecnosys-advanced-filters", "label": "Advanced Filters", "icon": "🎛️", "group": "Widgets",       "description": "Filtri avanzati con pills" },
+        { "elementType": "droplet", "subType": "tecnosys-anagrafica-table", "label": "Anagrafica Table", "icon": "📋", "group": "Widgets",       "description": "Tabella anagrafiche con filtri" },
+        { "elementType": "droplet", "subType": "tecnosys-anomalies-banner", "label": "Anomalies Banner", "icon": "⚠️", "group": "Widgets",       "description": "Banner anomalie anagrafiche" },
+        { "elementType": "droplet", "subType": "tecnosys-dati-identificativi-card", "label": "Dati Identificativi Card", "icon": "👤", "group": "Widgets", "description": "Card dati identificativi PF/PG" },
+        { "elementType": "droplet", "subType": "tecnosys-header-anagrafica", "label": "Header Anagrafica", "icon": "👤", "group": "Widgets", "description": "Header con avatar e info anagrafica" },
+        { "elementType": "droplet", "subType": "tecnosys-immobili-contratti-card", "label": "Immobili Contratti Card", "icon": "🏢", "group": "Widgets", "description": "Card immobili e contratti" },
+        { "elementType": "droplet", "subType": "tecnosys-nucleo-familiare-card", "label": "Nucleo Familiare Card", "icon": "👨‍👩‍👧‍👦", "group": "Widgets", "description": "Card nucleo familiare" },
+        { "elementType": "droplet", "subType": "tecnosys-recapiti-card", "label": "Recapiti Card", "icon": "📞", "group": "Widgets", "description": "Card recapiti (telefono, email, indirizzo)" },
+        { "elementType": "droplet", "subType": "tecnosys-situazione-economica-card", "label": "Situazione Economica Card", "icon": "💰", "group": "Widgets", "description": "Card situazione economica ISEE" },
+        { "elementType": "droplet", "subType": "tecnosys-dati-generali", "label": "Dati Generali", "icon": "📋", "group": "Widgets", "description": "Scheda anagrafica completa con tutte le sezioni" },
+        { "elementType": "droplet", "subType": "tecnosys-dati-generali-pf-form", "label": "Dati Generali PF Form", "icon": "📝", "group": "Widgets", "description": "Form dati generali Persona Fisica" },
+        { "elementType": "droplet", "subType": "tecnosys-dati-generali-pg-form", "label": "Dati Generali PG Form", "icon": "🏢", "group": "Widgets", "description": "Form dati generali Persona Giuridica" },
+        { "elementType": "droplet", "subType": "tecnosys-dati-generali-step", "label": "Dati Generali Step", "icon": "👤", "group": "Widgets", "description": "Step 1 wizard nuova anagrafica (PF/PG)" },
+        { "elementType": "droplet", "subType": "tecnosys-recapiti-step", "label": "Recapiti Step", "icon": "📞", "group": "Widgets", "description": "Step 2 wizard nuova anagrafica (contatti e indirizzo)" },
+        { "elementType": "droplet", "subType": "tecnosys-riepilogo-step", "label": "Riepilogo Step", "icon": "✅", "group": "Widgets", "description": "Step 3 wizard nuova anagrafica (riepilogo read-only)" },
+        { "elementType": "droplet", "subType": "tecnosys-dashboard-toolbar", "label": "Dashboard Toolbar", "icon": "🛠️", "group": "Widgets", "description": "Toolbar dashboard con titolo, selettore periodo e ordinamento" },
+        { "elementType": "droplet", "subType": "tecnosys-leaderboard-widget", "label": "Leaderboard Widget", "icon": "🏆", "group": "Widgets", "description": "Widget classifica con ricerca, ordinamento e infinite scroll" },
+        { "elementType": "droplet", "subType": "tecnosys-stat-card-list", "label": "Stat Card List", "icon": "📊", "group": "Widgets", "description": "Griglia di stat-card con selezione e varianti colore" },
+        { "elementType": "droplet", "subType": "tecnosys-widget-frame", "label": "Widget Frame", "icon": "🖼️", "group": "Widgets", "description": "Container frame per widget dashboard con header, icona e tema colore" }
+      ],
+      "pools": [
+        {
+          "elementType": "pool", "subType": "tecnosys-card", "label": "Card", "group": "Containers",
+          "description": "Contenitore a scheda con header, body e footer", "icon": "▦",
+          "dropAreas": [
+            { "slotId": "pools", "area": "header", "label": "Header", "icon": "▦" },
+            { "slotId": "droplets", "area": "header", "label": "Header Droplets", "icon": "⬡" },
+            { "slotId": "pools", "area": "content", "label": "Content", "icon": "▦" },
+            { "slotId": "droplets", "area": "content", "label": "Content Droplets", "icon": "⬡" },
+            { "slotId": "triggers", "area": "content", "label": "Triggers", "icon": "⚡" },
+            { "slotId": "pools", "area": "footer", "label": "Footer", "icon": "▦" },
+            { "slotId": "triggers", "area": "footer", "label": "Footer Triggers", "icon": "⚡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-form", "label": "Form", "group": "Forms",
+          "description": "Contenitore form con validazione", "icon": "📋",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Fields", "icon": "⬡" },
+            { "slotId": "pools", "label": "Sections", "icon": "▦" },
+            { "slotId": "triggers", "label": "Actions", "icon": "⚡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-main-layout", "label": "Main Layout", "group": "Layout",
+          "description": "Layout principale applicazione con sidebar, header e content", "icon": "⬛",
+          "dropAreas": [
+            { "slotId": "pools", "label": "Content", "icon": "▦" },
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-flex", "label": "Flex", "group": "Layout",
+          "description": "Contenitore flexbox", "icon": "⇔",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" },
+            { "slotId": "triggers", "label": "Triggers", "icon": "⚡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-stack", "label": "Stack", "group": "Layout",
+          "description": "Contenitore a stack verticale/orizzontale", "icon": "⇕",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" },
+            { "slotId": "triggers", "label": "Triggers", "icon": "⚡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-grid", "label": "Grid", "group": "Layout",
+          "description": "Contenitore CSS grid", "icon": "⊞",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Grid Items", "icon": "▦" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-simple-grid", "label": "Simple Grid", "group": "Layout",
+          "description": "Griglia semplice a colonne uguali", "icon": "⊞",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-grid-item", "label": "Grid Item", "group": "Layout",
+          "description": "Cella di una griglia (colSpan/rowSpan)", "icon": "▦",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" },
+            { "slotId": "triggers", "label": "Triggers", "icon": "⚡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-box", "label": "Box", "group": "Layout",
+          "description": "Contenitore generico (div semantico)", "icon": "□",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" },
+            { "slotId": "triggers", "label": "Triggers", "icon": "⚡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-center", "label": "Center", "group": "Layout",
+          "description": "Centra il contenuto orizzontalmente e verticalmente", "icon": "⊙",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-container", "label": "Container", "group": "Layout",
+          "description": "Contenitore con larghezza massima e centratura", "icon": "▭",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" },
+            { "slotId": "triggers", "label": "Triggers", "icon": "⚡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-wrap", "label": "Wrap", "group": "Layout",
+          "description": "Contenitore con wrapping a capo automatico", "icon": "⇌",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Wrap Items", "icon": "▦" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-aspect-ratio", "label": "Aspect Ratio", "group": "Layout",
+          "description": "Contenitore con rapporto d'aspetto fisso", "icon": "⬜",
+          "dropAreas": [
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "pools", "label": "Pools", "icon": "▦" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-tabs", "label": "Tabs", "group": "Navigation",
+          "description": "Contenitore a schede/tab", "icon": "⊟",
+          "dropAreas": [
+            { "slotId": "pools", "label": "Tab Content", "icon": "▦" },
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-accordion", "label": "Accordion", "group": "Navigation",
+          "description": "Contenitore a fisarmonica espandibile", "icon": "⊞",
+          "dropAreas": [
+            { "slotId": "pools", "label": "Sections", "icon": "▦" },
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" }
+          ]
+        },
+        {
+          "elementType": "pool", "subType": "tecnosys-steps", "label": "Steps", "group": "Navigation",
+          "description": "Wizard a step sequenziali", "icon": "→",
+          "dropAreas": [
+            { "slotId": "pools", "label": "Step Content", "icon": "▦" },
+            { "slotId": "droplets", "label": "Droplets", "icon": "⬡" },
+            { "slotId": "triggers", "label": "Actions", "icon": "⚡" }
+          ]
+        }
+      ],
+      "triggers": [
+        { "elementType": "trigger", "subType": "tecnosys-button", "label": "Button", "icon": "▶", "group": "Action", "description": "Pulsante azione" }
+      ]
+    }
+  ],
+  "elementProperties": [
+    {
+      "elementType": "droplet", "subType": "test-droplet",
+      "title": "properties.test.testDroplet.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]}
+      ],
+      "events": [
+        { "type": "system", "name": "ClickMe", "awaitResult": true }
+      ]
+    },
+    {
+      "elementType": "pool", "subType": "tecnosys-card",
+      "title": "properties.tecnosys.card.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "type", "label": "properties.fields.type", "type": "string", "readOnly": true }
+        ]},
+        { "id": "header", "label": "properties.categories.header", "fields": [
+          { "key": "props.title", "label": "properties.tecnosys.card.fields.title", "type": "string" },
+          { "key": "props.subtitle", "label": "properties.tecnosys.card.fields.subtitle", "type": "string" }
+        ]},
+        { "id": "layout", "label": "properties.categories.layout", "fields": [
+          { "key": "props.variant", "label": "properties.tecnosys.card.fields.variant", "type": "string" },
+          { "key": "props.padding", "label": "properties.tecnosys.card.fields.padding", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "pool", "subType": "tecnosys-main-layout",
+      "title": "properties.tecnosys.mainLayout.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "type", "label": "properties.fields.type", "type": "string", "readOnly": true }
+        ]},
+        { "id": "branding", "label": "properties.categories.branding", "fields": [
+          { "key": "props.title", "label": "properties.tecnosys.mainLayout.fields.title", "type": "string" },
+          { "key": "props.subtitle", "label": "properties.tecnosys.mainLayout.fields.subtitle", "type": "string" },
+          { "key": "props.logoIcon", "label": "properties.tecnosys.mainLayout.fields.logoIcon", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "pool", "subType": "tecnosys-flex",
+      "title": "properties.tecnosys.flex.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "layout", "label": "properties.categories.layout", "fields": [
+          { "key": "props.direction", "label": "properties.tecnosys.flex.fields.direction", "type": "string" },
+          { "key": "props.align", "label": "properties.tecnosys.flex.fields.align", "type": "string" },
+          { "key": "props.justify", "label": "properties.tecnosys.flex.fields.justify", "type": "string" },
+          { "key": "props.gap", "label": "properties.tecnosys.flex.fields.gap", "type": "string" },
+          { "key": "props.wrap", "label": "properties.tecnosys.flex.fields.wrap", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "pool", "subType": "tecnosys-stack",
+      "title": "properties.tecnosys.stack.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "layout", "label": "properties.categories.layout", "fields": [
+          { "key": "props.direction", "label": "properties.tecnosys.stack.fields.direction", "type": "string" },
+          { "key": "props.spacing", "label": "properties.tecnosys.stack.fields.spacing", "type": "string" },
+          { "key": "props.align", "label": "properties.tecnosys.stack.fields.align", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "pool", "subType": "tecnosys-grid",
+      "title": "properties.tecnosys.grid.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "layout", "label": "properties.categories.layout", "fields": [
+          { "key": "props.templateColumns", "label": "properties.tecnosys.grid.fields.templateColumns", "type": "string" },
+          { "key": "props.gap", "label": "properties.tecnosys.grid.fields.gap", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "pool", "subType": "tecnosys-tabs",
+      "title": "properties.tecnosys.tabs.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.variant", "label": "properties.tecnosys.tabs.fields.variant", "type": "string" },
+          { "key": "props.size", "label": "properties.tecnosys.tabs.fields.size", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-input",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.input.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.input.fields.size", "type": "string" },
+          { "key": "props.type", "label": "properties.tecnosys.input.fields.type", "type": "string" },
+          { "key": "props.leftIcon", "label": "properties.tecnosys.input.fields.leftIcon", "type": "string" },
+          { "key": "props.rightIcon", "label": "properties.tecnosys.input.fields.rightIcon", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-select",
+      "events": [
+        { "type": "system", "name": "Changed" },
+        { "type": "system", "name": "Focus" },
+        { "type": "system", "name": "Blur" }
+      ],
+      "title": "properties.tecnosys.select.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.select.fields.size", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-checkbox",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.checkbox.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-switch",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.switch.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-textarea",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.textarea.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.rows", "label": "properties.tecnosys.textarea.fields.rows", "type": "number" },
+          { "key": "props.maxLength", "label": "properties.tecnosys.textarea.fields.maxLength", "type": "number" },
+          { "key": "props.showCharacterCount", "label": "properties.tecnosys.textarea.fields.showCharacterCount", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-password",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.password.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.password.fields.size", "type": "string" },
+          { "key": "props.autoComplete", "label": "properties.tecnosys.password.fields.autoComplete", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-number",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.number.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.number.fields.size", "type": "string" },
+          { "key": "props.min", "label": "properties.tecnosys.number.fields.min", "type": "number" },
+          { "key": "props.max", "label": "properties.tecnosys.number.fields.max", "type": "number" },
+          { "key": "props.step", "label": "properties.tecnosys.number.fields.step", "type": "number" },
+          { "key": "props.leftIcon", "label": "properties.tecnosys.number.fields.leftIcon", "type": "string" },
+          { "key": "props.rightIcon", "label": "properties.tecnosys.number.fields.rightIcon", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-radio",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.radio.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.radio.fields.size", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-autocomplete",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.autocomplete.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.multiple", "label": "properties.tecnosys.autocomplete.fields.multiple", "type": "boolean" },
+          { "key": "props.allowCustomValue", "label": "properties.tecnosys.autocomplete.fields.allowCustomValue", "type": "boolean" },
+          { "key": "props.minChars", "label": "properties.tecnosys.autocomplete.fields.minChars", "type": "number" },
+          { "key": "props.debounceTime", "label": "properties.tecnosys.autocomplete.fields.debounceTime", "type": "number" },
+          { "key": "props.loading", "label": "properties.tecnosys.autocomplete.fields.loading", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.autocomplete.fields.size", "type": "string" },
+          { "key": "props.borderRadius", "label": "properties.tecnosys.autocomplete.fields.borderRadius", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-search-input",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.searchInput.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.searchInput.fields.size", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-date",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.date.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "constraints", "label": "properties.categories.constraints", "fields": [
+          { "key": "props.min", "label": "properties.tecnosys.date.fields.min", "type": "string" },
+          { "key": "props.max", "label": "properties.tecnosys.date.fields.max", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.date.fields.size", "type": "string" },
+          { "key": "props.leftIcon", "label": "properties.tecnosys.date.fields.leftIcon", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-date-picker",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.datePicker.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.selectionMode", "label": "properties.tecnosys.datePicker.fields.selectionMode", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.datePicker.fields.size", "type": "string" },
+          { "key": "props.leftIcon", "label": "properties.tecnosys.datePicker.fields.leftIcon", "type": "string" },
+          { "key": "props.rightIcon", "label": "properties.tecnosys.datePicker.fields.rightIcon", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-time-input",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.timeInput.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" },
+          { "key": "helperText", "label": "properties.fields.helperText", "type": "string" },
+          { "key": "required", "label": "properties.fields.required", "type": "boolean" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" },
+          { "key": "readonly", "label": "properties.fields.readonly", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.size", "label": "properties.tecnosys.timeInput.fields.size", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-badge",
+      "events": [
+        { "type": "system", "name": "Click" }
+      ],
+      "title": "properties.tecnosys.badge.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.variant", "label": "properties.tecnosys.badge.fields.variant", "type": "string" },
+          { "key": "props.color", "label": "properties.tecnosys.badge.fields.color", "type": "string" },
+          { "key": "props.size", "label": "properties.tecnosys.badge.fields.size", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-list",
+      "events": [
+        { "type": "system", "name": "ItemClick" },
+        { "type": "system", "name": "SelectionChange" },
+        { "type": "system", "name": "ScrollEnd" }
+      ],
+      "title": "properties.tecnosys.list.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-table",
+      "events": [
+        { "type": "system", "name": "RowClicked" },
+        { "type": "system", "name": "SelectionChange" }
+      ],
+      "title": "properties.tecnosys.table.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-tree",
+      "events": [
+        { "type": "system", "name": "NodeSelected" },
+        { "type": "system", "name": "NodeChecked" },
+        { "type": "system", "name": "NodeExpanded" }
+      ],
+      "title": "properties.tecnosys.tree.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-breadcrumb",
+      "events": [
+        { "type": "system", "name": "ItemClick" }
+      ],
+      "title": "properties.tecnosys.breadcrumb.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "trigger", "subType": "tecnosys-button",
+      "title": "properties.tecnosys.button.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "variant", "label": "properties.tecnosys.button.fields.variant", "type": "string" },
+          { "key": "size", "label": "properties.tecnosys.button.fields.size", "type": "string" },
+          { "key": "icon", "label": "properties.tecnosys.button.fields.icon", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "submitForm", "label": "properties.tecnosys.button.fields.submitForm", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "trigger", "subType": "tecnosys-alert",
+      "title": "properties.tecnosys.alert.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" },
+          { "key": "enabled", "label": "properties.fields.enabled", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "status", "label": "properties.tecnosys.alert.fields.status", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-advanced-filters",
+      "events": [
+        { "type": "system", "name": "Changed" },
+        { "type": "system", "name": "Reset" },
+        { "type": "system", "name": "ManageGroupsClick" }
+      ],
+      "title": "properties.tecnosys.advancedFilters.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "badges", "label": "properties.tecnosys.advancedFilters.categories.badges", "fields": [
+          { "key": "props.inactiveUsersCount", "label": "properties.tecnosys.advancedFilters.fields.inactiveUsersCount", "type": "number" },
+          { "key": "props.tenantUsersCount", "label": "properties.tecnosys.advancedFilters.fields.tenantUsersCount", "type": "number" },
+          { "key": "props.anomalousUsersCount", "label": "properties.tecnosys.advancedFilters.fields.anomalousUsersCount", "type": "number" },
+          { "key": "props.systemUsersCount", "label": "properties.tecnosys.advancedFilters.fields.systemUsersCount", "type": "number" }
+        ]},
+        { "id": "options", "label": "properties.tecnosys.advancedFilters.categories.options", "fields": [
+          { "key": "props.showReset", "label": "properties.tecnosys.advancedFilters.fields.showReset", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-quick-actions",
+      "events": [
+        { "type": "system", "name": "Click" }
+      ],
+      "title": "properties.tecnosys.quickActions.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "props.title", "label": "properties.tecnosys.quickActions.fields.title", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.quickActions.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-anagrafica-table",
+      "events": [
+        { "type": "system", "name": "Dettaglio" },
+        { "type": "system", "name": "StampaScheda" },
+        { "type": "system", "name": "DocumentiAllegati" },
+        { "type": "system", "name": "Modifica" },
+        { "type": "system", "name": "SelectionChange" },
+        { "type": "system", "name": "Search" },
+        { "type": "system", "name": "Esporta" },
+        { "type": "system", "name": "EliminaSelezionate" },
+        { "type": "system", "name": "SortChange" },
+        { "type": "system", "name": "LoadMore" }
+      ],
+      "title": "properties.tecnosys.anagraficaTable.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "features", "label": "properties.tecnosys.anagraficaTable.categories.features", "fields": [
+          { "key": "props.showSearch", "label": "properties.tecnosys.anagraficaTable.fields.showSearch", "type": "boolean" },
+          { "key": "props.enableSelection", "label": "properties.tecnosys.anagraficaTable.fields.enableSelection", "type": "boolean" },
+          { "key": "props.showExportButton", "label": "properties.tecnosys.anagraficaTable.fields.showExportButton", "type": "boolean" },
+          { "key": "props.showDeleteButton", "label": "properties.tecnosys.anagraficaTable.fields.showDeleteButton", "type": "boolean" }
+        ]},
+        { "id": "state", "label": "properties.tecnosys.anagraficaTable.categories.state", "fields": [
+          { "key": "props.loading", "label": "properties.tecnosys.anagraficaTable.fields.loading", "type": "boolean" },
+          { "key": "props.loadingMore", "label": "properties.tecnosys.anagraficaTable.fields.loadingMore", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.anagraficaTable.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-anomalies-banner",
+      "events": [
+        { "type": "system", "name": "Risolvi" }
+      ],
+      "title": "properties.tecnosys.anomaliesBanner.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.showResolveButton", "label": "properties.tecnosys.anomaliesBanner.fields.showResolveButton", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.anomaliesBanner.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-dati-identificativi-card",
+      "title": "properties.tecnosys.datiIdentificativiCard.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.datiIdentificativiCard.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-header-anagrafica",
+      "title": "properties.tecnosys.headerAnagrafica.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.headerAnagrafica.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-immobili-contratti-card",
+      "events": [
+        { "type": "system", "name": "Navigate" },
+        { "type": "system", "name": "ImmobileClick" }
+      ],
+      "title": "properties.tecnosys.immobiliContrattiCard.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.navigable", "label": "properties.tecnosys.immobiliContrattiCard.fields.navigable", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.immobiliContrattiCard.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-nucleo-familiare-card",
+      "events": [
+        { "type": "system", "name": "MembroClick" }
+      ],
+      "title": "properties.tecnosys.nucleoFamiliareCard.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.nucleoFamiliareCard.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-recapiti-card",
+      "events": [
+        { "type": "system", "name": "RecapitoClick" }
+      ],
+      "title": "properties.tecnosys.recapitiCard.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.recapitiCard.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-situazione-economica-card",
+      "title": "properties.tecnosys.situazioneEconomicaCard.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.situazioneEconomicaCard.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-dati-generali",
+      "events": [
+        { "type": "system", "name": "RisolviAnomalie" },
+        { "type": "system", "name": "Navigate" }
+      ],
+      "title": "properties.tecnosys.datiGenerali.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.datiGenerali.fields.className", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.showResolveButton", "label": "properties.tecnosys.datiGenerali.fields.showResolveButton", "type": "boolean", "description": "properties.tecnosys.datiGenerali.fields.showResolveButton.description" },
+          { "key": "props.navigableImmobili", "label": "properties.tecnosys.datiGenerali.fields.navigableImmobili", "type": "boolean", "description": "properties.tecnosys.datiGenerali.fields.navigableImmobili.description" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-dati-generali-pf-form",
+      "events": [
+        { "type": "system", "name": "Changed" },
+        { "type": "system", "name": "ValidityChanged" },
+        { "type": "system", "name": "Search" }
+      ],
+      "title": "properties.tecnosys.datiGeneraliPFForm.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.datiGeneraliPFForm.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-dati-generali-pg-form",
+      "events": [
+        { "type": "system", "name": "Changed" },
+        { "type": "system", "name": "ValidityChanged" },
+        { "type": "system", "name": "Search" }
+      ],
+      "title": "properties.tecnosys.datiGeneraliPGForm.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.datiGeneraliPGForm.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-dati-generali-step",
+      "events": [
+        { "type": "system", "name": "Changed" },
+        { "type": "system", "name": "ValidityChanged" },
+        { "type": "system", "name": "Search" },
+        { "type": "system", "name": "TipoPersonaChanged" }
+      ],
+      "title": "properties.tecnosys.datiGeneraliStep.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.datiGeneraliStep.fields.className", "type": "string" },
+          { "key": "props.initialTipoPersona", "label": "properties.tecnosys.datiGeneraliStep.fields.initialTipoPersona", "type": "number" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-recapiti-step",
+      "events": [
+        { "type": "system", "name": "Changed" },
+        { "type": "system", "name": "ValidityChanged" },
+        { "type": "system", "name": "Search" }
+      ],
+      "title": "properties.tecnosys.recapitiStep.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.recapitiStep.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-riepilogo-step",
+      "title": "properties.tecnosys.riepilogoStep.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.riepilogoStep.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-dashboard-toolbar",
+      "events": [
+        { "type": "system", "name": "TimeRangeChanged" },
+        { "type": "system", "name": "SortChanged" },
+        { "type": "system", "name": "CustomizeClick" }
+      ],
+      "title": "properties.tecnosys.dashboardToolbar.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "content", "label": "properties.categories.content", "fields": [
+          { "key": "props.title", "label": "properties.tecnosys.dashboardToolbar.fields.title", "type": "string" },
+          { "key": "props.subtitle", "label": "properties.tecnosys.dashboardToolbar.fields.subtitle", "type": "string" },
+          { "key": "props.icon", "label": "properties.tecnosys.dashboardToolbar.fields.icon", "type": "string" },
+          { "key": "props.dateLabel", "label": "properties.tecnosys.dashboardToolbar.fields.dateLabel", "type": "string" },
+          { "key": "props.dateIcon", "label": "properties.tecnosys.dashboardToolbar.fields.dateIcon", "type": "string" },
+          { "key": "props.showCustomize", "label": "properties.tecnosys.dashboardToolbar.fields.showCustomize", "type": "boolean" },
+          { "key": "props.customizeIcon", "label": "properties.tecnosys.dashboardToolbar.fields.customizeIcon", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.className", "label": "properties.tecnosys.dashboardToolbar.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-leaderboard-widget",
+      "events": [
+        { "type": "system", "name": "SearchChanged" },
+        { "type": "system", "name": "SortChanged" },
+        { "type": "system", "name": "ItemClick" },
+        { "type": "system", "name": "LoadMore" },
+        { "type": "system", "name": "Export" }
+      ],
+      "title": "properties.tecnosys.leaderboardWidget.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "content", "label": "properties.categories.content", "fields": [
+          { "key": "props.title", "label": "properties.tecnosys.leaderboardWidget.fields.title", "type": "string" },
+          { "key": "props.subtitle", "label": "properties.tecnosys.leaderboardWidget.fields.subtitle", "type": "string" },
+          { "key": "props.icon", "label": "properties.tecnosys.leaderboardWidget.fields.icon", "type": "string" },
+          { "key": "props.emptyText", "label": "properties.tecnosys.leaderboardWidget.fields.emptyText", "type": "string" },
+          { "key": "props.searchPlaceholder", "label": "properties.tecnosys.leaderboardWidget.fields.searchPlaceholder", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.showSearch", "label": "properties.tecnosys.leaderboardWidget.fields.showSearch", "type": "boolean" },
+          { "key": "props.showExport", "label": "properties.tecnosys.leaderboardWidget.fields.showExport", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.minHeight", "label": "properties.tecnosys.leaderboardWidget.fields.minHeight", "type": "string" },
+          { "key": "props.className", "label": "properties.tecnosys.leaderboardWidget.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-stat-card",
+      "events": [
+        { "type": "system", "name": "Click" }
+      ],
+      "title": "properties.tecnosys.statCard.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" }
+        ]},
+        { "id": "content", "label": "properties.categories.content", "fields": [
+          { "key": "props.icon", "label": "properties.tecnosys.statCard.fields.icon", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.color", "label": "properties.tecnosys.statCard.fields.color", "type": "string" },
+          { "key": "props.size", "label": "properties.tecnosys.statCard.fields.size", "type": "string" },
+          { "key": "props.className", "label": "properties.tecnosys.statCard.fields.className", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.loading", "label": "properties.tecnosys.statCard.fields.loading", "type": "boolean" },
+          { "key": "props.interactive", "label": "properties.tecnosys.statCard.fields.interactive", "type": "boolean" },
+          { "key": "props.selected", "label": "properties.tecnosys.statCard.fields.selected", "type": "boolean" },
+          { "key": "props.hasAlert", "label": "properties.tecnosys.statCard.fields.hasAlert", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-stat-card-list",
+      "events": [
+        { "type": "system", "name": "ItemClick" },
+        { "type": "system", "name": "SelectionChange" }
+      ],
+      "title": "properties.tecnosys.statCardList.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.columns", "label": "properties.tecnosys.statCardList.fields.columns", "type": "number" },
+          { "key": "props.className", "label": "properties.tecnosys.statCardList.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-widget-frame",
+      "events": [
+        { "type": "system", "name": "Click" }
+      ],
+      "title": "properties.tecnosys.widgetFrame.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.title", "label": "properties.tecnosys.widgetFrame.fields.title", "type": "string" },
+          { "key": "props.subtitle", "label": "properties.tecnosys.widgetFrame.fields.subtitle", "type": "string" },
+          { "key": "props.icon", "label": "properties.tecnosys.widgetFrame.fields.icon", "type": "string" },
+          { "key": "props.color", "label": "properties.tecnosys.widgetFrame.fields.color", "type": "string" },
+          { "key": "props.minHeight", "label": "properties.tecnosys.widgetFrame.fields.minHeight", "type": "string" },
+          { "key": "props.className", "label": "properties.tecnosys.widgetFrame.fields.className", "type": "string" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-full-text-search",
+      "events": [
+        { "type": "system", "name": "Changed" },
+        { "type": "system", "name": "ItemClick" },
+        { "type": "system", "name": "ViewAllGroupClick" },
+        { "type": "system", "name": "QuickActionClick" }
+      ],
+      "title": "properties.tecnosys.fullTextSearch.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "placeholder", "label": "properties.fields.placeholder", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.expandable", "label": "properties.tecnosys.fullTextSearch.fields.expandable", "type": "boolean" },
+          { "key": "props.expandFrom", "label": "properties.tecnosys.fullTextSearch.fields.expandFrom", "type": "string" },
+          { "key": "props.loading", "label": "properties.tecnosys.fullTextSearch.fields.loading", "type": "boolean" }
+        ]}
+      ]
+    },
+    {
+      "elementType": "droplet", "subType": "tecnosys-attachment",
+      "events": [
+        { "type": "system", "name": "Changed" }
+      ],
+      "title": "properties.tecnosys.attachment.title",
+      "categories": [
+        { "id": "general", "label": "properties.categories.general", "fields": [
+          { "key": "name", "label": "properties.fields.name", "type": "string" },
+          { "key": "label", "label": "properties.fields.label", "type": "string" }
+        ]},
+        { "id": "behavior", "label": "properties.categories.behavior", "fields": [
+          { "key": "props.maxSizeMB", "label": "properties.tecnosys.attachment.fields.maxSizeMB", "type": "number" },
+          { "key": "props.multiple", "label": "properties.tecnosys.attachment.fields.multiple", "type": "boolean" }
+        ]},
+        { "id": "appearance", "label": "properties.categories.appearance", "fields": [
+          { "key": "props.layout", "label": "properties.tecnosys.attachment.fields.layout", "type": "string" }
+        ]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+/**
+ * Preset Dark
+ * 
+ * Dark theme with high contrast and modern aesthetics.
+ * Optimized for low-light environments.
+ */
+
+[data-theme="dark"] {
+  /* ============================================================================
+     COLORS - Dark Palette
+     ============================================================================ */
+
+  /* Primary - Bright Blue for dark mode */
+  --color-primary: #3B82F6;
+  --color-primary-hover: #2563EB;
+  --color-primary-light: rgba(59, 130, 246, 0.1);
+  --color-primary-dark: #1E40AF;
+
+  /* Background Colors */
+  --color-bg-primary: #0F172A;
+  /* Slate 950 */
+  --color-bg-secondary: #1E293B;
+  /* Slate 800 */
+  --color-bg-tertiary: #334155;
+  /* Slate 700 */
+
+  /* Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  /* Slate 400 */
+  --color-text-tertiary: #64748B;
+  /* Slate 500 */
+
+  /* Border Colors */
+  --color-border: #334155;
+  /* Slate 700 */
+  --color-border-light: #475569;
+  /* Slate 600 */
+
+  /* Semantic Colors - Adjusted for dark mode */
+  --color-success: #10B981;
+  --color-success-light: rgba(16, 185, 129, 0.1);
+  --color-success-border: rgba(16, 185, 129, 0.3);
+
+  --color-warning: #F59E0B;
+  --color-warning-light: rgba(245, 158, 11, 0.1);
+  --color-warning-border: rgba(245, 158, 11, 0.3);
+
+  --color-danger: #EF4444;
+  --color-danger-light: rgba(239, 68, 68, 0.1);
+  --color-danger-border: rgba(239, 68, 68, 0.3);
+
+  --color-info: #0EA5E9;
+  --color-info-light: rgba(14, 165, 233, 0.1);
+  --color-info-border: rgba(14, 165, 233, 0.3);
+
+  /* ============================================================================
+     EFFECTS - Dark Mode Specific
+     ============================================================================ */
+
+  /* Shadows - Darker for dark mode */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  --shadow-glow-blue: 0 10px 30px -5px rgba(59, 130, 246, 0.3);
+  --shadow-glow-primary: 0 10px 30px -5px rgba(59, 130, 246, 0.4);
+}
+
+/* Dark Specific Component Styles */
+[data-theme="dark"] body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .header {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(var(--blur-xl, 24px));
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .header-logo-icon {
+  background: linear-gradient(to bottom, #3B82F6, #2563EB);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+[data-theme="dark"] [data-scope='button'][data-part='root'][data-variant='primary'] {
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+[data-theme="dark"] [data-scope='button'][data-part='root'][data-variant='primary']:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Dark mode glassmorphism adjustments */
+[data-theme="dark"] .glass {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(51, 65, 85, 0.5);
+}
+
+[data-theme="dark"] .glass-solid {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(51, 65, 85, 1);
+}

@@ -1,0 +1,167 @@
+/* =============================================================================
+   COMPONENT: NOTIFICATION BELL
+   Stili per il componente NotificationBell (Badge, Popover, Lista)
+   Zero hardcode - Solo CSS variables
+   ============================================================================= */
+
+/* Notification Bell Button */
+.notification-bell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2);
+    border: none;
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.notification-bell:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--color-text-primary);
+}
+
+.dark .notification-bell:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.notification-bell.agid:hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+/* Standalone Variant */
+.notification-bell.standalone {
+    width: var(--spacing-10);
+    height: var(--spacing-10);
+    padding: 0;
+}
+
+/* Badge Container */
+.notification-badge-container {
+    position: absolute;
+    top: calc(var(--spacing-1) * -1);
+    right: calc(var(--spacing-1) * -1);
+}
+
+/* Notification Popover */
+.notification-popover {
+    width: var(--spacing-80, 20rem);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+}
+
+.dark .notification-popover {
+    border: 1px solid var(--color-border);
+}
+
+/* Popover Header */
+.notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-border-light);
+    background: var(--color-bg-tertiary);
+}
+
+.notification-header-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+}
+
+/* Notification List */
+.notification-list {
+    max-height: var(--spacing-75, 18.75rem);
+    overflow-y: auto;
+}
+
+/* Empty State */
+.notification-empty {
+    padding: var(--spacing-8);
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: var(--text-sm);
+}
+
+/* Notification Item */
+.notification-item {
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-border-light);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.notification-item:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.notification-item.unread {
+    background: var(--color-primary-light);
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+/* Item Header */
+.notification-item-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-1);
+}
+
+.notification-item-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-secondary);
+}
+
+.notification-item.unread .notification-item-title {
+    color: var(--color-primary);
+}
+
+.notification-item-time {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+}
+
+/* Item Message */
+.notification-item-message {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Popover Footer */
+.notification-footer {
+    padding: var(--spacing-2);
+    background: var(--color-bg-tertiary);
+    border-top: 1px solid var(--color-border-light);
+    text-align: center;
+}
+
+.notification-footer-btn {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
+}
+
+.notification-footer-btn:hover {
+    text-decoration: underline;
+}

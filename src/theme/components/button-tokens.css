@@ -1,0 +1,225 @@
+/**
+ * Button Tokens Bridge - Ark UI Compatibility Layer
+ * ==================================================
+ * 
+ * Questo file definisce le CSS vars `--button-*` richieste dal componente
+ * Ark.Button, mappandole al sistema di variabili shared-theme esistente.
+ * 
+ * Quando Themesys è DISABILITATO, questo file fornisce i valori di fallback
+ * per le variabili che normalmente verrebbero iniettate da ThemeProvider.
+ * 
+ * ARCHITETTURA:
+ * - Ark.Button usa: --button-bg, --button-fg, --button-border, etc.
+ * - Shared-theme ha: --colors-button-bg, --colors-primary, etc.
+ * - Questo file fa da ponte tra i due sistemi
+ */
+
+/* ============================================================================
+   DEFAULT VARIANT - data-variant="default" o nessun attributo
+   ============================================================================ */
+:root,
+[data-theme] {
+  /* === Variant: default === */
+  --button-bg: var(--color-bg-secondary, var(--colors-bg-subtle, #ffffff));
+  --button-fg: var(--color-text-primary, var(--colors-fg, #1d1d1f));
+  --button-border: var(--color-border, var(--colors-border, rgba(0, 0, 0, 0.1)));
+  --button-bg-hover: var(--color-bg-tertiary, var(--colors-bg-muted, rgba(0, 0, 0, 0.05)));
+  --button-bg-active: var(--colors-bg-emphasized, rgba(0, 0, 0, 0.1));
+  --button-border-hover: var(--color-border-hover, var(--colors-border-emphasized, rgba(0, 0, 0, 0.15)));
+  
+  /* === Size: md (default) === */
+  --button-px: 1rem;
+  --button-py: 0.5rem;
+  --button-gap: 0.5rem;
+  --button-font-size: 0.875rem;
+  --button-font-weight: 500;
+  --button-line-height: 1.25;
+  --button-radius: var(--radius-lg, 0.5rem);
+  --button-shadow: none;
+  
+  /* === Focus ring === */
+  --button-ring: var(--color-primary, var(--colors-button-primary, #007AFF));
+  --button-ring-offset: var(--colors-bg, #F5F5F7);
+}
+
+/* ============================================================================
+   VARIANT: primary
+   ============================================================================ */
+[data-variant="primary"],
+button[data-variant="primary"] {
+  --button-bg: var(--color-primary, var(--colors-button-primary, #007AFF));
+  --button-fg: var(--colors-button-fg, #ffffff);
+  --button-border: transparent;
+  --button-bg-hover: var(--color-primary-hover, var(--colors-button-primary-hover, #0062CC));
+  --button-bg-active: var(--colors-button-bg-active, #0051a8);
+  --button-border-hover: transparent;
+  --button-shadow: var(--shadow-glow-primary, 0 4px 14px 0 rgba(0, 122, 255, 0.3));
+  --button-ring: var(--color-primary, var(--colors-button-primary, #007AFF));
+}
+
+/* ============================================================================
+   VARIANT: success
+   ============================================================================ */
+[data-variant="success"],
+button[data-variant="success"] {
+  --button-bg: var(--color-success, var(--colors-success, #10b981));
+  --button-fg: #ffffff;
+  --button-border: transparent;
+  --button-bg-hover: #059669; /* Emerald 600 - darker shade */
+  --button-bg-active: #047857; /* Emerald 700 */
+  --button-border-hover: transparent;
+  --button-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+  --button-ring: var(--color-success, var(--colors-success, #10b981));
+}
+
+/* ============================================================================
+   VARIANT: warning
+   ============================================================================ */
+[data-variant="warning"],
+button[data-variant="warning"] {
+  --button-bg: var(--color-warning, var(--colors-warning, #f59e0b));
+  --button-fg: #ffffff;
+  --button-border: transparent;
+  --button-bg-hover: #d97706; /* Amber 600 - darker shade */
+  --button-bg-active: #b45309; /* Amber 700 */
+  --button-border-hover: transparent;
+  --button-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.3);
+  --button-ring: var(--color-warning, var(--colors-warning, #f59e0b));
+}
+
+/* ============================================================================
+   VARIANT: danger
+   ============================================================================ */
+[data-variant="danger"],
+button[data-variant="danger"] {
+  --button-bg: var(--color-danger, var(--colors-danger, #ef4444));
+  --button-fg: #ffffff;
+  --button-border: transparent;
+  --button-bg-hover: #dc2626; /* Red 600 - darker shade */
+  --button-bg-active: #b91c1c; /* Red 700 */
+  --button-border-hover: transparent;
+  --button-shadow: 0 4px 14px 0 rgba(239, 68, 68, 0.3);
+  --button-ring: var(--color-danger, var(--colors-danger, #ef4444));
+}
+
+/* ============================================================================
+   VARIANT: outline
+   ============================================================================ */
+[data-variant="outline"],
+button[data-variant="outline"] {
+  --button-bg: transparent;
+  --button-fg: var(--color-primary, var(--colors-button-primary, #007AFF));
+  --button-border: var(--color-primary, var(--colors-button-primary, #007AFF));
+  --button-bg-hover: var(--color-primary-light, rgba(0, 122, 255, 0.1));
+  --button-bg-active: rgba(0, 122, 255, 0.15);
+  --button-border-hover: var(--color-primary-hover, var(--colors-button-primary-hover, #0062CC));
+  --button-shadow: none;
+  --button-ring: var(--color-primary, var(--colors-button-primary, #007AFF));
+}
+
+/* ============================================================================
+   VARIANT: ghost
+   ============================================================================ */
+[data-variant="ghost"],
+button[data-variant="ghost"] {
+  --button-bg: transparent;
+  --button-fg: var(--color-text-primary, var(--colors-fg, #1d1d1f));
+  --button-border: transparent;
+  --button-bg-hover: var(--color-bg-tertiary, var(--colors-bg-muted, rgba(0, 0, 0, 0.05)));
+  --button-bg-active: var(--colors-bg-emphasized, rgba(0, 0, 0, 0.1));
+  --button-border-hover: transparent;
+  --button-shadow: none;
+  --button-ring: var(--color-primary, var(--colors-button-primary, #007AFF));
+}
+
+/* ============================================================================
+   SIZE: xs
+   ============================================================================ */
+[data-size="xs"],
+button[data-size="xs"] {
+  --button-px: 0.5rem;
+  --button-py: 0.25rem;
+  --button-gap: 0.25rem;
+  --button-font-size: 0.75rem;
+  --button-line-height: 1;
+  --button-radius: 0.25rem;
+}
+
+/* ============================================================================
+   SIZE: sm
+   ============================================================================ */
+[data-size="sm"],
+button[data-size="sm"] {
+  --button-px: 0.75rem;
+  --button-py: 0.25rem;
+  --button-gap: 0.375rem;
+  --button-font-size: 0.875rem;
+  --button-line-height: 1;
+  --button-radius: 0.375rem;
+}
+
+/* ============================================================================
+   SIZE: md (default - già definito in :root)
+   ============================================================================ */
+[data-size="md"],
+button[data-size="md"] {
+  --button-px: 1rem;
+  --button-py: 0.35rem;
+  --button-gap: 0.35rem;
+  --button-font-size: 0.875rem;
+  --button-line-height: 1.25;
+  --button-radius: 0.5rem;
+}
+
+/* ============================================================================
+   SIZE: lg
+   ============================================================================ */
+[data-size="lg"],
+button[data-size="lg"] {
+  --button-px: 1.25rem;
+  --button-py: 0.625rem;
+  --button-gap: 0.5rem;
+  --button-font-size: 1rem;
+  --button-line-height: 1.375;
+  --button-radius: 0.5rem;
+}
+
+/* ============================================================================
+   SIZE: xl
+   ============================================================================ */
+[data-size="xl"],
+button[data-size="xl"] {
+  --button-px: 1.5rem;
+  --button-py: 0.75rem;
+  --button-gap: 0.625rem;
+  --button-font-size: 1.125rem;
+  --button-line-height: 1.375;
+  --button-radius: 0.5rem;
+}
+
+/* ============================================================================
+   DARK MODE OVERRIDES
+   ============================================================================ */
+[data-theme="dark"],
+.dark {
+  --button-bg: var(--colors-bg-subtle, #2d2d2d);
+  --button-fg: var(--colors-fg, #f1f5f9);
+  --button-border: var(--colors-border, rgba(255, 255, 255, 0.1));
+  --button-bg-hover: var(--colors-bg-muted, rgba(255, 255, 255, 0.1));
+  --button-bg-active: var(--colors-bg-emphasized, rgba(255, 255, 255, 0.15));
+  --button-ring-offset: var(--colors-bg, #1a1a1a);
+}
+
+/* Dark mode variant overrides */
+[data-theme="dark"] [data-variant="outline"],
+.dark [data-variant="outline"] {
+  --button-bg-hover: rgba(0, 122, 255, 0.15);
+  --button-bg-active: rgba(0, 122, 255, 0.25);
+}
+
+[data-theme="dark"] [data-variant="ghost"],
+.dark [data-variant="ghost"] {
+  --button-fg: var(--colors-fg, #f1f5f9);
+  --button-bg-hover: rgba(255, 255, 255, 0.1);
+  --button-bg-active: rgba(255, 255, 255, 0.15);
+}

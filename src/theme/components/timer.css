@@ -1,0 +1,68 @@
+/**
+ * Timer Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.timer-area {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+  padding: var(--spacing-4) var(--spacing-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.timer-item {
+  min-width: 1.5em;
+  text-align: center;
+}
+
+.timer-separator {
+  color: var(--color-text-tertiary);
+  margin: 0 -4px;
+}
+
+.timer-control {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.timer-action-trigger {
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+.timer-action-trigger:hover {
+  background: var(--color-bg-hover);
+}
+
+.timer-action-trigger[data-action='start'] {
+  background: var(--color-success);
+  color: var(--color-white);
+  border-color: var(--color-success);
+}
+
+.timer-action-trigger[data-action='pause'] {
+  background: var(--color-warning);
+  color: var(--color-text-primary);
+  border-color: var(--color-warning);
+}

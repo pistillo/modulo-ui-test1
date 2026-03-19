@@ -1,0 +1,410 @@
+/* Attachment Component - Glassmorphism Style */
+
+/* Container principale con glassmorphism */
+.attachment-manager-container {
+  background: var(--colors-card-bg, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--colors-card-border, rgba(255, 255, 255, 0.5));
+  border-radius: var(--radii-2xl, 16px);
+  box-shadow: 
+    0 8px 32px 0 var(--colors-card-shadow, rgba(31, 38, 135, 0.1)),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Dropzone glassmorphism */
+.attachment-dropzone {
+  background: var(--colors-card-bg, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px dashed var(--colors-border-emphasized, rgba(255, 255, 255, 0.8));
+  border-radius: var(--radii-xl, 12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding: var(--spacing-6, 24px);
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attachment-dropzone-content {
+  position: relative;
+  z-index: 10;
+}
+
+.attachment-dropzone-icon {
+  color: var(--colors-primary, #007AFF);
+  opacity: 0.8;
+}
+
+.attachment-dropzone-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--colors-fg, #1d1d1f);
+  margin-bottom: 2px;
+}
+
+.attachment-dropzone-subtitle {
+  font-size: 12px;
+  color: var(--colors-fg-muted, #6b7280);
+}
+
+.attachment-upload-wrapper {
+  flex-shrink: 0;
+}
+
+.attachment-dropzone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary-light, rgba(0, 122, 255, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.attachment-dropzone:hover::before,
+.attachment-dropzone[data-dragging]::before {
+  opacity: 1;
+}
+
+.attachment-dropzone:hover {
+  border-color: var(--colors-primary, #007AFF);
+  box-shadow: 
+    var(--shadow-glow-primary, 0 4px 14px 0 rgba(0, 122, 255, 0.3)),
+    0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.attachment-dropzone[data-dragging] {
+  border-color: var(--colors-primary, #007AFF);
+  background: var(--color-primary-light, rgba(0, 122, 255, 0.1));
+  box-shadow: 
+    var(--shadow-glow-primary-hover, 0 6px 20px 0 rgba(0, 122, 255, 0.4)),
+    0 12px 32px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.attachment-dropzone[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Grid Layout - Responsive con container query support */
+.attachment-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Mobile: 1 colonna */
+  gap: var(--spacing-3, 12px);
+  width: 100%;
+  container-type: inline-size;
+}
+
+/* Tablet: 2 colonne (ogni card ~320px+) */
+@media (min-width: 768px) {
+  .attachment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop medio: 3 colonne (ogni card ~375px+) */
+@media (min-width: 1200px) {
+  .attachment-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4, 16px);
+  }
+}
+
+/* Desktop grande: 4 colonne (ogni card ~400px+) */
+@media (min-width: 1600px) {
+  .attachment-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card glassmorphism */
+.attachment-card {
+  background: var(--colors-card-bg, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--colors-card-border, rgba(255, 255, 255, 0.5));
+  border-radius: var(--radii-lg, 12px);
+  padding: var(--spacing-4, 16px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  color: var(--colors-fg, #1d1d1f);
+  container-type: inline-size;
+  min-width: 280px;
+}
+
+/* Modalità compatta: quando la card è < 375px */
+@container (max-width: 374px) {
+  .attachment-card {
+    padding: var(--spacing-3, 12px);
+  }
+  
+  .attachment-preview {
+    max-height: 120px;
+  }
+  
+  .attachment-card .attachment-action-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+.attachment-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-hover, rgba(255, 255, 255, 0.9)),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.attachment-card:hover {
+  box-shadow: 
+    0 4px 12px var(--colors-card-shadow, rgba(31, 38, 135, 0.12));
+  border-color: var(--colors-border-emphasized, rgba(255, 255, 255, 0.8));
+}
+
+.attachment-card:hover::before {
+  opacity: 0.5;
+}
+
+.attachment-card[data-status="uploading"] {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.attachment-card[data-status="error"] {
+  border-color: var(--colors-error, #dc2626);
+  background: var(--color-danger-light, rgba(239, 68, 68, 0.1));
+}
+
+/* Preview thumbnail glassmorphism */
+.attachment-preview {
+  background: var(--colors-bg-muted, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--colors-border-subtle, rgba(255, 255, 255, 0.2));
+  border-radius: var(--radii-md, 8px);
+  overflow: hidden;
+  position: relative;
+}
+
+.attachment-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(0, 0, 0, 0.05)
+  );
+  pointer-events: none;
+}
+
+/* Search bar glassmorphism */
+.attachment-search {
+  background: var(--color-bg-glass, rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--colors-border, rgba(255, 255, 255, 0.4));
+}
+
+/* Toast notification glassmorphism */
+.attachment-toast {
+  background: var(--color-bg-dropdown, rgba(255, 255, 255, 0.9));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--colors-border-emphasized, rgba(255, 255, 255, 0.8));
+  box-shadow: 
+    var(--shadow-2xl, 0 25px 50px -12px rgba(0, 0, 0, 0.25)),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  animation: slideInRight 0.3s ease-out;
+}
+
+.attachment-toast.error {
+  background: var(--colors-error, #dc2626);
+  color: var(--color-text-inverse, #ffffff);
+  border-color: var(--colors-error-hover, #b91c1c);
+}
+
+.attachment-toast.success {
+  background: var(--colors-success, #10B981);
+  color: var(--color-text-inverse, #ffffff);
+  border-color: var(--colors-success, #10B981);
+}
+
+/* Progress bar glassmorphism */
+.attachment-progress {
+  background: var(--colors-bg-muted, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: var(--radii-full, 9999px);
+  overflow: hidden;
+  height: 6px;
+}
+
+.attachment-progress-bar {
+  background: var(--colors-primary, #007AFF);
+  height: 100%;
+  border-radius: var(--radii-full, 9999px);
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.attachment-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+/* Stats badge glassmorphism */
+.attachment-stats-badge {
+  background: var(--colors-card-bg, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--colors-border-emphasized, rgba(255, 255, 255, 0.8));
+  border-radius: var(--radii-full, 9999px);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--colors-fg, #1d1d1f);
+  box-shadow: 0 2px 8px var(--colors-card-shadow, rgba(31, 38, 135, 0.1));
+}
+
+.attachment-stats-badge-error {
+  background: var(--color-danger-light, rgba(239, 68, 68, 0.1)) !important;
+  border-color: var(--colors-error, #dc2626) !important;
+  color: var(--colors-error, #dc2626) !important;
+}
+
+/* Filter buttons glassmorphism */
+.attachment-filter-btn {
+  background: var(--colors-card-bg, rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--colors-border-emphasized, rgba(255, 255, 255, 0.8));
+  border-radius: var(--radii-md, 8px);
+  padding: 8px 16px;
+  color: var(--colors-fg, #1d1d1f);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.attachment-filter-btn:hover {
+  background: var(--color-bg-hover, rgba(255, 255, 255, 0.9));
+  border-color: var(--colors-primary, #007AFF);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.attachment-filter-btn.active {
+  background: var(--colors-primary, #007AFF);
+  border-color: var(--colors-primary, #007AFF);
+  color: var(--color-text-inverse, #ffffff);
+  font-weight: 600;
+  box-shadow: var(--shadow-glow-primary, 0 4px 14px 0 rgba(0, 122, 255, 0.3));
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Empty state glassmorphism */
+.attachment-empty-state {
+  background: var(--color-bg-glass, rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px dashed var(--colors-border, rgba(255, 255, 255, 0.4));
+  border-radius: var(--radii-lg, 12px);
+  padding: var(--spacing-8, 32px);
+}
+
+/* Action buttons glassmorphism */
+.attachment-action-btn {
+  background: var(--color-bg-glass, rgba(255, 255, 255, 0.3));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--colors-border, rgba(255, 255, 255, 0.4));
+  border-radius: var(--radii-md, 8px);
+  transition: all 0.2s ease;
+  color: var(--colors-fg, #1d1d1f);
+}
+
+.attachment-action-btn:hover {
+  background: var(--color-bg-hover, rgba(255, 255, 255, 0.9));
+  border-color: var(--colors-border-emphasized, rgba(255, 255, 255, 0.8));
+  transform: scale(1.05);
+}
+
+.attachment-action-btn:active {
+  transform: scale(0.98);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .attachment-manager-container {
+    background: var(--colors-card-bg, rgba(0, 0, 0, 0.3));
+    border-color: var(--colors-card-border, rgba(255, 255, 255, 0.1));
+  }
+
+  .attachment-card {
+    background: var(--colors-card-bg, rgba(0, 0, 0, 0.4));
+    border-color: var(--colors-card-border, rgba(255, 255, 255, 0.1));
+  }
+
+  .attachment-dropzone {
+    background: var(--color-bg-glass, rgba(0, 0, 0, 0.3));
+  }
+}

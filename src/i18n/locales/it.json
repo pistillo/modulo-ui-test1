@@ -1,0 +1,243 @@
+﻿{
+  "properties": {
+    "categories": {
+      "general": "Generale",
+      "appearance": "Aspetto",
+      "header": "Intestazione",
+      "layout": "Layout",
+      "branding": "Branding",
+      "behavior": "Comportamento",
+      "content": "Contenuto"
+    },
+    "fields": {
+      "name": "Nome",
+      "label": "Etichetta",
+      "placeholder": "Segnaposto",
+      "helperText": "Testo di Aiuto",
+      "type": "Tipo",
+      "required": "Obbligatorio",
+      "enabled": "Abilitato",
+      "readonly": "Sola Lettura"
+    },
+    "tecnosys": {
+      "card": {
+        "title": "Card",
+        "fields": { "title": "Titolo", "subtitle": "Sottotitolo", "variant": "Variante", "padding": "Spaziatura" }
+      },
+      "mainLayout": {
+        "title": "Layout Principale",
+        "fields": { "title": "Titolo", "subtitle": "Sottotitolo", "logoIcon": "Icona Logo" }
+      },
+      "flex": {
+        "title": "Flex",
+        "fields": { "direction": "Direzione", "align": "Allineamento", "justify": "Giustificazione", "gap": "Spaziatura", "wrap": "A Capo" }
+      },
+      "stack": {
+        "title": "Stack",
+        "fields": { "direction": "Direzione", "spacing": "Spaziatura", "align": "Allineamento" }
+      },
+      "grid": {
+        "title": "Griglia",
+        "fields": { "templateColumns": "Colonne Template", "gap": "Spaziatura" }
+      },
+      "tabs": {
+        "title": "Schede",
+        "fields": { "variant": "Variante", "size": "Dimensione" }
+      },
+      "input": {
+        "title": "Input",
+        "fields": { "size": "Dimensione", "type": "Tipo", "leftIcon": "Icona Sinistra", "rightIcon": "Icona Destra" }
+      },
+      "select": {
+        "title": "Select",
+        "fields": { "size": "Dimensione", "multiple": "Selezione Multipla", "searchable": "Ricercabile" }
+      },
+      "checkbox": {
+        "title": "Checkbox",
+        "fields": { "size": "Dimensione" }
+      },
+      "switch": {
+        "title": "Switch",
+        "fields": { "size": "Dimensione" }
+      },
+      "textarea": {
+        "title": "Area di Testo",
+        "fields": { "size": "Dimensione", "rows": "Righe", "maxLength": "Lunghezza Massima", "showCharacterCount": "Mostra Conteggio Caratteri" }
+      },
+      "password": {
+        "title": "Password",
+        "fields": { "size": "Dimensione" }
+      },
+      "number": {
+        "title": "Numero",
+        "fields": { "size": "Dimensione", "min": "Minimo", "max": "Massimo", "step": "Incremento" }
+      },
+      "date": {
+        "title": "Data",
+        "fields": { "size": "Dimensione" }
+      },
+      "badge": {
+        "title": "Badge",
+        "fields": { "size": "Dimensione", "variant": "Variante", "color": "Colore" }
+      },
+      "avatar": {
+        "title": "Avatar",
+        "fields": { "size": "Dimensione", "variant": "Variante" }
+      },
+      "icon": {
+        "title": "Icona",
+        "fields": { "size": "Dimensione", "color": "Colore" }
+      },
+      "breadcrumb": {
+        "title": "Breadcrumb",
+        "fields": { "separator": "Separatore" }
+      },
+      "list": {
+        "title": "Lista",
+        "fields": { "itemKey": "Chiave Elemento", "isMultiSelect": "Selezione Multipla" }
+      },
+      "pageTitle": {
+        "title": "Titolo Pagina",
+        "fields": { "icon": "Icona", "iconColor": "Colore Icona" }
+      },
+      "table": {
+        "title": "Tabella",
+        "fields": { "striped": "Righe Alternate", "hoverable": "Hover", "stickyHeader": "Intestazione Fissa" }
+      },
+      "button": {
+        "title": "Pulsante",
+        "fields": { "size": "Dimensione", "variant": "Variante", "icon": "Icona", "submitForm": "Invia Form" }
+      },
+      "alert": {
+        "title": "Avviso",
+        "fields": { "status": "Stato" }
+      },
+      "attachment": {
+        "title": "Allegato",
+        "fields": { "maxSizeMB": "Dimensione Massima (MB)", "multiple": "Multipli", "layout": "Layout" }
+      },
+      "fullTextSearch": {
+        "title": "Ricerca Testuale",
+        "fields": { "expandable": "Espandibile", "expandFrom": "Espandi Da", "loading": "Caricamento" }
+      },
+      "advancedFilters": {
+        "title": "Filtri Avanzati",
+        "categories": { "badges": "Conteggi Badge", "options": "Opzioni" },
+        "fields": {
+          "inactiveUsersCount": "Conteggio Utenti Inattivi",
+          "tenantUsersCount": "Conteggio Inquilini",
+          "anomalousUsersCount": "Conteggio Utenti Anomali",
+          "systemUsersCount": "Conteggio Utenti di Sistema",
+          "showReset": "Mostra Pulsante Reset"
+        }
+      },
+      "quickActions": {
+        "title": "Azioni Rapide",
+        "fields": { "title": "Titolo", "className": "Classe CSS" }
+      },
+      "anagraficaTable": {
+        "title": "Tabella Anagrafiche",
+        "categories": { "features": "Funzionalità", "state": "Stato" },
+        "fields": {
+          "showSearch": "Mostra Ricerca", "enableSelection": "Abilita Selezione",
+          "showExportButton": "Mostra Pulsante Esporta", "showDeleteButton": "Mostra Pulsante Elimina",
+          "loading": "Caricamento", "loadingMore": "Caricamento Pagina Successiva", "className": "Classe CSS"
+        }
+      },
+      "anomaliesBanner": {
+        "title": "Banner Anomalie",
+        "fields": { "showResolveButton": "Mostra Pulsante Risolvi", "className": "Classe CSS" }
+      },
+      "datiIdentificativiCard": {
+        "title": "Card Dati Identificativi",
+        "fields": { "className": "Classe CSS" }
+      },
+      "headerAnagrafica": {
+        "title": "Header Anagrafica",
+        "fields": { "className": "Classe CSS" }
+      },
+      "immobiliContrattiCard": {
+        "title": "Card Immobili e Contratti",
+        "fields": { "navigable": "Abilita Navigazione", "className": "Classe CSS" }
+      },
+      "nucleoFamiliareCard": {
+        "title": "Card Nucleo Familiare",
+        "fields": { "className": "Classe CSS" }
+      },
+      "recapitiCard": {
+        "title": "Card Recapiti",
+        "fields": { "className": "Classe CSS" }
+      },
+      "situazioneEconomicaCard": {
+        "title": "Card Situazione Economica",
+        "fields": { "className": "Classe CSS" }
+      },
+      "datiGenerali": {
+        "title": "Dati Generali",
+        "fields": {
+          "className": "Classe CSS",
+          "showResolveButton": "Mostra Pulsante Risolvi",
+          "showResolveButton.description": "Mostra pulsante per risolvere le anomalie",
+          "navigableImmobili": "Abilita Navigazione",
+          "navigableImmobili.description": "Abilita navigazione ai dettagli immobile"
+        }
+      },
+      "datiGeneraliPFForm": {
+        "title": "Form Dati Generali PF",
+        "fields": { "className": "Classe CSS" }
+      },
+      "datiGeneraliPGForm": {
+        "title": "Form Dati Generali PG",
+        "fields": { "className": "Classe CSS" }
+      },
+      "datiGeneraliStep": {
+        "title": "Step Dati Generali",
+        "fields": { "className": "Classe CSS", "initialTipoPersona": "Tipo Persona Iniziale" }
+      },
+      "recapitiStep": {
+        "title": "Step Recapiti",
+        "fields": { "className": "Classe CSS" }
+      },
+      "riepilogoStep": {
+        "title": "Step Riepilogo",
+        "fields": { "className": "Classe CSS" }
+      },
+      "dashboardToolbar": {
+        "title": "Toolbar Dashboard",
+        "fields": {
+          "title": "Titolo", "subtitle": "Sottotitolo", "icon": "Icona",
+          "dateLabel": "Etichetta Data", "dateIcon": "Icona Data",
+          "showCustomize": "Mostra Pulsante Personalizza", "customizeIcon": "Icona Personalizza",
+          "className": "Classe CSS"
+        }
+      },
+      "leaderboardWidget": {
+        "title": "Widget Classifica",
+        "fields": {
+          "title": "Titolo", "subtitle": "Sottotitolo", "icon": "Icona",
+          "emptyText": "Testo Vuoto", "searchPlaceholder": "Placeholder Ricerca",
+          "showSearch": "Mostra Ricerca", "showExport": "Mostra Esporta",
+          "minHeight": "Altezza Minima", "className": "Classe CSS"
+        }
+      },
+      "statCard": {
+        "title": "Card Statistiche",
+        "fields": {
+          "icon": "Icona", "color": "Tema Colore", "size": "Dimensione", "className": "Classe CSS",
+          "loading": "Caricamento", "interactive": "Interattiva", "selected": "Selezionata", "hasAlert": "Ha Notifica"
+        }
+      },
+      "statCardList": {
+        "title": "Lista Card Statistiche",
+        "fields": { "columns": "Colonne", "className": "Classe CSS" }
+      },
+      "widgetFrame": {
+        "title": "Widget Frame",
+        "fields": {
+          "title": "Titolo", "subtitle": "Sottotitolo", "icon": "Icona",
+          "color": "Tema Colore", "minHeight": "Altezza Minima", "className": "Classe CSS"
+        }
+      }
+    }
+  }
+}

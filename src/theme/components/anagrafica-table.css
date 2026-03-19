@@ -1,0 +1,764 @@
+/* =============================================================================
+   AnagraficaTable  — tabella expandable delle anagrafiche
+   ============================================================================= */
+
+/* ── Layout splitter per lista-anagrafica ─────────────────────────────────── */
+/* Override del CSS base del Splitter: i pannelli della lista gestiscono
+   autonomamente border/padding/bg — il Splitter funge da puro contenitore. */
+.anagrafica-layout-splitter {
+  align-items: flex-start;
+  gap: 0;
+}
+
+.anagrafica-layout-splitter [data-part='panel'] {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.anagrafica-layout-splitter [data-part='resize-trigger'] {
+  width: 12px;
+  flex-shrink: 0;
+  cursor: col-resize;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted, #94a3b8);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  margin: 0 2px;
+}
+
+.anagrafica-layout-splitter [data-part='resize-trigger']:hover,
+.anagrafica-layout-splitter [data-part='resize-trigger'][data-focus-visible] {
+  color: var(--colors-primary, #7c3aed);
+  background: color-mix(in srgb, var(--colors-primary, #7c3aed) 10%, transparent);
+}
+
+/* Contenitore principale */
+.anagrafica-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ── Layout: outer (perimetro) + scroll solo sulla tabella ────────────────── */
+
+/* Perimetro esterno: segue la larghezza del viewport/container.
+   Non ha overflow: la search bar e il bordo si ridimensionano con la finestra. */
+.anagrafica-table-outer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+}
+
+/* Scroll orizzontale + verticale sullo stesso elemento: in questo modo
+   la scrollbar orizzontale è sempre visibile sotto l'ultima riga visibile
+   nel viewport, invece di finire dopo tutti i record (inclusi quelli fuori
+   dal max-height), prevenendo il trigger accidentale dello scroll infinito. */
+.anagrafica-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 60vh;
+    min-width: 0;
+    /* Scrollbar sottile e discreta */
+    scrollbar-width: thin;
+    scrollbar-color: var(--colors-border-emphasized, rgba(0,0,0,0.15)) transparent;
+}
+.anagrafica-table-scroll::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+.anagrafica-table-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+.anagrafica-table-scroll::-webkit-scrollbar-thumb {
+    background: var(--colors-border-emphasized, rgba(0,0,0,0.15));
+    border-radius: 2px;
+}
+.anagrafica-table-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--colors-fg-subtle, rgba(0,0,0,0.25));
+}
+
+/* Livello interno: larghezza minima sotto la quale si preferisce scorrere
+   piuttosto che schiacciare il layout.
+   52rem = somma colonne fisse (45rem) + spazio minimo ragionevole per "Soggetto". */
+.anagrafica-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 52rem;
+    width: 100%;
+}
+
+/* Disabilita lo scroll-x interno di Table (table-column-dock-scroll) quando è
+   nested dentro il nostro wrapper: lo scroll orizzontale è già gestito da
+   .anagrafica-table-scroll (che ha max-height), così la scrollbar rimane
+   sempre visibile sotto l'ultima riga visibile anziché finire dopo tutti i record. */
+.anagrafica-table-scroll .table-column-dock-scroll {
+    overflow-x: visible;
+}
+
+/* ── Search bar interna ────────────────────────────────────────────────────── */
+.anagrafica-table-search-bar {
+    margin-bottom: var(--spacing-3, 0.75rem);
+}
+
+/* ── Barra azioni bulk (visibile solo con elementi selezionati) ─────────────── */
+.anagrafica-table-bulk-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: var(--spacing-2, 0.5rem) var(--spacing-3, 0.75rem);
+    margin-bottom: var(--spacing-3, 0.75rem);
+    background: var(--colors-bg-subtle, rgba(0, 0, 0, 0.03));
+    border: 1px solid var(--colors-border, rgba(0, 0, 0, 0.08));
+    border-radius: var(--radius-md, 0.375rem);
+    gap: var(--spacing-2, 0.5rem);
+    animation: anagrafica-bulk-bar-in 0.15s ease-out;
+}
+
+@keyframes anagrafica-bulk-bar-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.anagrafica-table-bulk-bar__delete-btn {
+    color: var(--colors-error-600, #dc2626) !important;
+}
+.anagrafica-table-bulk-bar__delete-btn:hover {
+    color: var(--colors-error-700, #b91c1c) !important;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────────── */
+.anagrafica-table-header {
+    display: grid;
+    grid-template-columns: 2rem 3rem 1fr 11rem 12rem 8rem 9rem;
+    align-items: center;
+    gap: var(--spacing-3, 0.75rem);
+    padding: var(--spacing-2, 0.5rem) var(--spacing-4, 1rem);
+    border-bottom: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+}
+
+.anagrafica-table-header-cell {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #64748b);
+    white-space: nowrap;
+}
+
+.anagrafica-table-header-cell--right {
+    text-align: right;
+}
+
+/* ── Corpo ─────────────────────────────────────────────────────────────────── */
+.anagrafica-table-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1, 0.25rem);
+    padding: var(--spacing-2, 0.5rem) 0;
+}
+
+/* ── Riga ──────────────────────────────────────────────────────────────────── */
+.anagrafica-table-row {
+    overflow: hidden;
+    border-radius: var(--radius-xl, 0.75rem);
+    border: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+    background: var(--colors-card-bg, rgba(255,255,255,0.6));
+    transition: border-color 0.15s ease;
+}
+
+.anagrafica-table-row:hover {
+    border-color: var(--colors-border-emphasized, rgba(0,0,0,0.15));
+}
+
+.anagrafica-table-row--expanded {
+    border-color: rgba(139,92,246,0.35);
+}
+
+.anagrafica-table-row--morosita {
+    border-left: 2px solid rgba(239, 68, 68, 0.55);
+}
+
+/* Griglia principale della riga */
+.anagrafica-table-row-main {
+    display: grid;
+    grid-template-columns: 2rem 3rem 1fr 11rem 12rem 8rem 9rem;
+    align-items: center;
+    gap: var(--spacing-3, 0.75rem);
+    padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+    cursor: default;
+}
+
+/* ── Cella checkbox ────────────────────────────────────────────────────────── */
+.anagrafica-table-checkbox {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: var(--colors-primary, #7c3aed);
+}
+
+/* ── Cella avatar ──────────────────────────────────────────────────────────── */
+.anagrafica-table-avatar {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-full, 9999px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.anagrafica-table-avatar--pf {
+    background: color-mix(in srgb, var(--colors-primary, #7c3aed) 15%, transparent);
+    color: var(--colors-primary, #7c3aed);
+}
+
+.anagrafica-table-avatar--pg {
+    background: color-mix(in srgb, #a855f7 15%, transparent);
+    border: 1.5px solid color-mix(in srgb, #a855f7 30%, transparent);
+    color: #a855f7;
+}
+
+.anagrafica-table-avatar--sistema {
+    background: color-mix(in srgb, #2563eb 15%, transparent);
+    border: 1.5px solid color-mix(in srgb, #2563eb 35%, transparent);
+    color: #2563eb;
+}
+
+/* Dot stato sul badge */
+.anagrafica-table-stato-dot {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: var(--radius-full, 9999px);
+    border: 2px solid var(--colors-card-bg, #ffffff);
+}
+
+.anagrafica-table-stato-dot--attivo   { background: #34d399; }
+.anagrafica-table-stato-dot--sospeso  { background: #fbbf24; }
+.anagrafica-table-stato-dot--anomalia { background: #ef4444; }
+
+/* ── Soggetto ──────────────────────────────────────────────────────────────── */
+.anagrafica-table-denominazione {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #f1f5f9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(18rem, 100%);
+}
+
+.anagrafica-table-codice-sep,
+.anagrafica-table-codice {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #64748b);
+  white-space: nowrap;
+}
+
+.anagrafica-table-soggetto-sep {
+  font-size: 0.7rem;
+  color: var(--color-text-muted, #64748b);
+  opacity: 0.5;
+}
+
+.anagrafica-table-soggetto-sub {
+  font-size: 0.7rem;
+  color: var(--color-text-muted, #64748b);
+  white-space: nowrap;
+}
+
+/* ── Contatti ──────────────────────────────────────────────────────────────── */
+.anagrafica-table-contatti-icon {
+  color: var(--color-text-muted, #64748b);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.anagrafica-table-contatti-value {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary, #94a3b8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: min(14rem, 100%);
+}
+
+/* ── Contratto ─────────────────────────────────────────────────────────────── */
+.anagrafica-table-contratto-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* ── Flags (anomalia / verifica / inattivo) ────────────────────────────────── */
+.anagrafica-table-anomalia-icon {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+/* ── CF / PIVA ─────────────────────────────────────────────────────────────── */
+.anagrafica-table-cfpiva {
+  font-size: 0.72rem;
+  font-family: var(--font-mono, monospace);
+  color: var(--color-text-secondary, #94a3b8);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ── Cella soggetto ────────────────────────────────────────────────────────── */
+.anagrafica-table-soggetto {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.anagrafica-table-soggetto-top {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2, 0.5rem);
+    flex-wrap: wrap;
+}
+
+.anagrafica-table-denominazione {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #f1f5f9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.anagrafica-table-codice {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #64748b);
+    white-space: nowrap;
+}
+
+.anagrafica-table-gruppo-badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #5eead4;
+    background: rgba(20, 184, 166, 0.18);
+    border-radius: var(--radius-full, 9999px);
+    padding: 0.125rem 0.5rem;
+    white-space: nowrap;
+}
+
+.anagrafica-table-morosita-icon {
+    color: #f87171;
+    flex-shrink: 0;
+}
+
+/* ── Cella documento (CF/PIVA) ─────────────────────────────────────────────── */
+.anagrafica-table-documento {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.anagrafica-table-documento-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #64748b);
+}
+
+.anagrafica-table-documento-value {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary, #94a3b8);
+    letter-spacing: 0.02em;
+}
+
+/* ── Cella localita ────────────────────────────────────────────────────────── */
+.anagrafica-table-localita {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+
+.anagrafica-table-localita-name {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary, #94a3b8);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.anagrafica-table-localita-indirizzo {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #64748b);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Cella stato ───────────────────────────────────────────────────────────── */
+.anagrafica-table-stato-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem 0.625rem;
+    border-radius: var(--radius-full, 9999px);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.anagrafica-table-stato-badge--attivo {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.anagrafica-table-stato-badge--sospeso {
+    background: rgba(251, 191, 36, 0.12);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+/* ── Cella azioni ──────────────────────────────────────────────────────────── */
+.anagrafica-table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-2, 0.5rem);
+}
+
+.anagrafica-table-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-md, 0.375rem);
+    border: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+    background: transparent;
+    color: var(--colors-fg-muted, #64748b);
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+    flex-shrink: 0;
+}
+
+.anagrafica-table-chevron:hover {
+    color: var(--colors-fg, #1d1d1f);
+    background: var(--colors-bg-muted, rgba(0,0,0,0.04));
+}
+
+.anagrafica-table-chevron--expanded {
+    transform: rotate(180deg);
+    color: var(--colors-primary, #7c3aed);
+    border-color: rgba(139,92,246,0.4);
+}
+
+/* ── Sezione espansa ───────────────────────────────────────────────────────── */
+.anagrafica-table-expanded {
+    border-top: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+    padding: var(--spacing-4, 1rem);
+    background: var(--colors-bg, #F5F5F7);
+}
+
+/* Griglia principale 3 colonne */
+.anagrafica-table-expanded-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-3, 0.75rem);
+    margin-bottom: var(--spacing-3, 0.75rem);
+}
+
+@media (max-width: 960px) {
+    .anagrafica-table-expanded-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .anagrafica-table-expanded-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card individuale */
+.anagrafica-table-exp-card {
+    border: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+    border-radius: var(--radius-xl, 0.75rem);
+    background: var(--colors-card-bg, rgba(255,255,255,0.6));
+    padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+}
+
+.anagrafica-table-exp-card--compact {
+    padding: var(--spacing-2-5, 0.625rem) var(--spacing-3, 0.75rem);
+}
+
+/* Header card (title + icon) */
+.anagrafica-table-exp-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-2, 0.5rem);
+}
+
+/* Titolo card in uppercase */
+.anagrafica-table-exp-card-title {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #64748b);
+}
+
+/* Icona colorata top-right */
+.anagrafica-table-exp-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-lg, 0.5rem);
+    flex-shrink: 0;
+}
+
+.anagrafica-table-exp-card-icon--pf {
+    background: color-mix(in srgb, var(--colors-primary, #7c3aed) 15%, transparent);
+    color: var(--colors-primary, #7c3aed);
+}
+
+.anagrafica-table-exp-card-icon--pg {
+    background: color-mix(in srgb, var(--colors-fg-muted, #94a3b8) 15%, transparent);
+    color: var(--colors-fg-muted, #94a3b8);
+}
+
+.anagrafica-table-exp-card-icon--location {
+    background: rgba(239, 68, 68, 0.18);
+    color: #f87171;
+}
+
+/* Valore principale grande */
+.anagrafica-table-exp-main-value {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #f1f5f9);
+    line-height: 1.3;
+    margin-bottom: 0.125rem;
+}
+
+/* Valore secondario (sottotitolo) */
+.anagrafica-table-exp-sub-value {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted, #64748b);
+    margin-bottom: 0.125rem;
+}
+
+/* Divisore orizzontale */
+.anagrafica-table-exp-divider {
+    border: none;
+    border-top: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+    margin: var(--spacing-3, 0.75rem) 0;
+}
+
+/* Griglia 2 colonne per coppie di campi */
+.anagrafica-table-exp-fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3, 0.75rem);
+    margin-bottom: var(--spacing-3, 0.75rem);
+}
+
+/* Label campo uppercase tiny */
+.anagrafica-table-exp-field-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted, #64748b);
+    margin-bottom: 0.125rem;
+}
+
+/* Valore campo */
+.anagrafica-table-exp-field-value {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-primary, #f1f5f9);
+}
+
+.anagrafica-table-exp-field-value--empty {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-text-muted, #64748b);
+}
+
+/* Badge contratto monospace inline */
+.anagrafica-table-exp-badge-contratto {
+    display: inline-block;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-secondary, var(--colors-fg-muted, #64748b));
+    background: var(--colors-bg-muted, rgba(0,0,0,0.04));
+    border: 1px solid var(--colors-border, rgba(0,0,0,0.10));
+    border-radius: var(--radius-md, 0.375rem);
+    padding: 0.125rem 0.5rem;
+    letter-spacing: 0.03em;
+    margin-top: 0.25rem;
+}
+
+/* Icona contatto */
+.anagrafica-table-exp-contact-icon {
+    color: var(--color-text-muted, #64748b);
+    flex-shrink: 0;
+}
+
+/* Nota-card (referente di contatto singolo) */
+.anagrafica-table-exp-nota {
+    background: var(--colors-bg-muted, rgba(0,0,0,0.04));
+    border: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+    border-radius: var(--radius-lg, 0.5rem);
+    padding: var(--spacing-2, 0.5rem) var(--spacing-2-5, 0.625rem);
+}
+
+/* Nome nella nota (evidenziato, uppercase) */
+.anagrafica-table-exp-nota-name {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--colors-primary, #7c3aed);
+}
+
+/* Meta info (telefono / data) nella nota */
+.anagrafica-table-exp-nota-meta {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #64748b);
+}
+
+/* Corpo della nota */
+.anagrafica-table-exp-nota-body {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary, #94a3b8);
+    margin-top: 0.125rem;
+}
+
+/* Azioni nella sezione espansa */
+.anagrafica-table-expanded-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2, 0.5rem);
+}
+
+@media (max-width: 640px) {
+    .anagrafica-table-expanded-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Skeleton loading ──────────────────────────────────────────────────────── */
+.anagrafica-table-skeleton-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1, 0.25rem);
+}
+
+.anagrafica-table-skeleton-row {
+    display: grid;
+    /* colonne override via style inline; default compatibile con il layout attuale */
+    grid-template-columns: 2rem 2rem 1fr 11rem 9rem 6rem 10rem 5.5rem;
+    align-items: center;
+    gap: var(--spacing-3, 0.75rem);
+    padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+    border-radius: var(--radius-xl, 0.75rem);
+    border: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+    background: var(--colors-card-bg, rgba(255,255,255,0.6));
+}
+
+.anagrafica-table-skeleton-row--header {
+    background: var(--colors-card-bg, rgba(255,255,255,0.6));
+    border-color: transparent;
+    padding-bottom: var(--spacing-2, 0.5rem);
+    border-bottom: 1px solid var(--colors-border, rgba(0,0,0,0.06));
+    border-radius: 0;
+    margin-bottom: var(--spacing-1, 0.25rem);
+}
+
+.anagrafica-table-skeleton-cell {
+    height: 0.875rem;
+    border-radius: var(--radius-md, 0.375rem);
+    background: linear-gradient(
+        90deg,
+        var(--colors-border, rgba(0,0,0,0.06)) 0%,
+        var(--colors-border-emphasized, rgba(0,0,0,0.10)) 50%,
+        var(--colors-border, rgba(0,0,0,0.06)) 100%
+    );
+    background-size: 200% 100%;
+    animation: anagrafica-table-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes anagrafica-table-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Empty state ───────────────────────────────────────────────────────────── */
+.anagrafica-table-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-16, 4rem) var(--spacing-4, 1rem);
+    gap: var(--spacing-3, 0.75rem);
+    color: var(--colors-fg-muted, #64748b);
+    border-radius: var(--radius-2xl, 1rem);
+    border: 1px solid var(--colors-border, rgba(0,0,0,0.08));
+}
+
+.anagrafica-table-empty-icon {
+    color: var(--color-text-muted, #64748b);
+    opacity: 0.5;
+}
+
+.anagrafica-table-empty-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* ── Card compact (Contatti & Contratto nascosti in mobile) ────────────────── */
+.anagrafica-table-exp-card--compact-info {
+    border-color: var(--colors-info-border, rgba(99,179,237,0.25));
+    background: var(--colors-info-subtle, rgba(99,179,237,0.06));
+}
+
+.anagrafica-table-exp-card--compact-info .anagrafica-table-exp-card-title {
+    color: var(--colors-info-text, #63b3ed);
+}
+
+.anagrafica-table-exp-card-icon--info {
+    background: var(--colors-info-subtle, rgba(99,179,237,0.12));
+    color: var(--colors-info-icon, #63b3ed);
+}
+
+.anagrafica-table-exp-field-value {
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary, #94a3b8);
+    line-height: 1.4;
+    word-break: break-word;
+}

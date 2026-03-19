@@ -1,0 +1,273 @@
+/**
+ * Semantic Tokens
+ * 
+ * Defines semantic color tokens that map to palette colors.
+ * These tokens provide role-based naming (background.*, text.*, etc.)
+ * that can be overridden per theme while maintaining semantic meaning.
+ */
+
+/* ============================================================================
+   Semantic Tokens - Background
+   ============================================================================ */
+
+:root, [data-theme="modern"] {
+  --semantic-background-default: var(--colors-bg);
+  --semantic-background-surface: var(--colors-bg-subtle);
+  --semantic-background-white: #ffffff;
+  --semantic-background-light: var(--colors-bg-muted);
+  --semantic-background-light100: var(--colors-bg-muted);
+  --semantic-background-light200: var(--colors-bg-emphasized);
+  --semantic-background-primary: var(--colors-primary);
+  --semantic-background-primary50: var(--palette-brand-50);
+  --semantic-background-primary100: var(--palette-brand-200);
+  --semantic-background-primary200: var(--palette-brand-200);
+  --semantic-background-primary300: var(--palette-brand-200);
+  --semantic-background-success200: var(--palette-green-200);
+  --semantic-background-success600: var(--palette-green-600);
+  --semantic-background-error200: var(--palette-red-200);
+}
+
+[data-theme="agid"] {
+  --semantic-background-default: #ffffff;
+  --semantic-background-surface: var(--palette-gray-50);
+  --semantic-background-white: #ffffff;
+  --semantic-background-light: var(--palette-gray-100);
+  --semantic-background-light100: var(--palette-gray-100);
+  --semantic-background-light200: var(--palette-gray-200);
+  --semantic-background-primary: #0066CC;
+  --semantic-background-primary50: #E6F2FF;
+  --semantic-background-primary100: #99CCFF;
+  --semantic-background-primary200: #99CCFF;
+  --semantic-background-primary300: #99CCFF;
+  --semantic-background-success200: var(--palette-green-200);
+  --semantic-background-success600: var(--palette-green-600);
+  --semantic-background-error200: var(--palette-red-200);
+}
+
+[data-theme="dark"] {
+  --semantic-background-default: var(--palette-navy-800);
+  --semantic-background-surface: var(--palette-navy-900);
+  --semantic-background-white: var(--palette-navy-900);
+  --semantic-background-light: var(--palette-navy-900);
+  --semantic-background-light100: var(--palette-navy-900);
+  --semantic-background-light200: var(--palette-navy-900);
+  --semantic-background-primary: var(--colors-primary);
+  --semantic-background-primary50: var(--palette-brand-800);
+  --semantic-background-primary100: var(--palette-brand-700);
+  --semantic-background-primary200: var(--palette-brand-700);
+  --semantic-background-primary300: var(--palette-brand-700);
+  --semantic-background-success200: var(--palette-green-700);
+  --semantic-background-success600: var(--palette-green-300);
+  --semantic-background-error200: var(--palette-red-700);
+}
+
+[data-theme="police"] {
+  --semantic-background-default: #F4F6F8;
+  --semantic-background-surface: #ffffff;
+  --semantic-background-white: #ffffff;
+  --semantic-background-light: var(--palette-gray-100);
+  --semantic-background-light100: var(--palette-gray-100);
+  --semantic-background-light200: var(--palette-gray-200);
+  --semantic-background-primary: #1e40af;
+  --semantic-background-primary50: var(--palette-blue-50);
+  --semantic-background-primary100: var(--palette-blue-200);
+  --semantic-background-primary200: var(--palette-blue-200);
+  --semantic-background-primary300: var(--palette-blue-200);
+  --semantic-background-success200: var(--palette-green-200);
+  --semantic-background-success600: var(--palette-green-600);
+  --semantic-background-error200: var(--palette-red-200);
+}
+
+/* ============================================================================
+   Semantic Tokens - Text
+   ============================================================================ */
+
+:root, [data-theme="modern"] {
+  --semantic-text-default: var(--colors-fg);
+  --semantic-text-secondary: var(--palette-gray-700);
+  --semantic-text-muted: var(--palette-gray-500);
+  --semantic-text-mutedLight: var(--palette-gray-500);
+  --semantic-text-white: #ffffff;
+  --semantic-text-primary: var(--palette-brand-400);
+  --semantic-text-primary200: var(--palette-brand-200);
+  --semantic-text-primary300: var(--palette-brand-300);
+  --semantic-text-primary400: var(--palette-brand-400);
+  --semantic-text-primary500: var(--palette-brand-500);
+  --semantic-text-primary600: var(--palette-brand-600);
+}
+
+[data-theme="agid"] {
+  --semantic-text-default: #1A1A1A;
+  --semantic-text-secondary: var(--palette-gray-700);
+  --semantic-text-muted: var(--palette-gray-500);
+  --semantic-text-mutedLight: var(--palette-gray-500);
+  --semantic-text-white: #ffffff;
+  --semantic-text-primary: #0066CC;
+  --semantic-text-primary200: #99CCFF;
+  --semantic-text-primary300: #66B3FF;
+  --semantic-text-primary400: #3399FF;
+  --semantic-text-primary500: #0066CC;
+  --semantic-text-primary600: #0059A3;
+}
+
+[data-theme="dark"] {
+  --semantic-text-default: #ffffff;
+  --semantic-text-secondary: var(--colors-fg-muted);
+  --semantic-text-muted: var(--palette-gray-400);
+  --semantic-text-mutedLight: var(--palette-gray-500);
+  --semantic-text-white: #ffffff;
+  --semantic-text-primary: var(--palette-brand-500);
+  --semantic-text-primary200: var(--palette-brand-200);
+  --semantic-text-primary300: var(--palette-brand-300);
+  --semantic-text-primary400: var(--palette-brand-400);
+  --semantic-text-primary500: var(--palette-brand-500);
+  --semantic-text-primary600: var(--palette-brand-600);
+}
+
+[data-theme="police"] {
+  --semantic-text-default: #1e293b;
+  --semantic-text-secondary: var(--palette-gray-700);
+  --semantic-text-muted: var(--palette-gray-500);
+  --semantic-text-mutedLight: var(--palette-gray-500);
+  --semantic-text-white: #ffffff;
+  --semantic-text-primary: #1e40af;
+  --semantic-text-primary200: var(--palette-blue-200);
+  --semantic-text-primary300: var(--palette-blue-300);
+  --semantic-text-primary400: var(--palette-blue-400);
+  --semantic-text-primary500: #1e40af;
+  --semantic-text-primary600: #1e3a8a;
+}
+
+/* ============================================================================
+   Semantic Tokens - Border
+   ============================================================================ */
+
+:root, [data-theme="modern"] {
+  --semantic-border-default: var(--palette-secondaryGray-400);
+  --semantic-border-light: var(--palette-gray-200);
+  --semantic-border-primary: var(--palette-brand-400);
+  --semantic-border-focus: var(--palette-brand-100);
+  --semantic-border-white: #ffffff;
+}
+
+[data-theme="agid"] {
+  --semantic-border-default: var(--palette-gray-200);
+  --semantic-border-light: var(--palette-gray-200);
+  --semantic-border-primary: #0066CC;
+  --semantic-border-focus: #E6F2FF;
+  --semantic-border-white: #ffffff;
+}
+
+[data-theme="dark"] {
+  --semantic-border-default: var(--palette-gray-700);
+  --semantic-border-light: var(--palette-gray-700);
+  --semantic-border-primary: var(--palette-brand-700);
+  --semantic-border-focus: var(--palette-brand-700);
+  --semantic-border-white: #ffffff;
+}
+
+[data-theme="police"] {
+  --semantic-border-default: var(--palette-gray-300);
+  --semantic-border-light: var(--palette-gray-200);
+  --semantic-border-primary: #1e40af;
+  --semantic-border-focus: var(--palette-blue-100);
+  --semantic-border-white: #ffffff;
+}
+
+/* ============================================================================
+   Semantic Tokens - Input
+   ============================================================================ */
+
+:root, [data-theme="modern"] {
+  --semantic-input-bg: #ffffff;
+  --semantic-input-border: var(--palette-secondaryGray-100);
+  --semantic-input-placeholder: var(--palette-secondaryGray-600);
+  --semantic-input-focusRing: var(--palette-blue-400);
+}
+
+[data-theme="agid"] {
+  --semantic-input-bg: #ffffff;
+  --semantic-input-border: var(--palette-gray-200);
+  --semantic-input-placeholder: var(--palette-gray-500);
+  --semantic-input-focusRing: var(--palette-blue-400);
+}
+
+[data-theme="dark"] {
+  --semantic-input-bg: var(--palette-gray-900);
+  --semantic-input-border: rgba(255, 255, 255, 0.1);
+  --semantic-input-placeholder: var(--palette-gray-400);
+  --semantic-input-focusRing: var(--palette-blue-400);
+}
+
+[data-theme="police"] {
+  --semantic-input-bg: #ffffff;
+  --semantic-input-border: var(--palette-gray-300);
+  --semantic-input-placeholder: var(--palette-gray-500);
+  --semantic-input-focusRing: var(--palette-blue-400);
+}
+
+/* ============================================================================
+   Semantic Tokens - Button
+   ============================================================================ */
+
+:root, [data-theme="modern"] {
+  --semantic-button-primary-bg: var(--colors-button-primary);
+  --semantic-button-primary-text: var(--colors-button-fg);
+  --semantic-button-primary-hoverBg: var(--colors-button-primary-hover);
+  --semantic-button-light-bg: var(--colors-button-secondary-bg);
+  --semantic-button-light-text: var(--colors-fg);
+  --semantic-button-action-bg: var(--colors-button-primary);
+  --semantic-button-action-text: var(--colors-button-fg);
+}
+
+[data-theme="agid"] {
+  --semantic-button-primary-bg: #0066CC;
+  --semantic-button-primary-text: #ffffff;
+  --semantic-button-primary-hoverBg: #004080;
+  --semantic-button-light-bg: rgba(249, 250, 251, 0.8);
+  --semantic-button-light-text: #1A1A1A;
+  --semantic-button-action-bg: #0066CC;
+  --semantic-button-action-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  --semantic-button-primary-bg: #6366f1;
+  --semantic-button-primary-text: #ffffff;
+  --semantic-button-primary-hoverBg: #4f46e5;
+  --semantic-button-light-bg: rgba(51, 65, 85, 0.5);
+  --semantic-button-light-text: #f1f5f9;
+  --semantic-button-action-bg: #6366f1;
+  --semantic-button-action-text: #ffffff;
+}
+
+[data-theme="police"] {
+  --semantic-button-primary-bg: #1e40af;
+  --semantic-button-primary-text: #ffffff;
+  --semantic-button-primary-hoverBg: #1e3a8a;
+  --semantic-button-light-bg: rgba(255, 255, 255, 0.8);
+  --semantic-button-light-text: #1e293b;
+  --semantic-button-action-bg: #1e40af;
+  --semantic-button-action-text: #ffffff;
+}
+
+/* ============================================================================
+   Semantic Tokens - State
+   ============================================================================ */
+
+:root, [data-theme="modern"],
+[data-theme="agid"],
+[data-theme="dark"],
+[data-theme="police"] {
+  --semantic-state-success: var(--palette-green-600);
+  --semantic-state-error: var(--palette-red-600);
+  --semantic-state-warning: var(--palette-orange-600);
+  --semantic-state-info: var(--palette-blue-600);
+}
+
+[data-theme="dark"] {
+  --semantic-state-success: var(--palette-green-400);
+  --semantic-state-error: var(--palette-red-400);
+  --semantic-state-warning: var(--palette-orange-400);
+  --semantic-state-info: var(--palette-blue-400);
+}
+

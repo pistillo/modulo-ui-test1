@@ -1,0 +1,62 @@
+/**
+ * HoverCard Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.hover-card-content {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-4);
+  max-width: var(--spacing-80);
+  z-index: var(--z-index-popover);
+  border: 1px solid var(--color-border);
+}
+
+.hover-card-content[data-state='open'] {
+  animation: fade-in 0.2s ease-out;
+}
+
+.hover-card-content[data-state='closed'] {
+  animation: fade-out 0.1s ease-in;
+}
+
+.hover-card-body {
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+}
+
+.hover-card-arrow {
+  --arrow-background: var(--color-bg-primary);
+  --arrow-size: 10px;
+}
+
+.hover-card-arrow-tip {
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

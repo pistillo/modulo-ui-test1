@@ -1,0 +1,129 @@
+/**
+ * IconButton Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ * Ottimizzato per button con SOLO icona centrata
+ */
+
+/* ========================================================================= */
+/* DATA-VARIANT MAPPINGS - Definisce i valori delle CSS vars per ogni variant */
+/* ========================================================================= */
+
+/* Default variant */
+button[data-variant='default'] {
+  --icon-button-bg: var(--color-bg-secondary);
+  --icon-button-fg: var(--color-text-primary);
+  --icon-button-border: var(--color-border);
+  --icon-button-bg-hover: var(--color-bg-tertiary);
+  --icon-button-border-hover: var(--color-border-hover);
+  --icon-button-bg-active: var(--color-bg-quaternary);
+  --icon-button-ring: var(--color-primary);
+  --icon-button-ring-offset: var(--color-bg-primary);
+  --icon-button-shadow: var(--shadow-sm);
+}
+
+/* Primary variant */
+button[data-variant='primary'] {
+  --icon-button-bg: var(--color-primary);
+  --icon-button-fg: white;
+  --icon-button-border: transparent;
+  --icon-button-bg-hover: var(--color-primary-hover);
+  --icon-button-border-hover: transparent;
+  --icon-button-bg-active: var(--color-primary-active);
+  --icon-button-ring: var(--color-primary);
+  --icon-button-ring-offset: var(--color-bg-primary);
+  --icon-button-shadow: var(--shadow-glow-primary);
+}
+
+/* Danger variant */
+button[data-variant='danger'] {
+  --icon-button-bg: var(--color-danger);
+  --icon-button-fg: white;
+  --icon-button-border: transparent;
+  --icon-button-bg-hover: var(--color-danger-hover);
+  --icon-button-border-hover: transparent;
+  --icon-button-bg-active: var(--color-danger-active);
+  --icon-button-ring: var(--color-danger);
+  --icon-button-ring-offset: var(--color-bg-primary);
+  --icon-button-shadow: var(--shadow-glow-danger);
+}
+
+/* Ghost variant */
+button[data-variant='ghost'] {
+  --icon-button-bg: transparent;
+  --icon-button-fg: var(--color-text-primary);
+  --icon-button-border: transparent;
+  --icon-button-bg-hover: var(--color-bg-tertiary);
+  --icon-button-border-hover: transparent;
+  --icon-button-bg-active: var(--color-bg-quaternary);
+  --icon-button-ring: var(--color-primary);
+  --icon-button-ring-offset: var(--color-bg-primary);
+  --icon-button-shadow: none;
+}
+
+/* Success variant */
+button[data-variant='success'] {
+  --icon-button-bg: var(--color-success);
+  --icon-button-fg: white;
+  --icon-button-border: transparent;
+  --icon-button-bg-hover: var(--color-success-hover);
+  --icon-button-border-hover: transparent;
+  --icon-button-bg-active: var(--color-success-active);
+  --icon-button-ring: var(--color-success);
+  --icon-button-ring-offset: var(--color-bg-primary);
+  --icon-button-shadow: var(--shadow-glow-success);
+}
+
+/* Warning variant */
+button[data-variant='warning'] {
+  --icon-button-bg: var(--color-warning);
+  --icon-button-fg: white;
+  --icon-button-border: transparent;
+  --icon-button-bg-hover: var(--color-warning-hover);
+  --icon-button-border-hover: transparent;
+  --icon-button-bg-active: var(--color-warning-active);
+  --icon-button-ring: var(--color-warning);
+  --icon-button-ring-offset: var(--color-bg-primary);
+  --icon-button-shadow: var(--shadow-glow-warning);
+}
+
+/* Outline variant */
+button[data-variant='outline'] {
+  --icon-button-bg: transparent;
+  --icon-button-fg: var(--color-primary);
+  --icon-button-border: var(--color-primary);
+  --icon-button-bg-hover: var(--color-primary-light);
+  --icon-button-border-hover: var(--color-primary);
+  --icon-button-bg-active: var(--color-primary-lighter);
+  --icon-button-ring: var(--color-primary);
+  --icon-button-ring-offset: var(--color-bg-primary);
+  --icon-button-shadow: none;
+}
+
+/* ========================================================================= */
+/* DATA-SIZE MAPPINGS - Definisce padding e dimensioni per ogni size */
+/* ========================================================================= */
+
+button[data-size='xs'] {
+  --icon-button-p: var(--spacing-1);
+  --icon-button-radius: var(--radius-md);
+}
+
+button[data-size='sm'] {
+  --icon-button-p: var(--spacing-1-5);
+  --icon-button-radius: var(--radius-md);
+}
+
+button[data-size='md'] {
+  --icon-button-p: var(--spacing-2);
+  --icon-button-radius: var(--radius-lg);
+}
+
+button[data-size='lg'] {
+  --icon-button-p: var(--spacing-3);
+  --icon-button-radius: var(--radius-lg);
+}
+
+button[data-size='xl'] {
+  --icon-button-p: var(--spacing-4);
+  --icon-button-radius: var(--radius-xl);
+}

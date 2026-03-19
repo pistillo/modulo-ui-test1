@@ -1,0 +1,89 @@
+/**
+ * Generic Data Table Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.generic-data-table {
+    width: 100%;
+}
+
+.generic-data-table-header {
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.generic-data-table-content {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--color-text-secondary);
+}
+
+.table-header {
+    padding: var(--spacing-3) var(--spacing-2);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+    font-weight: var(--font-medium);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.table-header-sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.table-header-sortable:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.table-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-2);
+}
+
+.table-row {
+    transition: background var(--transition-base);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table-row:hover {
+    background: var(--color-bg-secondary);
+}
+
+.table-row-clickable {
+    cursor: pointer;
+}
+
+.table-row-clickable:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.table-cell {
+    padding: var(--spacing-3) var(--spacing-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+}
+
+.table-cell-actions {
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+
+    .table-header,
+    .table-cell {
+        padding: var(--spacing-2);
+        font-size: var(--text-xs);
+    }
+}

@@ -1,0 +1,45 @@
+/**
+ * QRCode Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.qr-code {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: min-content;
+}
+
+.qr-code-frame {
+  background: var(--color-white);
+  /* Always white for readability scan */
+  padding: var(--spacing-2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  fill: var(--color-black);
+  /* QR Color defaults to black */
+}
+
+.qr-code-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-code-download {
+  width: 100%;
+  padding: var(--spacing-2);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color var(--transition-fast);
+}
+
+.qr-code-download:hover {
+  background: var(--color-bg-hover);
+}

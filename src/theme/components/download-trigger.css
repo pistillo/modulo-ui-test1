@@ -1,0 +1,17 @@
+/**
+ * DownloadTrigger Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.download-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* Usually wraps a button or link, styled by children or inheritance. 
+     Providing default reset/base style here just in case. */
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}

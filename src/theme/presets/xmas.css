@@ -1,0 +1,95 @@
+/**
+ * Preset Xmas
+ * 
+ * Christmas theme preset with red brand colors and snow effects.
+ */
+
+[data-theme="xmas"] {
+  /* Brand Palette Override - Christmas Red */
+  --palette-brand-50: #FFF5F5;
+  --palette-brand-100: #FFECEC;
+  --palette-brand-200: #FFD5D5;
+  --palette-brand-300: #FFBFBF;
+  --palette-brand-400: #FF9A9A;
+  --palette-brand-500: #E53935;
+  --palette-brand-600: #C62828;
+  --palette-brand-700: #9A1F1F;
+  --palette-brand-800: #6D1515;
+  --palette-brand-900: #3F0A0A;
+
+  /* Primary Colors */
+  --colors-primary: #E53935; /* Christmas Red */
+  --colors-primary-hover: #C62828;
+  --colors-accent: #E53935;
+
+  /* Button Colors */
+  --colors-button-primary: #E53935;
+  --colors-button-primary-hover: #C62828;
+  --colors-button-primary-shadow: rgba(229, 57, 53, 0.3);
+
+  /* Typography - Christmas fonts */
+  --font-family-heading: "'Mountains of Christmas', sans-serif";
+  --font-family-base: 'Atma, sans-serif';
+}
+
+/* Xmas Snow Effects */
+@keyframes xmas-snow-slow {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 0 120vh, 0 240vh;
+  }
+}
+
+@keyframes xmas-snow-fast {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 120vh;
+  }
+}
+
+[data-theme="xmas"] body {
+  position: relative;
+}
+
+/* Layer lontano: piccoli fiocchi (soft, sottili) */
+[data-theme="xmas"] body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: -10%;
+  width: 100%;
+  height: 120%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle, rgba(235, 227, 227, 0.98) 0.6px, rgba(230, 230, 235, 0.18) 1px, rgba(255, 255, 255, 0) 1.6px),
+    radial-gradient(circle, rgba(218, 235, 248, 0.95) 0.9px, rgba(240, 240, 245, 0.12) 1.6px, rgba(248, 252, 255, 0) 2.4px);
+  background-size: 4px 4px, 8px 8px;
+  opacity: 0.12;
+  filter: blur(0.3px);
+  animation: xmas-snow-slow 100s linear infinite;
+  mix-blend-mode: normal;
+  z-index: 1100;
+}
+
+/* Layer vicino: fiocchi più grandi (frontali) */
+[data-theme="xmas"] body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: -10%;
+  width: 100%;
+  height: 120%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.98) 1.2px, rgba(220, 220, 225, 0.22) 1.8px, rgba(255, 255, 255, 0) 2.6px);
+  background-size: 14px 14px;
+  opacity: 0.35;
+  filter: blur(0.8px);
+  animation: xmas-snow-fast 36s linear infinite;
+  mix-blend-mode: normal;
+  z-index: 1200;
+}
+

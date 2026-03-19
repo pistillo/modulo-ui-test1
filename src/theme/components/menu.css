@@ -1,0 +1,80 @@
+/**
+ * Menu Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+/* Positioner - Ensures proper positioning context */
+[data-scope="menu"][data-part="positioner"] {
+  position: absolute;
+  z-index: var(--z-index-dropdown);
+}
+
+/* Content */
+.menu-content {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-1);
+  min-width: var(--spacing-52, 12.5rem);
+  max-width: var(--spacing-80);
+  z-index: var(--z-index-dropdown);
+  outline: none;
+}
+
+/* Item */
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-3);
+  margin-bottom: var(--spacing-0-5);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  outline: none;
+  text-decoration: none;
+}
+
+.menu-item:hover,
+.menu-item[data-highlighted] {
+  background-color: var(--color-bg-secondary);
+}
+
+.menu-item[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Item Sub-elements */
+.menu-item-icon {
+  margin-right: var(--spacing-2);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.menu-item-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.menu-item-label {
+  font-weight: var(--font-medium);
+}
+
+.menu-item-description {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+  /* Fine-tune */
+}
+
+/* Separator */
+.menu-separator {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--spacing-1) 0;
+}

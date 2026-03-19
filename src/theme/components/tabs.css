@@ -1,0 +1,421 @@
+/**
+ * Tabs Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Vertical orientation - tabs on left, content on right */
+.tabs[data-orientation='vertical'] {
+  flex-direction: row;
+  gap: var(--spacing-6);
+  width: 100%;
+  align-items: stretch;
+}
+
+.tabs-list {
+  display: flex;
+  position: relative;
+  gap: var(--spacing-1);
+  border-bottom: 2px solid var(--color-border, rgba(255, 255, 255, 0.2));
+  width: fit-content;
+}
+
+/* Full Width - tabs labels stretch to fill available space (horizontal) */
+.tabs-list-full-width {
+  width: 100%;
+}
+
+.tabs-list-full-width .tabs-trigger {
+  flex: 1 1 0;
+  justify-content: center;
+}
+
+/* Vertical orientation list */
+.tabs[data-orientation='vertical'] .tabs-list {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 2px solid var(--color-border, var(--color-border-default, rgba(255, 255, 255, 0.2)));
+  flex-shrink: 0;
+  min-width: fit-content;
+  width: fit-content;
+  padding-right: var(--spacing-3);
+  margin-right: var(--spacing-3);
+}
+
+/* Full Width + Vertical - tabs labels stretch vertically (must come AFTER base vertical) */
+.tabs[data-orientation='vertical'] .tabs-list-full-width {
+  width: fit-content;
+  align-self: stretch;
+  justify-content: stretch;
+}
+
+.tabs[data-orientation='vertical'] .tabs-list-full-width .tabs-trigger {
+  flex: 1 1 0;
+  justify-content: flex-start;
+}
+
+/* Vertical orientation content takes remaining space */
+.tabs[data-orientation='vertical'] .tabs-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tabs-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary, rgba(255, 255, 255, 0.6));
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+.tabs-trigger:hover:not([data-disabled]) {
+  color: var(--color-text-primary, rgba(255, 255, 255, 0.9));
+  background: var(--color-bg-hover, rgba(255, 255, 255, 0.05));
+  border-radius: var(--radius-md);
+}
+
+.tabs-trigger[data-selected] {
+  color: var(--color-primary, #3b82f6);
+  font-weight: var(--font-semibold, 600);
+}
+
+.tabs-trigger[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Tab Sizes */
+.tabs-sm .tabs-trigger {
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--text-sm);
+}
+
+.tabs-md .tabs-trigger {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--text-base);
+}
+
+.tabs-lg .tabs-trigger {
+  padding: var(--spacing-4) var(--spacing-6);
+  font-size: var(--text-lg);
+}
+
+/* Indicator (Line Variant) */
+.tabs-indicator {
+  position: absolute;
+  left: var(--left);
+  width: var(--width);
+  height: 3px;
+  bottom: -2px;
+  background: var(--color-primary, #3b82f6);
+  border-radius: var(--radius-full);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  box-shadow: 0 0 8px var(--color-primary, #3b82f6);
+}
+
+/* Line Variant (default) */
+.tabs-line .tabs-list {
+  gap: var(--spacing-3);
+}
+
+/* Line Variant - Vertical */
+.tabs-line[data-orientation='vertical'] .tabs-list {
+  border-right: 2px solid var(--color-border);
+  border-bottom: none;
+}
+
+.tabs-line[data-orientation='vertical'] .tabs-indicator {
+  width: 3px;
+  height: var(--height);
+  top: var(--top);
+  left: auto;
+  right: -2px;
+  bottom: auto;
+}
+
+/* Pills Variant */
+.tabs-pills .tabs-list {
+  border-bottom: none;
+  gap: var(--spacing-2);
+}
+
+/* Pills Variant - Vertical */
+.tabs-pills[data-orientation='vertical'] .tabs-list {
+  border-right: 2px solid var(--color-border, var(--color-border-default, rgba(255, 255, 255, 0.2)));
+  padding-right: var(--spacing-3);
+}
+
+.tabs-pills .tabs-trigger {
+  border-radius: var(--radius-md);
+  background: transparent;
+}
+
+.tabs-pills .tabs-trigger:hover:not([data-disabled]) {
+  background: var(--color-bg-secondary, rgba(255, 255, 255, 0.1));
+}
+
+.tabs-pills .tabs-trigger[data-selected] {
+  background: var(--color-primary, #3b82f6);
+  color: var(--color-white, #ffffff);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+.tabs-pills .tabs-indicator {
+  display: none;
+}
+
+/* Enclosed Variant */
+.tabs-enclosed .tabs-list {
+  border-bottom: 1px solid var(--color-border, rgba(255, 255, 255, 0.2));
+}
+
+/* Enclosed Variant - Vertical */
+.tabs-enclosed[data-orientation='vertical'] .tabs-list {
+  border-bottom: none;
+  border-right: 1px solid var(--color-border, rgba(255, 255, 255, 0.2));
+}
+
+.tabs-enclosed[data-orientation='vertical'] .tabs-trigger {
+  border: 1px solid transparent;
+  border-right: none;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  margin-right: -1px;
+  margin-bottom: 0;
+}
+
+.tabs-enclosed[data-orientation='vertical'] .tabs-trigger[data-selected] {
+  border-right-color: var(--color-bg-primary, rgba(255, 255, 255, 0.1));
+}
+
+.tabs-enclosed .tabs-trigger {
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin-bottom: -1px;
+}
+
+.tabs-enclosed .tabs-trigger:hover:not([data-disabled]) {
+  border-color: var(--color-border, rgba(255, 255, 255, 0.2));
+  background: var(--color-bg-hover, rgba(255, 255, 255, 0.05));
+}
+
+.tabs-enclosed .tabs-trigger[data-selected] {
+  background: var(--color-bg-primary, rgba(255, 255, 255, 0.1));
+  border-color: var(--color-border, rgba(255, 255, 255, 0.2));
+  border-bottom-color: var(--color-bg-primary, rgba(255, 255, 255, 0.1));
+}
+
+.tabs-enclosed .tabs-indicator {
+  display: none;
+}
+
+/* Soft Rounded Variant */
+.tabs-soft-rounded .tabs-list {
+  border: none;
+  gap: var(--spacing-2);
+  background: var(--color-bg-secondary, rgba(255, 255, 255, 0.05));
+  padding: var(--spacing-1);
+  border-radius: var(--radius-full);
+}
+
+/* Soft Rounded Variant - Vertical */
+.tabs-soft-rounded[data-orientation='vertical'] .tabs-list {
+  border-radius: var(--radius-lg);
+}
+
+.tabs-soft-rounded .tabs-trigger {
+  border-radius: var(--radius-full);
+  z-index: 1;
+}
+
+.tabs-soft-rounded[data-orientation='vertical'] .tabs-trigger {
+  border-radius: var(--radius-md);
+}
+
+.tabs-soft-rounded .tabs-trigger[data-selected] {
+  background: var(--color-bg-primary, rgba(255, 255, 255, 0.15));
+  color: var(--color-text-primary, rgba(255, 255, 255, 0.95));
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.tabs-soft-rounded .tabs-indicator {
+  display: none;
+}
+
+/* Close Button */
+.tab-close-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-1);
+  margin-left: var(--spacing-2);
+  border-radius: var(--radius-sm);
+  color: currentColor;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  opacity: 0.6;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.tab-close-button:hover {
+  background: var(--color-bg-secondary);
+  opacity: 1;
+}
+
+.tab-close-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.tab-close-button svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Content */
+.tabs-content {
+  outline: none;
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.tabs-content[data-hidden] {
+  display: none;
+}
+
+.tabs-content:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   AGID Theme - Tabs Optimizations
+   ============================================================================ */
+
+[data-theme="agid"] .tabs-trigger {
+  color: var(--colors-fg);
+  background: var(--colors-bg-muted);
+  font-weight: 500;
+  padding: 10px 16px;
+  transition: all 150ms ease-out;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+[data-theme="agid"] .tabs-trigger:hover:not([data-disabled]) {
+  color: var(--colors-primary);
+  background: var(--colors-bg-emphasized);
+  border-color: var(--colors-border);
+}
+
+[data-theme="agid"] .tabs-trigger[data-selected] {
+  color: #ffffff;
+  background: var(--colors-primary);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+  border-color: var(--colors-primary);
+}
+
+[data-theme="agid"] .tabs-trigger[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Line variant - AGID */
+[data-theme="agid"] .tabs-line .tabs-list {
+  border-bottom: 2px solid var(--colors-border);
+  gap: 4px;
+}
+
+[data-theme="agid"] .tabs-line .tabs-indicator {
+  background: var(--colors-primary);
+  box-shadow: 0 0 8px rgba(0, 102, 204, 0.3);
+  height: 3px;
+  bottom: -2px;
+}
+
+/* Pills variant - AGID */
+[data-theme="agid"] .tabs-pills .tabs-list {
+  border-bottom: none;
+  gap: 8px;
+}
+
+[data-theme="agid"] .tabs-pills .tabs-trigger {
+  border-radius: 4px;
+  background: var(--colors-bg-muted);
+  color: var(--colors-fg);
+  border: 1px solid var(--colors-border);
+}
+
+[data-theme="agid"] .tabs-pills .tabs-trigger:hover:not([data-disabled]) {
+  background: var(--colors-bg-emphasized);
+  color: var(--colors-primary);
+}
+
+[data-theme="agid"] .tabs-pills .tabs-trigger[data-selected] {
+  background: var(--colors-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
+/* Soft rounded variant - AGID */
+[data-theme="agid"] .tabs-soft-rounded .tabs-list {
+  border: none;
+  gap: 4px;
+  background: var(--colors-bg-muted);
+  padding: 4px;
+  border-radius: 6px;
+}
+
+[data-theme="agid"] .tabs-soft-rounded .tabs-trigger {
+  border-radius: 4px;
+  color: var(--colors-fg);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+[data-theme="agid"] .tabs-soft-rounded .tabs-trigger:hover:not([data-disabled]) {
+  background: var(--colors-bg-subtle);
+  color: var(--colors-primary);
+  border-color: var(--colors-border);
+}
+
+[data-theme="agid"] .tabs-soft-rounded .tabs-trigger[data-selected] {
+  background: #ffffff;
+  color: var(--colors-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+  border-color: #ffffff;
+}
+
+/* Close button - AGID */
+[data-theme="agid"] .tab-close-button {
+  opacity: 0.5;
+  color: var(--colors-fg-muted);
+  transition: all 150ms ease-out;
+}
+
+[data-theme="agid"] .tab-close-button:hover {
+  background: var(--colors-bg-emphasized);
+  opacity: 1;
+  color: var(--colors-primary);
+}

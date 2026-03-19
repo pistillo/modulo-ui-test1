@@ -1,0 +1,111 @@
+/**
+ * Navigation Links Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+    padding: var(--spacing-2);
+}
+
+.nav-links-mini {
+    align-items: center;
+}
+
+.nav-link-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-medium);
+}
+
+.nav-link-item:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.nav-link-item-active {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: var(--font-semibold);
+}
+
+.nav-link-item-sub {
+    padding-left: var(--spacing-8);
+    font-size: var(--text-sm);
+}
+
+.nav-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    transition: color var(--transition-base);
+}
+
+.nav-link-icon-active {
+    color: var(--color-primary);
+}
+
+.nav-link-icon-bullet {
+    width: var(--spacing-1-5);
+    height: var(--spacing-1-5);
+}
+
+.nav-link-text {
+    flex: 1;
+}
+
+.nav-link-text-active {
+    color: var(--color-primary);
+}
+
+/* Accordion */
+.nav-link-accordion {
+    width: 100%;
+}
+
+.nav-link-accordion-item {
+    border: none;
+}
+
+.nav-link-accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+}
+
+.nav-link-accordion-trigger:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.nav-link-accordion-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    flex: 1;
+}
+
+.nav-link-accordion-indicator {
+    transition: transform var(--transition-base);
+}
+
+.nav-link-accordion-panel {
+    padding: var(--spacing-1) 0;
+}

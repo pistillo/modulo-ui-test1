@@ -1,0 +1,14 @@
+/**
+ * Presets Index
+ * 
+ * Central import file for all theme presets.
+ * Import this file to apply all presets, or import individual presets as needed.
+ */
+
+/* Import all presets */
+@import './modern.css';
+@import './agid.css';
+@import './dark.css';
+@import './police.css';
+@import './xmas.css';
+

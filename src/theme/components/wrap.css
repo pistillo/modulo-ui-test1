@@ -1,0 +1,13 @@
+/**
+ * Wrap Component Styles
+ */
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrap-item {
+    display: flex;
+    align-items: flex-start;
+}

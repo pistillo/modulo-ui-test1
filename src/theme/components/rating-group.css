@@ -1,0 +1,65 @@
+/**
+ * RatingGroup Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.rating-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.rating-group-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.rating-group-control {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.rating-group-item {
+  cursor: pointer;
+  color: var(--color-bg-secondary);
+  /* Empty star color (stroke is handled by SVG) */
+  fill: transparent;
+  stroke: var(--color-text-tertiary);
+  transition: all var(--transition-fast);
+  display: flex;
+}
+
+.rating-group-item svg {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+}
+
+.rating-group-item:hover,
+.rating-group-item[data-highlighted] {
+  stroke: var(--color-warning);
+  transform: scale(1.1);
+}
+
+.rating-group-item[data-checked],
+.rating-group-item[data-highlighted] {
+  fill: var(--color-warning);
+  stroke: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.rating-group-item[data-half] {
+  /* Half star styling if needed - complex with SVG, standard fill for now */
+  fill: url(#half-gradient);
+  /* Example placeholder logic */
+}
+
+/* Disabled state */
+.rating-group[data-disabled] .rating-group-item {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.rating-group[data-readonly] .rating-group-item {
+  cursor: default;
+}

@@ -1,0 +1,102 @@
+/**
+ * Navbar Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(20px);
+  padding: var(--spacing-3);
+  min-height: var(--spacing-16);
+  width: 100%;
+  transition: all var(--transition-base);
+  box-sizing: border-box;
+  /* Ensure padding doesn't overflow width */
+}
+
+/* Full width mode for IDE layouts */
+.navbar-full {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 100%;
+  max-width: 100%;
+}
+
+.navbar-fixed {
+  position: fixed;
+  top: var(--spacing-4);
+  right: var(--spacing-6);
+  left: var(--spacing-6);
+  z-index: 1000;
+  width: calc(100% - var(--spacing-12));
+}
+
+.navbar-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-4);
+}
+
+.navbar-brand-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.navbar-breadcrumb {
+  margin-bottom: var(--spacing-1);
+}
+
+.navbar-brand {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: var(--font-bold);
+  font-size: var(--text-2xl);
+  transition: color var(--transition-base);
+}
+
+.navbar-brand:hover {
+  color: var(--color-primary);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-left: auto;
+}
+
+.navbar-links,
+.navbar-menus {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .navbar-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .navbar-fixed {
+    left: var(--spacing-4);
+    right: var(--spacing-4);
+    width: calc(100% - var(--spacing-8));
+  }
+}

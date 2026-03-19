@@ -1,0 +1,118 @@
+﻿/**
+ * StatCardList  Griglia container per le stat-card in modalita' lista.
+ *
+ * Questo file gestisce SOLO il layout grid del container `.stat-card-list-container`.
+ * Lo stile delle singole card e' delegato a `stat-card.css` tramite le classi
+ * `.stat-card`, `.stat-card-list`, `.stat-card-color-*` e `.stat-card-selected`.
+ *
+ * Classi container:
+ *  .stat-card-list-container               -> griglia base
+ *  .stat-card-list-container--cols-{2..6}  -> numero colonne desktop
+ */
+
+/* =============================================================================
+   Container — griglia con @container query
+   Strategia: colonne ESPLICITE (non auto-fit) controllate via @container.
+   Questo garantisce salti "pari" e impedisce righe orfane:
+     cols-2 → 2 → 1
+     cols-3 → 3 → 2 → 1
+     cols-4 → 4 → 2 → 1   (salta 3 → niente riga da 3+1)
+     cols-5 → 5 → 3 → 1   (salta 4 → niente riga da 4+1)
+     cols-6 → 6 → 3 → 2 → 1  (salta 5, 4)
+   ============================================================================= */
+
+/* Il wrapper stabilisce il contesto per le @container query */
+.stat-card-list-wrapper {
+  container-type: inline-size;
+}
+
+/* Il container è la griglia vera e propria, interrogabile dal wrapper */
+.stat-card-list-container {
+  display: grid;
+  gap: var(--spacing-3, 0.75rem);
+  grid-template-columns: repeat(2, 1fr); /* fallback */
+}
+
+/* ── 2 colonne: 2 → 1 ──────────────────────────────────────────────────────── */
+.stat-card-list-container--cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+@container (max-width: 400px) {
+  .stat-card-list-container--cols-2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ── 3 colonne: 3 → 2 → 1 ─────────────────────────────────────────────────── */
+.stat-card-list-container--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+@container (max-width: 560px) {
+  .stat-card-list-container--cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@container (max-width: 360px) {
+  .stat-card-list-container--cols-3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ── 4 colonne: 4 → 2 → 1  (salta 3 → niente riga orfana) ───────────────── */
+.stat-card-list-container--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+@container (max-width: 720px) {
+  .stat-card-list-container--cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@container (max-width: 380px) {
+  .stat-card-list-container--cols-4 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ── 5 colonne: 5 → 3 → 1  (salta 4 → niente riga orfana) ───────────────── */
+.stat-card-list-container--cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+@container (max-width: 860px) {
+  .stat-card-list-container--cols-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@container (max-width: 460px) {
+  .stat-card-list-container--cols-5 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ── 6 colonne: 6 → 3 → 2 → 1  (salta 5, 4) ─────────────────────────────── */
+.stat-card-list-container--cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+@container (max-width: 960px) {
+  .stat-card-list-container--cols-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@container (max-width: 560px) {
+  .stat-card-list-container--cols-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@container (max-width: 360px) {
+  .stat-card-list-container--cols-6 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* =============================================================================
+   Overrides per StatCard con size="list" all'interno del container
+   ============================================================================= */
+
+.stat-card-list-container .stat-card.stat-card-list {
+  width: 100%;
+  box-sizing: border-box;
+}

@@ -1,0 +1,344 @@
+/**
+ * Alert Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ * Follows SOLID principles and design system consistency
+ */
+
+/* ============================================================================
+   BASE ALERT
+   ============================================================================ */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  position: relative;
+  transition: all var(--transition-base);
+  border: 1px solid transparent;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+/* ============================================================================
+   COLORS - DEFAULT VARIANT (Solid backgrounds)
+   ============================================================================ */
+
+.alert-info.alert-default {
+  background: var(--color-info);
+  border-color: var(--color-info);
+  color: white;
+}
+
+.alert-success.alert-default {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.alert-warning.alert-default {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
+
+.alert-error.alert-default {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: white;
+}
+
+/* ============================================================================
+   COLORS - LIGHT VARIANT (Subtle backgrounds)
+   ============================================================================ */
+
+.alert-info.alert-light {
+  background: color-mix(in oklab, var(--color-info) 8%, transparent);
+  border-color: color-mix(in oklab, var(--color-info) 20%, transparent);
+  color: var(--color-info);
+}
+
+.alert-success.alert-light {
+  background: color-mix(in oklab, var(--color-success) 8%, transparent);
+  border-color: color-mix(in oklab, var(--color-success) 20%, transparent);
+  color: var(--color-success);
+}
+
+.alert-warning.alert-light {
+  background: color-mix(in oklab, var(--color-warning) 8%, transparent);
+  border-color: color-mix(in oklab, var(--color-warning) 20%, transparent);
+  color: var(--color-warning);
+}
+
+.alert-error.alert-light {
+  background: color-mix(in oklab, var(--color-danger) 8%, transparent);
+  border-color: color-mix(in oklab, var(--color-danger) 20%, transparent);
+  color: var(--color-danger);
+}
+
+/* ============================================================================
+   COLORS - OUTLINE VARIANT (Transparent with borders)
+   ============================================================================ */
+
+.alert-info.alert-outline {
+  background: transparent;
+  border-color: var(--color-info);
+  color: var(--color-info);
+}
+
+.alert-success.alert-outline {
+  background: transparent;
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.alert-warning.alert-outline {
+  background: transparent;
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.alert-error.alert-outline {
+  background: transparent;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* ============================================================================
+   COLORS - GLASS VARIANT (Full color with glass aura border)
+   ============================================================================ */
+
+.alert-info.alert-glass {
+  background: var(--color-info);
+  color: white;
+  box-shadow: 
+    0 0 0 3px color-mix(in oklab, var(--color-info) 15%, transparent),
+    0 0 16px 4px color-mix(in oklab, var(--color-info) 40%, transparent),
+    0 0 24px 8px color-mix(in oklab, var(--color-info) 20%, transparent),
+    var(--shadow-elevation-2);
+}
+
+.alert-success.alert-glass {
+  background: var(--color-success);
+  color: white;
+  box-shadow: 
+    0 0 0 3px color-mix(in oklab, var(--color-success) 15%, transparent),
+    0 0 16px 4px color-mix(in oklab, var(--color-success) 40%, transparent),
+    0 0 24px 8px color-mix(in oklab, var(--color-success) 20%, transparent),
+    var(--shadow-elevation-2);
+}
+
+.alert-warning.alert-glass {
+  background: var(--color-warning);
+  color: white;
+  box-shadow: 
+    0 0 0 3px color-mix(in oklab, var(--color-warning) 15%, transparent),
+    0 0 16px 4px color-mix(in oklab, var(--color-warning) 40%, transparent),
+    0 0 24px 8px color-mix(in oklab, var(--color-warning) 20%, transparent),
+    var(--shadow-elevation-2);
+}
+
+.alert-error.alert-glass {
+  background: var(--color-danger);
+  color: white;
+  box-shadow: 
+    0 0 0 3px color-mix(in oklab, var(--color-danger) 15%, transparent),
+    0 0 16px 4px color-mix(in oklab, var(--color-danger) 40%, transparent),
+    0 0 24px 8px color-mix(in oklab, var(--color-danger) 20%, transparent),
+    var(--shadow-elevation-2);
+}
+
+/* ============================================================================
+   ALERT ICON
+   ============================================================================ */
+
+.alert-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-with-icon {
+  padding-left: var(--spacing-4);
+}
+
+/* Icon colors for default variant (white) */
+.alert-default .alert-icon {
+  color: white;
+}
+
+/* Icon colors for light/outline variants (inherit semantic colors) */
+.alert-light .alert-icon,
+.alert-outline .alert-icon {
+  color: inherit;
+}
+
+.alert-info.alert-light .alert-icon,
+.alert-info.alert-outline .alert-icon {
+  color: var(--color-info);
+}
+
+.alert-success.alert-light .alert-icon,
+.alert-success.alert-outline .alert-icon {
+  color: var(--color-success);
+}
+
+.alert-warning.alert-light .alert-icon,
+.alert-warning.alert-outline .alert-icon {
+  color: var(--color-warning);
+}
+
+.alert-error.alert-light .alert-icon,
+.alert-error.alert-outline .alert-icon {
+  color: var(--color-danger);
+}
+
+/* Glass variant icons are white */
+.alert-glass .alert-icon {
+  color: white;
+}
+
+/* ============================================================================
+   ALERT CONTENT
+   ============================================================================ */
+
+.alert-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1-5);
+  min-width: 0;
+}
+
+.alert-title {
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
+  line-height: 1.4;
+  margin: 0;
+  color: inherit;
+}
+
+.alert-description {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  opacity: 0.9;
+  margin: 0;
+  color: inherit;
+}
+
+.alert-with-title .alert-title {
+  margin-bottom: var(--spacing-0-5);
+}
+
+/* ============================================================================
+   CLOSE BUTTON
+   ============================================================================ */
+
+.alert-close-trigger {
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-top: -2px;
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-1-5);
+  border-radius: var(--radius-md);
+  color: inherit;
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+/* White close button for default and glass variants */
+.alert-default .alert-close-trigger,
+.alert-glass .alert-close-trigger {
+  color: white;
+  opacity: 0.9;
+}
+
+.alert-close-trigger:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* White hover background for default and glass */
+.alert-default .alert-close-trigger:hover,
+.alert-glass .alert-close-trigger:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.alert-close-trigger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.alert-close-trigger:active {
+  transform: scale(0.95);
+}
+
+.alert-closable {
+  padding-right: var(--spacing-2);
+}
+
+/* ============================================================================
+   ANIMATIONS
+   ============================================================================ */
+
+@keyframes alertFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.alert-closing {
+  animation: alertFadeOut 300ms ease-out forwards;
+}
+
+/* ============================================================================
+   DARK MODE ADJUSTMENTS
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .alert-default {
+    border-width: 1px;
+  }
+  
+  .alert-close-trigger:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .alert {
+    padding: var(--spacing-3);
+    gap: var(--spacing-2-5);
+  }
+  
+  .alert-title {
+    font-size: var(--text-sm);
+  }
+  
+  .alert-description {
+    font-size: var(--text-xs);
+  }
+}

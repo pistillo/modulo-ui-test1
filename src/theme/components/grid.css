@@ -1,0 +1,13 @@
+/**
+ * Grid Component Styles
+ */
+
+.grid {
+    display: grid;
+}
+
+/*
+ * Grid Item
+ * Placeholder for future grid item styles.
+ * Currently grid items are direct children and styling is handled via props/inline styles.
+ */

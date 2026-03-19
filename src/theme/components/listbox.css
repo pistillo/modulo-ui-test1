@@ -1,0 +1,63 @@
+/**
+ * Listbox Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.listbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: 100%;
+}
+
+.listbox-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.listbox-content {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-1);
+  overflow: hidden;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.listbox-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  transition: background var(--transition-fast);
+}
+
+.listbox-item:hover,
+.listbox-item[data-highlighted] {
+  background: var(--color-bg-hover);
+}
+
+.listbox-item[data-state='checked'] {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary);
+  font-weight: var(--font-medium);
+}
+
+.listbox-item-indicator {
+  color: var(--color-primary);
+}
+
+.listbox-item-text {
+  flex: 1;
+}
+
+.listbox[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}

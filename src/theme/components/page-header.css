@@ -1,0 +1,59 @@
+/**
+ * PageHeader Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.page-header {
+  width: 100%;
+  padding: var(--spacing-6) 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-6);
+  background: var(--color-bg-primary);
+}
+
+.page-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.page-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.page-header-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+}
+
+.page-header-subtitle {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.page-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-left: auto;
+  /* Push to right */
+}
+
+@media (max-width: 640px) {
+  .page-header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-header-actions {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}

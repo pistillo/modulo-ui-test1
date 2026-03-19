@@ -1,0 +1,30 @@
+/**
+ * Marquee Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--spacing-4);
+}
+
+.marquee-viewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  min-width: 100%;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+}
+
+.marquee-edge {
+  background: transparent;
+}

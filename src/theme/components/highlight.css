@@ -1,0 +1,16 @@
+/**
+ * Highlight Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.highlight {
+  display: inline;
+}
+
+.highlight mark {
+  background-color: var(--color-warning-subtle);
+  color: var(--color-text-primary);
+  padding: 0 2px;
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-medium);
+}

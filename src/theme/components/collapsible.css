@@ -1,0 +1,61 @@
+/**
+ * Collapsible Component Styles
+ * Uses semantic CSS variables - Zero hardcode
+ */
+
+.collapsible {
+  width: 100%;
+}
+
+.collapsible-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+}
+
+.collapsible-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.collapsible-content {
+  overflow: hidden;
+}
+
+.collapsible-content[data-state='open'] {
+  animation: slide-down 0.2s ease-out;
+}
+
+.collapsible-content[data-state='closed'] {
+  animation: slide-up 0.2s ease-in;
+}
+
+@keyframes slide-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+
+  to {
+    height: var(--height);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    height: var(--height);
+    opacity: 1;
+  }
+
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
